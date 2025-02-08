@@ -134,7 +134,7 @@ Create the foundation of your portfolio website using basic HTML elements:
     - Appropriate meta charset declaration
 2. Add your personal information using:
     - Heading elements (h1-h6) for your name and section titles
-    - Paragraphs (`<p>`) for your bio information
+    - Paragraphs (`<p>`) for your bio information (100-150 words)
     - Line breaks (`<br>`) where appropriate
 3. Include:
     - Your name (as main heading)
@@ -160,7 +160,8 @@ Create the foundation of your portfolio website using basic HTML elements:
     <img src="profile.jpg" alt="Your Name's profile picture">
     
     <h2>About Me</h2>
-    <p>Currently attending [School Name]</p>
+    <p>Hi, I'm Sarah Chen, a junior Computer Science major at San Francisco State University. I'm passionate about creating user-friendly web applications and solving complex problems through code. Currently, I'm expanding my skills in full-stack development through coursework and personal projects. Outside of coding, I serve as the Vice President of our campus Computer Science Club and volunteer teaching basic programming to high school students. I'm actively seeking Summer 2024 internship opportunities where I can contribute to meaningful projects while growing as a developer.
+</p>
     <p>From [Hometown]</p>
     
     <!-- Navigation links -->
@@ -279,7 +280,7 @@ Enhance your portfolio with semantic HTML and improved structure:
 ---
 
 ## Part 4: Advanced Features and Final Polish
-**Due: After Interactive & Advanced Features Lecture**
+**Due: Final deadline above**
 
 Complete your portfolio with advanced HTML features:
 
@@ -321,6 +322,8 @@ Complete your portfolio with advanced HTML features:
 - Part 1: 25%
     - Proper HTML structure (15%)
     - Content organization (10%)
+    - Bio shoudld be 100-150 words (5%)
+    - Profile picture recommended (optional)
 
 - Part 2: 25%
     - Lists and tables implementation (15%)
@@ -335,20 +338,11 @@ Complete your portfolio with advanced HTML features:
     - Overall organization (10%)
     - Extra Credit: Extra curricular section (+5%)
 
-## Submission Guidelines
-- Submit each part by its respective due date
-- Include all HTML files and assets (images, media files)
-- Provide a README.txt file with:
-    - Your name and student ID
-    - Part number being submitted
-    - List of files included
-    - Any special viewing instructions
-
 ## Technical Requirements
 - Use HTML5 only (no CSS frameworks or JavaScript)
 - Follow proper HTML semantics
 - Ensure all images have alt text
-- Maintain clean, well-commented code
+- Maintain clean, well-commented code where needed
 - Validate HTML using W3C Validator
 
 ## Resources
