@@ -9,6 +9,48 @@ In this assignment, you will create a personal portfolio website using HTML. The
 - Create accessible and well-organized content
 - Apply HTML best practices for web development
 
+## Assignment Schedule
+
+### Recommended Completion Schedule
+- Part 0 & 1: Complete after first HTML lecture
+- Part 2: Complete after second HTML lecture
+- Part 3: Complete after third HTML lecture
+- Part 4: Complete after fourth HTML lecture
+
+While you can complete all parts by the final deadline, following this schedule will:
+- Allow you to ask questions during the next class
+- Give you time to address any issues
+- Help you avoid last-minute problems
+- Build your portfolio progressively
+
+### Final Deadline
+**Due Date: February 21, 2024**
+
+### Late Policy
+- Submissions up to 4 days late are accepted with grade penalties:
+  - 1 day late: -5% maximum grade (95% max)
+  - 2 days late: -10% maximum grade (90% max)
+  - 3 days late: -15% maximum grade (85% max)
+  - 4 days late: -20% maximum grade (80% max)
+  - After 4 days: No submissions accepted
+
+### Submission Requirements
+1. Complete all parts (0-4) of the assignment
+2. Ensure your repository includes:
+   - All HTML files
+   - Images used in your portfolio
+   - README.md file using [this template](https://github.com/goleador/CSC317/blob/main/assignments/assignment-2/README.md)
+3. Verify your code:
+   - Test that all pages load correctly
+   - Confirm all links work
+   - Check that all images display properly
+4. Final steps:
+   - Commit all changes: `git commit -m "Final submission for Assignment 2"`
+   - Push to GitHub: `git push origin main`
+   - Submit your repository link on Canvas
+
+
+
 ---
 # HTML Personal Portfolio Website Assignment
 
