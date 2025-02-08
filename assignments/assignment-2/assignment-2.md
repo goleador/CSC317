@@ -10,6 +10,75 @@ In this assignment, you will create a personal portfolio website using HTML. The
 - Apply HTML best practices for web development
 
 ---
+# HTML Personal Portfolio Website Assignment
+
+## Overview
+In this assignment, you will create a professional portfolio website to showcase your skills, experience, and projects. The assignment is divided into four parts, each building upon the previous one. By the end, you will have a fully functional personal website that you can continue to use and enhance throughout your career.
+
+## Learning Objectives
+- Implement modern HTML and CSS practices
+- Create responsive web layouts
+- Build interactive components using JavaScript
+- Structure and organize web content effectively
+- Apply best practices in web development
+
+## Assignment Structure
+This assignment will be completed over four parts, corresponding with our lectures. Each part builds upon the previous section, ultimately creating a cohesive personal portfolio website.
+
+---
+
+## Part 0: Repository Setup
+Before starting the assignment, you need to set up your repository structure correctly:
+
+1. Open your terminal/command prompt
+
+2. Navigate to your CSC317 repository:
+```bash
+cd path/to/your/CSC317
+```
+
+3. Create the assignments directory (if it doesn't exist):
+```bash
+mkdir -p assignments
+```
+
+4. Create and navigate to assignment-2 directory:
+```bash
+cd assignments
+mkdir assignment-2
+cd assignment-2
+```
+
+5. Initialize git tracking (if not already done):
+```bash
+git status # Check if you're in a git repository
+```
+
+6. Create the basic file structure:
+```bash
+touch index.html
+mkdir images
+```
+
+Your folder structure should look like this:
+```
+CSC317/
+└── assignments/
+    └── assignment-2/
+        ├── index.html
+        └── images/
+```
+
+7. Stage and commit your changes:
+```bash
+git add .
+git commit -m "Initialize assignment-2 structure"
+git push origin main
+```
+
+Remember to commit your changes regularly as you work on the assignment. Use meaningful commit messages that describe what you've changed.
+
+---
 
 ## Part 1: Basic HTML Structure and Personal Information
 **Due: After HTML Fundamentals Lecture**
