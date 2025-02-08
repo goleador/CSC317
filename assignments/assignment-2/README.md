@@ -301,41 +301,37 @@ Complete your portfolio with advanced HTML features:
 ```
 
 ## Grading Criteria
-Here’s the refined grading criteria that removes duplication, ensures consistency, and reflects the full submission assessment:
-
-Grading Criteria (100%)
-
 Your final grade will be based on the following four major components, assessing the overall quality of your submission.
 
 1. Code Quality & Structure (30%)
 
-✅ Proper use of HTML5 syntax and semantics (10%)
-✅ Correct document structure (DOCTYPE, head, body, meta tags) (5%)
-✅ Logical content organization (sections, headings, paragraphs) (10%)
-✅ Clean, well-formatted, and commented code where needed (5%)
+- ✅ Proper use of HTML5 syntax and semantics (10%)
+- ✅ Correct document structure (DOCTYPE, head, body, meta tags) (5%)
+- ✅ Logical content organization (sections, headings, paragraphs) (10%)
+- ✅ Clean, well-formatted, and commented code where needed (5%)
 
 2. Content Completeness (30%)
 
-✅ Bio section with a clear and concise 100-150 word introduction (5%)
-✅ Education and experience sections with lists/tables for clarity (5%)
-✅ Projects section showcasing at least one meaningful project (5%)
-✅ Navigation menu with working internal links (5%)
-✅ At least two images (profile photo optional, school/hometown required) (5%)
-✅ Proper use of multimedia elements (iframe, video, or audio) (5%)
+- ✅ Bio section with a clear and concise 100-150 word introduction (5%)
+- ✅ Education and experience sections with lists/tables for clarity (5%)
+- ✅ Projects section showcasing at least one meaningful project (5%)
+- ✅ Navigation menu with working internal links (5%)
+- ✅ At least two images (profile photo optional, school/hometown required) (5%)
+- ✅ Proper use of multimedia elements (iframe, video, or audio) (5%)
 
 3. Functionality & Usability (20%)
 
-✅ All pages load correctly without broken elements (5%)
-✅ Navigation works smoothly with accurate internal links (5%)
-✅ Images display properly with meaningful alt attributes (5%)
-✅ Contact form is correctly structured with required fields (5%)
+- ✅ All pages load correctly without broken elements (5%)
+- ✅ Navigation works smoothly with accurate internal links (5%)
+- ✅ Images display properly with meaningful alt attributes (5%)
+- ✅ Contact form is correctly structured with required fields (5%)
 
 4. Submission & Technical Requirements (20%)
 
-✅ Correct repository structure (assignments/assignment-2/) (5%)
-✅ All required files submitted (HTML, images, SUBMISSION.md) (5%)
-✅ Version control usage (meaningful commit messages, proper Git usage) (5%)
-✅ Valid HTML (passes W3C validation, no major syntax errors) (5%)
+- ✅ Correct repository structure (assignments/assignment-2/) (5%)
+- ✅ All required files submitted (HTML, images, SUBMISSION.md) (5%)
+- ✅ Version control usage (meaningful commit messages, proper Git usage) (5%)
+- ✅ Valid HTML (passes W3C validation, no major syntax errors) (5%)
 
 Extra Credit (+5%)
 
