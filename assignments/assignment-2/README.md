@@ -51,24 +51,6 @@ While you can complete all parts by the final deadline, following this schedule 
 
 
 
----
-# HTML Personal Portfolio Website Assignment
-
-## Overview
-In this assignment, you will create a professional portfolio website to showcase your skills, experience, and projects. The assignment is divided into four parts, each building upon the previous one. By the end, you will have a fully functional personal website that you can continue to use and enhance throughout your career.
-
-## Learning Objectives
-- Implement modern HTML and CSS practices
-- Create responsive web layouts
-- Build interactive components using JavaScript
-- Structure and organize web content effectively
-- Apply best practices in web development
-
-## Assignment Structure
-This assignment will be completed over four parts, corresponding with our lectures. Each part builds upon the previous section, ultimately creating a cohesive personal portfolio website.
-
----
-
 ## Part 0: Repository Setup
 Before starting the assignment, you need to set up your repository structure correctly:
 
@@ -319,27 +301,48 @@ Complete your portfolio with advanced HTML features:
 ```
 
 ## Grading Criteria
-- Part 1: 25%
-    - Proper HTML structure (15%)
-    - Content organization (10%)
-    - Bio shoudld be 100-150 words (5%)
-    - Profile picture recommended (optional)
+Here’s the refined grading criteria that removes duplication, ensures consistency, and reflects the full submission assessment:
 
-- Part 2: 25%
-    - Lists and tables implementation (15%)
-    - Form structure (10%)
+Grading Criteria (100%)
 
-- Part 3: 25%
-    - Semantic HTML usage (15%)
-    - Form validation (10%)
+Your final grade will be based on the following four major components, assessing the overall quality of your submission.
 
-- Part 4: 25%
-    - Advanced features implementation (15%)
-    - Overall organization (10%)
-    - Extra Credit: Extra curricular section (+5%)
+1. Code Quality & Structure (30%)
+
+✅ Proper use of HTML5 syntax and semantics (10%)
+✅ Correct document structure (DOCTYPE, head, body, meta tags) (5%)
+✅ Logical content organization (sections, headings, paragraphs) (10%)
+✅ Clean, well-formatted, and commented code where needed (5%)
+
+2. Content Completeness (30%)
+
+✅ Bio section with a clear and concise 100-150 word introduction (5%)
+✅ Education and experience sections with lists/tables for clarity (5%)
+✅ Projects section showcasing at least one meaningful project (5%)
+✅ Navigation menu with working internal links (5%)
+✅ At least two images (profile photo optional, school/hometown required) (5%)
+✅ Proper use of multimedia elements (iframe, video, or audio) (5%)
+
+3. Functionality & Usability (20%)
+
+✅ All pages load correctly without broken elements (5%)
+✅ Navigation works smoothly with accurate internal links (5%)
+✅ Images display properly with meaningful alt attributes (5%)
+✅ Contact form is correctly structured with required fields (5%)
+
+4. Submission & Technical Requirements (20%)
+
+✅ Correct repository structure (assignments/assignment-2/) (5%)
+✅ All required files submitted (HTML, images, SUBMISSION.md) (5%)
+✅ Version control usage (meaningful commit messages, proper Git usage) (5%)
+✅ Valid HTML (passes W3C validation, no major syntax errors) (5%)
+
+Extra Credit (+5%)
+
+⭐ Extracurricular section showcasing additional work, hobbies, or involvement.
 
 ## Technical Requirements
-- Use HTML5 only (no CSS frameworks or JavaScript)
+- Use HTML5 only. While CSS is not required for this assignment, you may use inline styles for basic text formatting and layout. However, external stylesheets are not allowed.
 - Follow proper HTML semantics
 - Ensure all images have alt text
 - Maintain clean, well-commented code where needed
