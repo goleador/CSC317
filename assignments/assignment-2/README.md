@@ -23,7 +23,7 @@ While you can complete all parts by the final deadline, following this schedule 
 - Help you avoid last-minute problems
 - Build your portfolio progressively
 
-### Final Deadline
+### 🚨 FINAL DEADLINE  🚨
 **Due Date: February 21, 2024**
 
 ### Late Policy
@@ -115,7 +115,7 @@ Create the foundation of your portfolio website using basic HTML elements:
     - HTML, head, and body elements
     - Appropriate meta charset declaration
 2. Add your personal information using:
-    - Heading elements (h1-h6) for your name and section titles
+    - Use heading elements (<h1>-<h6>) to structure your name and section titles.
     - Paragraphs (`<p>`) for your bio information (100-150 words)
     - Line breaks (`<br>`) where appropriate
 3. Include:
@@ -139,7 +139,7 @@ Create the foundation of your portfolio website using basic HTML elements:
 </head>
 <body>
     <h1>Your Name</h1>
-    <img src="profile.jpg" alt="Your Name's profile picture">
+    <img src="images/profile.jpeg" alt="Your Name's profile picture">
     
     <h2>About Me</h2>
     <p>Hi, I'm Sarah Chen, a junior Computer Science major at San Francisco State University. I'm passionate about creating user-friendly web applications and solving complex problems through code. Currently, I'm expanding my skills in full-stack development through coursework and personal projects. Outside of coding, I serve as the Vice President of our campus Computer Science Club and volunteer teaching basic programming to high school students. I'm actively seeking Summer 2024 internship opportunities where I can contribute to meaningful projects while growing as a developer.
@@ -168,10 +168,10 @@ Build upon Part 1 by adding structured content using lists and tables, and intro
 2. Add experience section using:
     - Ordered list for work history
     - Tables for detailed job information
-3. Implement basic inline styles for:
-    - Text alignment
+3. Use inline styles for:
+    - Basic formatting, including text alignment
     - Background colors
-    - Font sizes
+    - and font sizes
 4. Add proper id attributes to sections
 5. Include a basic contact form with:
     - Name input
@@ -338,7 +338,7 @@ Extra Credit (+5%)
 ⭐ Extracurricular section showcasing additional work, hobbies, or involvement.
 
 ## Technical Requirements
-- Use HTML5 only. While CSS is not required for this assignment, you may use inline styles for basic text formatting and layout. However, external stylesheets are not allowed.
+- Use HTML5 only. CSS is not required, but you may use inline styles for basic text formatting.
 - Follow proper HTML semantics
 - Ensure all images have alt text
 - Maintain clean, well-commented code where needed
