@@ -115,7 +115,7 @@ Create the foundation of your portfolio website using basic HTML elements:
     - HTML, head, and body elements
     - Appropriate meta charset declaration
 2. Add your personal information using:
-    - Use heading elements (<h1>-<h6>) to structure your name and section titles.
+    - Use heading elements (`<h1>-<h6>`) to structure your name and section titles.
     - Paragraphs (`<p>`) for your bio information (100-150 words)
     - Line breaks (`<br>`) where appropriate
 3. Include:
