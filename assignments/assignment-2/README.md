@@ -191,29 +191,32 @@ Build upon Part 1 by adding structured content using lists and tables, and intro
 
 **Example Structure:**
 ```html
-<h2 id="education">Education</h2>
-<ul>
-    <li style="font-size: 18px;">Current University
-        <ul>
+<section>
+   <h2 id="education">Education</h2>
+   <ul>
+      <li style="font-size: 18px;">Current University
+         <ul>
             <li>Major: Computer Science</li>
             <li>Expected Graduation: 2025</li>
-        </ul>
-    </li>
-</ul>
-
-<h2 id="experience">Experience</h2>
-<table>
-    <tr>
-        <th>Position</th>
-        <th>Company</th>
-        <th>Dates</th>
-    </tr>
-    <tr>
-        <td>Software Intern</td>
-        <td>Tech Corp</td>
-        <td>June 2023 - August 2023</td>
-    </tr>
-</table>
+         </ul>
+      </li>
+   </ul>
+</section>
+<section id="experience">
+   <h2>Experience</h2>
+   <table>
+      <tr>
+         <th>Position</th>
+         <th>Company</th>
+         <th>Dates</th>
+      </tr>
+      <tr>
+         <td>Software Intern</td>
+         <td>Tech Corp</td>
+         <td>June 2023 - August 2023</td>
+      </tr>
+   </table>
+</section>
 
 ```
 
@@ -251,6 +254,8 @@ Enhance your portfolio with semantic HTML and improved structure:
 </header>
 
 <main>
+   
+   ...
     <section id="projects">
         <article>
             <h3>Project Title</h3>
@@ -258,6 +263,7 @@ Enhance your portfolio with semantic HTML and improved structure:
             <p>Project description...</p>
         </article>
     </section>
+   ...
 </main>
 
 ```
