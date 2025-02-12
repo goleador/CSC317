@@ -121,7 +121,7 @@ Create the foundation of your portfolio website using basic HTML elements:
 3. Include:
     - Your name (as main heading)
     - School name
-    - Hometown
+    - (OPTIONAL) Hometown
 4. Add navigation using:
     - Anchor tags (`<a>`) for future section links
 5. Include at least two relevant images:
