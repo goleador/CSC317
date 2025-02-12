@@ -138,18 +138,27 @@ Create the foundation of your portfolio website using basic HTML elements:
     <title>Your Name - Portfolio</title>
 </head>
 <body>
-    <h1>Your Name</h1>
-    <img src="images/profile.jpeg" alt="Your Name's profile picture">
+    <header>
+       <h1>Your Name</h1>
+       <img src="images/profile.jpeg" alt="Your Name's profile picture">
+    </header>
+    <nav>
+        <ul>
+           <li>link to section 1</li>
+           <li>link to section 2</li>
+           <li>link to section 3</li>
+        </ul>      
+    </nav>
     
-    <h2>About Me</h2>
-    <p>Hi, I'm Sarah Chen, a junior Computer Science major at San Francisco State University. I'm passionate about creating user-friendly web applications and solving complex problems through code. Currently, I'm expanding my skills in full-stack development through coursework and personal projects. Outside of coding, I serve as the Vice President of our campus Computer Science Club and volunteer teaching basic programming to high school students. I'm actively seeking Summer 2024 internship opportunities where I can contribute to meaningful projects while growing as a developer.
-</p>
-    <p>From [Hometown]</p>
+    <main>
+       <section id="section-1"></section>
+       <section id="section-2"></section>
+       <section id="section-3"></section>
+    </main>
     
-    <!-- Navigation links -->
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <!-- More links... -->
+    <footer>
+       <section id="contacts"></section>
+    </footer>
 </body>
 </html>
 ```
@@ -167,13 +176,13 @@ Build upon Part 1 by adding structured content using lists and tables, and intro
     - Table for courses/achievements
 2. Add experience section using:
     - Ordered list for work history
-    - Tables for detailed job information
-3. Use inline styles for:
+    - (OPTIONAL)Tables for detailed job information 
+3. (OPTIONAL) Use inline styles for:
     - Basic formatting, including text alignment
     - Background colors
     - and font sizes
 4. Add proper id attributes to sections
-5. Include a basic contact form with:
+5. (OPTIONAL) Include a basic contact form with:
     - Name input
     - Email input
     - Subject input
@@ -193,7 +202,7 @@ Build upon Part 1 by adding structured content using lists and tables, and intro
 </ul>
 
 <h2 id="experience">Experience</h2>
-<table border="1">
+<table>
     <tr>
         <th>Position</th>
         <th>Company</th>
@@ -205,6 +214,7 @@ Build upon Part 1 by adding structured content using lists and tables, and intro
         <td>June 2023 - August 2023</td>
     </tr>
 </table>
+
 ```
 
 ---
@@ -250,13 +260,6 @@ Enhance your portfolio with semantic HTML and improved structure:
     </section>
 </main>
 
-<footer>
-    <form id="contact">
-        <label for="email">Email:</label>
-        <input type="email" id="email" required>
-        <!-- More form fields... -->
-    </form>
-</footer>
 ```
 
 ---
@@ -313,10 +316,10 @@ Your final grade will be based on the following four major components, assessing
 2. Content Completeness (30%)
 
 - ✅ Bio section with a clear and concise 100-150 word introduction (5%)
-- ✅ Education and experience sections with lists/tables for clarity (5%)
+- ✅ Education and experience sections with sub-headers, lists and or tables for clarity (5%)
 - ✅ Projects section showcasing at least one meaningful project (5%)
 - ✅ Navigation menu with working internal links (5%)
-- ✅ At least two images (profile photo optional, school/hometown required) (5%)
+- ✅ At least ONE images (profile photo optional, school/hometown required) (5%)
 - ✅ Proper use of multimedia elements (iframe, video, or audio) (5%)
 
 3. Functionality & Usability (20%)

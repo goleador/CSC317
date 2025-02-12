@@ -1,0 +1,247 @@
+/* CSS Variables for consistent theming */
+:root {
+    /* Colors */
+    --color-primary: #ff6b6b;
+    --color-secondary: #ffc3a0;
+    --color-text: #2c3e50;
+    --color-white: white;
+    --gradient-background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    --gradient-accent: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+
+    /* Typography */
+    --font-family-base: 'Quicksand', sans-serif;
+    --font-size-base: 1.1em;
+    --font-size-lg: 1.4em;
+    --font-size-xl: 2em;
+    --font-size-xxl: 3em;
+    --line-height-base: 1.6;
+    --line-height-relaxed: 1.8;
+
+    /* Spacing */
+    --spacing-xs: 10px;
+    --spacing-sm: 15px;
+    --spacing-md: 20px;
+    --spacing-lg: 25px;
+    --spacing-xl: 30px;
+    --spacing-xxl: 40px;
+
+    /* Border Radius */
+    --border-radius-full: 50%;
+    --border-radius-pill: 50px;
+    --border-radius-lg: 30px;
+    --border-radius-md: 20px;
+
+    /* Shadows */
+    --shadow-sm: 0 5px 15px rgba(255, 107, 107, 0.4);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-header: 0 10px 30px rgba(252, 182, 159, 0.3);
+    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Reset default margin, padding, and set box-sizing for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body with base font, colors, and gradient background */
+body {
+    font-family: var(--font-family-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background: var(--gradient-background);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    min-height: 100vh;
+}
+
+/* Style the navigation with gradient background and playful animations */
+nav {
+    background: var(--gradient-accent);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: var(--shadow-header);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius-pill);
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    border-color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Style the header section with gradient background and shadow */
+header {
+    text-align: center;
+    padding: var(--spacing-xxl) 0;
+    background: var(--gradient-accent);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: var(--shadow-header);
+}
+
+/* Style the main title with text shadow and spacing */
+h1 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-xxl);
+    text-shadow: var(--text-shadow);
+}
+
+/* Style the subtitle with consistent white color and font weight */
+.subtitle {
+    color: var(--color-white);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}
+
+/* Style sections with white background and shadow */
+section {
+    margin-bottom: var(--spacing-xxl);
+    background: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+/* Style section headings with accent color and dotted border */
+h2 {
+    color: var(--color-primary);
+    border-bottom: 4px dotted var(--color-secondary);
+    padding-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
+}
+
+/* Style profile image with circular shape and white border */
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--border-radius-full);
+    margin-bottom: var(--spacing-md);
+    border: 8px solid var(--color-white);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Create responsive grid layout for project cards */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Style project cards with decorative elements and hover effects */
+.project-card {
+    background: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    border: 3px solid var(--color-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add decorative circle element to project cards */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    border-radius: var(--border-radius-full);
+    transition: all 0.3s ease;
+}
+
+/* Expand decorative circle on hover */
+.project-card:hover::before {
+    transform: scale(15);
+    opacity: 0.1;
+}
+
+/* Style project card headings */
+.project-card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+}
+
+/* Create responsive grid for skills list */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+    list-style: none;
+}
+
+/* Style skill items with gradient background and hover animation */
+.skills-list li {
+    background: var(--gradient-accent);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-pill);
+    text-align: center;
+    color: var(--color-white);
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+/* Add playful rotation on skill item hover */
+.skills-list li:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* Center align contact information */
+.contact-info {
+    text-align: center;
+}
+
+/* Style contact links with border and hover effects */
+.contact-info a {
+    color: var(--color-primary);
+    text-decoration: none;
+    margin: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-lg);
+    border: 3px solid var(--color-primary);
+    border-radius: var(--border-radius-pill);
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-weight: 600;
+}
+
+/* Add background color and lift effect on contact link hover */
+.contact-info a:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Style paragraphs with consistent spacing and line height */
+p {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+}

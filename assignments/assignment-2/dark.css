@@ -1,0 +1,239 @@
+/* CSS Variables for consistent theming */
+:root {
+    /* Colors */
+    --color-primary: #00ff9d;
+    --color-primary-glow: rgba(0, 255, 157, 0.3);
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-surface-hover: #363636;
+    --color-card: #2d2d2d;
+    --color-border: #404040;
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #b0b0b0;
+
+    /* Typography */
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.3em;
+    --font-size-xl: 1.8em;
+    --font-size-xxl: 2.5em;
+    --line-height-base: 1.6;
+    --line-height-relaxed: 1.8;
+    --letter-spacing-tight: 1px;
+    --letter-spacing-wide: 2px;
+
+    /* Spacing */
+    --spacing-xs: 10px;
+    --spacing-sm: 15px;
+    --spacing-md: 25px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+    --spacing-xxl: 60px;
+
+    /* Border Radius */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-full: 50%;
+    --border-radius-pill: 25px;
+}
+
+/* Apply a universal reset to remove default margin and padding from all elements.
+   Also ensures consistent box-sizing behavior. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body with a modern font, light text color, dark background,
+   and centered content with a maximum width for readability. */
+body {
+    font-family: var(--font-family-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+/* Style the navigation with consistent dark theme, rounded corners,
+   and smooth hover transitions for links. */
+nav {
+    background-color: var(--color-surface);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-pill);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary-glow);
+}
+
+/* Style the header section with centered text, padding, rounded corners,
+   a shadow effect, and a dark background for contrast. */
+header {
+    text-align: center;
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the main title (h1) with a bright green color, large font size,
+   slight spacing between letters, and margin spacing. */
+h1 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-xxl);
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Style subtitles with a muted color, slightly larger font size,
+   and subtle letter spacing for readability. */
+.subtitle {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Style sections with a dark background, padding, rounded corners,
+   and a shadow effect for a card-like design. */
+section {
+    margin-bottom: var(--spacing-xl);
+    background-color: var(--color-surface);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Style section headings (h2) with a bright green color, an underline effect,
+   and spacing for separation from content. */
+h2 {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
+}
+
+/* Style profile images with a circular shape, border, shadow effect,
+   and fixed dimensions. */
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--border-radius-full);
+    margin-bottom: var(--spacing-md);
+    border: 4px solid var(--color-primary);
+    box-shadow: 0 0 20px var(--color-primary-glow);
+}
+
+/* Create a flexible, responsive grid layout for project cards,
+   automatically adjusting column size. */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+/* Style individual project cards with a dark background, padding,
+   rounded corners, and a smooth hover transition effect. */
+.project-card {
+    background-color: var(--color-card);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add a hover effect to lift the project card slightly and add a subtle glow. */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--color-primary-glow);
+}
+
+/* Style project titles within cards with the bright green color and margin spacing. */
+.project-card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Create a responsive grid layout for skill items, ensuring they fit dynamically. */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+    list-style: none;
+}
+
+/* Style skill items with a dark background, padding, rounded corners,
+   and hover transition effects. */
+.skills-list li {
+    background-color: var(--color-card);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease;
+}
+
+/* Add a hover effect to scale up skill items slightly and change background color. */
+.skills-list li:hover {
+    transform: scale(1.05);
+    background-color: var(--color-surface-hover);
+}
+
+/* Center-align contact information for a balanced layout. */
+.contact-info {
+    text-align: center;
+}
+
+/* Style contact links with a bright green color, border, padding,
+   rounded corners, and smooth hover effects. */
+.contact-info a {
+    color: var(--color-primary);
+    text-decoration: none;
+    margin: 0 var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--border-radius-pill);
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: var(--spacing-xs);
+}
+
+/* Change background and text color on hover for a button-like effect. */
+.contact-info a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    box-shadow: 0 0 15px var(--color-primary-glow);
+}
+
+/* Style paragraph text with margin spacing and increased line height for readability. */
+p {
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--line-height-relaxed);
+}

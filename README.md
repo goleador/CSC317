@@ -10,23 +10,27 @@ Welcome to **CSC 317** at **San Francisco State University**! 🎉 This course w
 - Develop backend applications with **Node.js & Express**.
 - Deploy projects to the web.
 
-## 📆 Weekly Breakdown (High-Level and Subject Change). 
-1. **Introduction & Git Basics**
-2. **HTML & Semantic Web**
-3. **CSS & Responsive Design**
-4. **JavaScript Fundamentals**
-5. **Version Control & Collaboration**
-6. **Advanced JavaScript & APIs**
-7. **Intro to Frontend Frameworks (React)**
-8. **Midterm Project**
-9. **Backend Basics (Node.js & Express)**
-10. **Databases (MongoDB)**
-11. **Authentication & Security**
-12. **Deployment & DevOps**
-13. **Advanced Topics (WebSockets, GraphQL)**
-14. **Final Project Kickoff**
-15. **Project Development**
-16. **Final Presentations & Wrap-Up**
+## 📆 Course Calendar
+
+| Week | Topics |
+|------|--------|
+| **1** | Introduction & Environment Setup | 
+| **2** | Unit 1: GitHub Classroom, Assignment 1 |
+| **3** | HTML & Semantic Web |
+| **4** | HTML & Semantic Web (Continued) |
+| **5** | Linux/Unix Command Line |
+| **6** | HTTP Fundamentals |
+| **7** | CSS & Responsive Design |
+| **8** | JavaScript Fundamentals |
+| **9** | Backend Basics | |
+| **10** | Databases | 
+| **11** | Group Project 1 Demos & Node.js/Express | 
+| **12** | Authentication & Security | | |
+| **13** | Group Project 2 Demos & Advanced Topics | 
+| **14** | Advanced Topics | | |
+| **15** | Group Project 3 Demos & Advanced Topics | 
+| **16** | Review & Final Exam | 
+| **Finals Week** | Group Project 4 Demos | 
 
 PLEASE REFER TO CANVAS FOR OFFICIAL CALENDAR.
 

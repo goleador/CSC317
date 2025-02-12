@@ -1,0 +1,268 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap');
+
+/* CSS Variables for consistent theming */
+:root {
+    /* Colors */
+    --color-text-primary: #111;
+    --color-text-secondary: #444;
+    --color-text-muted: #666;
+    --color-background: #fafafa;
+    --color-border: #ddd;
+
+    /* Typography */
+    --font-family-primary: 'DM Sans', sans-serif;
+    --font-family-display: 'DM Serif Display', serif;
+    --font-size-base: 1.1em;
+    --font-size-lg: 1.2em;
+    --font-size-xl: 1.8em;
+    --font-size-xxl: 2.5em;
+    --font-size-huge: 4em;
+    --line-height-base: 1.6;
+    --line-height-relaxed: 1.8;
+    --line-height-tight: 1.2;
+    --letter-spacing-wide: 0.5px;
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 15px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+    --spacing-xxl: 60px;
+    --spacing-huge: 80px;
+
+    /* Layout */
+    --max-width: 900px;
+    --grid-min-width: 300px;
+    --skills-min-width: 200px;
+}
+
+/* Reset default margin, padding, and set box-sizing for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navigation styles with minimal design and subtle borders */
+nav {
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-md);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-xl);
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    transition: all 0.3s ease;
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    border-bottom: 1px solid var(--color-text-primary);
+}
+
+/* Add responsive styles for navigation */
+@media (max-width: 480px) {
+    .nav-links {
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Style for the body, setting the font, color, max width, and centering content */
+body {
+    font-family: var(--font-family-primary);
+    line-height: var(--line-height-base);
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+/* Header section styles */
+header {
+    text-align: left;
+    padding: var(--spacing-huge) 0;
+    margin-bottom: var(--spacing-xxl);
+    border-bottom: 1px solid var(--color-border); /* Adds a subtle separator */
+}
+
+/* Main title (H1) styling */
+h1 {
+    font-family: var(--font-family-display);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-huge);
+    line-height: var(--line-height-tight);
+    font-weight: normal;
+}
+
+/* Subtitle styling */
+.subtitle {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Section spacing */
+section {
+    margin-bottom: var(--spacing-huge);
+}
+
+/* Styling for section headings (H2) */
+h2 {
+    font-family: var(--font-family-display);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-xxl);
+    font-weight: normal;
+}
+
+/* Profile image styles */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 0; /* No rounded corners */
+    margin-bottom: var(--spacing-xl);
+    filter: grayscale(100%); /* Converts image to black and white */
+}
+
+/* Grid layout for project cards */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width), 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+/* Styling for individual project cards */
+.project-card {
+    background-color: transparent;
+    padding: 0;
+    border-top: 1px solid var(--color-border); /* Adds a subtle border at the top */
+}
+
+/* Project card title styling */
+.project-card h3 {
+    font-family: var(--font-family-display);
+    color: var(--color-text-primary);
+    margin: var(--spacing-md) 0;
+    font-size: var(--font-size-xl);
+    font-weight: normal;
+}
+
+/* Skills list layout */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--skills-min-width), 1fr));
+    gap: var(--spacing-md);
+    list-style: none; /* Removes default list styling */
+    margin-top: var(--spacing-lg);
+}
+
+/* Individual skill list item styling */
+.skills-list li {
+    background-color: transparent;
+    padding: var(--spacing-sm) 0;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border); /* Adds a bottom border to each skill */
+    font-size: var(--font-size-base);
+}
+
+/* Contact info section */
+.contact-info {
+    text-align: left;
+}
+
+/* Contact links styling */
+.contact-info a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    margin: 0 var(--spacing-lg) 0 0;
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--color-text-primary); /* Underlines links */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+    font-size: var(--font-size-base);
+}
+
+/* Contact links hover effect */
+.contact-info a:hover {
+    border-color: transparent; /* Hides underline on hover */
+}
+
+/* Paragraph styling */
+p {
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+}
+
+/* Adjust scroll behavior for section anchors */
+#about, #projects, #skills, #education, #contact {
+    scroll-margin-top: 2em; /* Prevents sections from being hidden behind fixed headers */
+}
+
+/* Responsive styles for tablets and smaller screens */
+@media (max-width: 768px) {
+    /* Reduce main heading size */
+    h1 {
+        font-size: 3em;
+    }
+
+    /* Reduce subheading size */
+    h2 {
+        font-size: var(--font-size-xxl);
+    }
+
+    /* Reduce header padding */
+    header {
+        padding: var(--spacing-xl) 0;
+    }
+
+    /* Reduce section spacing */
+    section {
+        margin-bottom: var(--spacing-xxl);
+    }
+
+    /* Reduce project grid gap */
+    .project-grid {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 480px) {
+    /* Further reduce main heading size */
+    h1 {
+        font-size: 2.5em;
+    }
+
+    /* Reduce profile image size */
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Make contact links stack vertically */
+    .contact-info a {
+        display: block;
+        margin: var(--spacing-sm) 0;
+    }
+}

@@ -1,0 +1,171 @@
+/* CSS Variables for consistent theming */
+:root {
+    /* Colors */
+    --color-primary: #3498db;
+    --color-text-primary: #2c3e50;
+    --color-text-secondary: #7f8c8d;
+    --color-text-body: #333;
+    --color-background: #f4f4f4;
+    --color-background-light: #f9f9f9;
+    --color-background-accent: #e1f5fe;
+    --color-border: #ddd;
+
+    /* Typography */
+    --font-family-base: Arial, sans-serif;
+    --font-size-base: 1em;
+    --font-size-lg: 1.2em;
+    --line-height-base: 1.6;
+
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-full: 50%;
+}
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base body styles */
+body {
+    font-family: var(--font-family-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text-body);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+/* Navigation styles with clean, minimal design */
+nav {
+    background-color: var(--color-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding: var(--spacing-sm);
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    border-bottom-color: var(--color-primary);
+}
+
+/* Header section styles */
+header {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Main heading styles */
+h1 {
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Subtitle styles */
+.subtitle {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+}
+
+/* Section spacing */
+section {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Section heading styles */
+h2 {
+    color: var(--color-text-primary);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Profile image styles */
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--border-radius-full);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Project grid layout */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+/* Project card styles */
+.project-card {
+    background-color: var(--color-background-light);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border);
+}
+
+/* Project card heading styles */
+.project-card h3 {
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Skills list grid layout */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+    list-style: none;
+}
+
+/* Individual skill item styles */
+.skills-list li {
+    background-color: var(--color-background-accent);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+}
+
+/* Contact info section styles */
+.contact-info {
+    text-align: center;
+}
+
+/* Contact link styles */
+.contact-info a {
+    color: var(--color-primary);
+    text-decoration: none;
+    margin: 0 var(--spacing-sm);
+}
+
+/* Contact link hover effect */
+.contact-info a:hover {
+    text-decoration: underline;
+}
