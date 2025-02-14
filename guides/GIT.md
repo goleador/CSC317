@@ -27,6 +27,9 @@ git add .              # Add all files
 # Commit changes
 git commit -m "Your commit message"
 
+# Push changes current branch
+git push
+
 # Push changes to remote repository
 git push origin <branch-name>
 
