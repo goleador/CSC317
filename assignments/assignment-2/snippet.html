@@ -1,22 +1,45 @@
-<!-- style>
-        body {
-            background-color: lightblue;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Borders</title>
+    <style>
+        /* Add a border to the table */
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Ensures borders don't double up */
         }
 
-        header {
-            text-align: center;
+        /* Add a border to table cells */
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
         }
 
-        nav {
-            margin-bottom: 10px;
-            border: 1px solid gray;
+        /* Optional: Add a border to the table itself */
+        table {
+            border: 2px solid black;
         }
+    </style>
+</head>
+<body>
 
-        .nav-links {
-            text-align: center;
-            display: flex;
-            gap: 10px;
-            list-style: none;
-        }
+<table>
+    <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+    </tr>
+    <tr>
+        <td>Row 1, Col 1</td>
+        <td>Row 1, Col 2</td>
+    </tr>
+    <tr>
+        <td>Row 2, Col 1</td>
+        <td>Row 2, Col 2</td>
+    </tr>
+</table>
 
-    </style -->
+</body>
+</html>
