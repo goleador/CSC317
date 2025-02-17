@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Anchor Tag Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        a {
+            display: block;
+            margin: 10px 0;
+            color: blue;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔗 HTML Anchor Tag Demo</h1>
+
+    <h2>1️⃣ Basic Link</h2>
+    <a href="https://google.com">Visit Google.com</a>
+
+    <h2>2️⃣ Open Link in a New Tab</h2>
+    <a href="https://google.com" target="_blank" rel="noopener noreferrer">Open Google.com in New Tab</a>
+
+    <h2>3️⃣ Internal Linking (Jump to Section)</h2>
+    <a href="#section2">Jump to Section 2</a>
+
+    <h2>4️⃣ Download a File</h2>
+    <a href="assets/sample.pdf" download="SampleFile.pdf">Download Sample PDF</a>
+
+    <h2>5️⃣ Email Link</h2>
+    <a href="mailto:someone@google.com">Send an Email</a>
+
+    <h2>6️⃣ Phone Link</h2>
+    <a href="tel:+1234567890">Call +1 234 567 890</a>
+
+    <h2>7️⃣ Styled Button Link</h2>
+    <a href="https://google.com" style="display:inline-block; padding:10px 20px; background:#007bff; color:white; border-radius:5px; text-align:center;">Styled Link Button</a>
+
+    <h2 id="section2">📍 Section 2</h2>
+    <p>You have jumped to Section 2!</p>
+</div>
+</body>
+</html>

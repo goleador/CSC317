@@ -81,7 +81,7 @@ git status # Check if you're in a git repository
 6. Create the basic file structure:
 ```bash
 touch index.html
-mkdir images
+mkdir assets
 ```
 
 Your folder structure should look like this:

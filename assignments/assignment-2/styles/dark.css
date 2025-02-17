@@ -140,7 +140,7 @@ h2 {
     font-size: var(--font-size-xl);
 }
 
-/* Style profile images with a circular shape, border, shadow effect,
+/* Style profile assets with a circular shape, border, shadow effect,
    and fixed dimensions. */
 .profile-img {
     width: 200px;
