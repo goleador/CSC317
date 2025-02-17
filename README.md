@@ -38,8 +38,15 @@ PLEASE REFER TO CANVAS FOR OFFICIAL CALENDAR.
 - **Code Editor**: [VS Code](https://code.visualstudio.com/)
 - **Version Control**: [Git](https://git-scm.com/) & [GitHub](https://github.com/)
 - **Web Development**: HTML, CSS, JavaScript, Node.js, Express
-- **Database**: MongoDB (NoSQL)
-- **Deployment**: Netlify, Vercel, or Heroku
+- **Database**: Postgres (SQL)
+- **Deployment**: TBD
+
+### **📝 Code Editors (Choose Your Favorite)**
+- [**VS Code**](https://code.visualstudio.com/) – Popular & beginner-friendly  
+- [**Vim**](https://www.vim.org/) – For those who love keyboard shortcuts ⚡  
+- [**WebStorm**](https://www.jetbrains.com/webstorm/) – Feature-rich IDE for JavaScript  
+- [**Notepad++**](https://notepad-plus-plus.org/) – Lightweight and fast  
+
 
 ## 📚 Resources
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
@@ -53,6 +60,3 @@ PLEASE REFER TO CANVAS FOR OFFICIAL CALENDAR.
 - Have fun while building awesome things! 🚀
 
 ---
-
-### Questions?
-Reach out via **Slack, email, or office hours**. Let's build something great together! 💻✨

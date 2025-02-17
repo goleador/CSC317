@@ -3,7 +3,7 @@
 **Name:** Robert Bierman  
 **Student ID:** 900######  
 **GitHub Username:** bierman  
-**Assignment Number:** 1  
+**Assignment Number:** 2  
 
 
 ##  HTML Personal Portfolio Website Assignment

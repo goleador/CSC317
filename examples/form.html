@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced HTML Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Register</h2>
+    <form id="userForm" onsubmit="return validateForm()">
+        <!-- Email Input -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+        <span class="error-message" id="emailError">Please enter a valid email.</span>
+
+        <!-- Number Input -->
+        <label for="age">Age (18-99):</label>
+        <input type="number" id="age" name="age" min="18" max="99" required placeholder="Enter your age">
+        <span class="error-message" id="ageError">Age must be between 18 and 99.</span>
+
+        <!-- Date Input -->
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <!-- Password Input -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required pattern=".{6,}" placeholder="At least 6 characters">
+        <span class="error-message" id="passwordError">Password must be at least 6 characters long.</span>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        let isValid = true;
+
+        // Email Validation
+        const email = document.getElementById("email");
+        const emailError = document.getElementById("emailError");
+        if (!email.checkValidity()) {
+            emailError.style.display = "block";
+            isValid = false;
+        } else {
+            emailError.style.display = "none";
+        }
+
+        // Age Validation
+        const age = document.getElementById("age");
+        const ageError = document.getElementById("ageError");
+        if (age.value < 18 || age.value > 99) {
+            ageError.style.display = "block";
+            isValid = false;
+        } else {
+            ageError.style.display = "none";
+        }
+
+        // Password Validation
+        const password = document.getElementById("password");
+        const passwordError = document.getElementById("passwordError");
+        if (!password.checkValidity()) {
+            passwordError.style.display = "block";
+            isValid = false;
+        } else {
+            passwordError.style.display = "none";
+        }
+
+        return isValid;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block vs Inline Elements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .block {
+            background-color: lightblue;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid blue;
+        }
+        .inline {
+            background-color: lightcoral;
+            padding: 5px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Block vs Inline Elements</h1>
+
+<h2>Block Elements</h2>
+<p class="block">This is a paragraph (p), a block element.</p>
+<div class="block">This is a div, another block element.</div>
+<ul class="block">
+    <li>This is a list item (li) inside an unordered list (ul), both block elements.</li>
+    <li>Block elements take up full width by default.</li>
+</ul>
+
+<h2>Inline Elements</h2>
+<p>
+    This is an <span class="inline">inline span</span>, and this is
+    an <a href="#" class="inline">inline link</a>.
+    Notice how they stay on the same line.
+</p>
+<p>
+    Here is an <img src="images/costa_rica.jpeg" alt="Sample Image" class="inline" style="width: 30px"> inline image.
+</p>
+<p>
+    This text contains <strong class="inline">bold (strong)</strong> and
+    <em class="inline">italic (em)</em> elements, both of which are inline.
+</p>
+
+<h2>Inline Form Elements</h2>
+<p>
+    <label>Enter Name: <input type="text" class="inline"></label>
+    <button class="inline">Submit</button>
+</p>
+
+</body>
+</html>
