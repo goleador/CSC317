@@ -135,7 +135,7 @@ Create the foundation of your portfolio website using basic HTML elements:
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Name - Portfolio</title>
+    <title>Rodrigo Oliveira - Portfolio</title>
 </head>
 <body>
     <header>
@@ -332,8 +332,8 @@ Your final grade will be based on the following four major components, assessing
 
 - ✅ All pages load correctly without broken elements (5%)
 - ✅ Navigation works smoothly with accurate internal links (5%)
-- ✅ Images display properly with meaningful alt attributes (5%)
-- ✅ Contact form is correctly structured with required fields (5%)
+- ✅ Images display properly with meaningful alt attributes (10%)
+- ✅ ~~Contact form is correctly structured with required fields (5%)~~
 
 4. Submission & Technical Requirements (20%)
 
