@@ -135,7 +135,7 @@ h2 {
     font-size: var(--font-size-xl);
 }
 
-/* Style profile image with circular shape and white border */
+/* Style profile image.ico with circular shape and white border */
 .profile-img {
     width: 200px;
     height: 200px;

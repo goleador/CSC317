@@ -1,38 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>CSC 317: Introduction to Web Software Development | SFSU</title>
+    <link href="assets/course.css" rel="stylesheet"/>
 </head>
-
 <body>
 <header>
-    <h1>Test</h1>
-    <img src="assignments/assignment-2/images/costa_rica.jpeg" alt="Rodrigo's profile picture" style="vertical-align: top" />
-    <img src="assignments/assignment-2/images/costa_rica.jpeg" alt="Rodrigo's profile picture" style="vertical-align: top" />
-    <img src="assignments/assignment-2/images/costa_rica.jpeg" alt="Rodrigo's profile picture" style="vertical-align: top" />
-    <p>Pura vida</p>
+    <div class="container header-content">
+        <div class="logo">
+            <img src="assets/profile.jpeg" alt="Instructor Profile" class="instructor-profile">
+            <h1>CSC <span>317</span>: Intro to Web Software Development</h1>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#calendar">Calendar</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#expectations">Expectations</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
-<main>
-    <article>
-        <section></section>
-    </article>
-    <section>
-        <article></article>
+<section class="hero">
+    <div class="container">
+        <h2>Welcome to CSC 317 at San Francisco State University!</h2>
+        <p>Learn the fundamentals of web development, from HTML & CSS to JavaScript, APIs, and backend systems.</p>
+        <div class="hero-features">
+            <div class="feature">
+                <span class="feature-icon">💻</span>
+                <span class="feature-text">Hands-on Coding</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🚀</span>
+                <span class="feature-text">Project-Based Learning</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔄</span>
+                <span class="feature-text">Continuous Feedback</span>
+            </div>
+        </div>
+        <p class="semester-display">Current Semester: <span id="current-semester">Spring 2025</span></p>
+        <div class="cta-buttons">
+            <a href="https://ilearn.sfsu.edu" class="cta-button primary-cta">Visit Canvas</a>
+            <a href="#calendar" class="cta-button secondary-cta">View Schedule</a>
+        </div>
+    </div>
+</section>
+
+<main class="main-content container">
+    <section id="overview" class="card">
+        <div class="section-header">
+            <h3><span class="emoji-icon">📌</span>Course Overview</h3>
+            <div class="theme-toggle">
+                <span>🌞</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <span>🌙</span>
+            </div>
+        </div>
+        <p>This comprehensive course will guide you through the essential concepts and skills needed for modern web development:</p>
+        <ul class="resource-list">
+            <li>Learn how the web works (client-server model, HTTP, DNS)</li>
+            <li>Build and style web pages with <strong>HTML & CSS</strong></li>
+            <li>Write interactive web applications using <strong>JavaScript</strong></li>
+            <li>Work with <strong>Git & GitHub</strong> for version control</li>
+            <li>Develop backend applications with <strong>Node.js & Express</strong></li>
+            <li>Deploy projects to the web</li>
+        </ul>
     </section>
+
+    <section id="calendar" class="card">
+        <h3><span class="emoji-icon">📆</span>Course Calendar</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Topics</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>1</strong></td>
+                    <td>Introduction & Environment Setup</td>
+                </tr>
+                <tr>
+                    <td><strong>2</strong></td>
+                    <td>Unit 1: GitHub Classroom, Assignment 1</td>
+                </tr>
+                <tr>
+                    <td><strong>3</strong></td>
+                    <td>HTML & Semantic Web</td>
+                </tr>
+                <tr>
+                    <td><strong>4</strong></td>
+                    <td>HTML & Semantic Web (Continued)</td>
+                </tr>
+                <tr>
+                    <td><strong>5</strong></td>
+                    <td>CSS & Responsive Design</td>
+                </tr>
+                <tr>
+                    <td><strong>6</strong></td>
+                    <td>CSS & Responsive Design (Continued)</td>
+                </tr>
+                <tr>
+                    <td><strong>7</strong></td>
+                    <td>Unix Terminal & HTTP Fundamentals</td>
+                </tr>
+                <tr>
+                    <td><strong>8</strong></td>
+                    <td>JavaScript Fundamentals</td>
+                </tr>
+                <tr>
+                    <td><strong>9</strong></td>
+                    <td>Backend Basics</td>
+                </tr>
+                <tr>
+                    <td><strong>10</strong></td>
+                    <td>Databases</td>
+                </tr>
+                <tr>
+                    <td><strong>11</strong></td>
+                    <td>Group Project 1 Demos & Node.js/Express</td>
+                </tr>
+                <tr>
+                    <td><strong>12</strong></td>
+                    <td>Authentication & Security</td>
+                </tr>
+                <tr>
+                    <td><strong>13</strong></td>
+                    <td>Group Project 2 Demos & Advanced Topics</td>
+                </tr>
+                <tr>
+                    <td><strong>14</strong></td>
+                    <td>Advanced Topics</td>
+                </tr>
+                <tr>
+                    <td><strong>15</strong></td>
+                    <td>Group Project 3 Demos & Advanced Topics</td>
+                </tr>
+                <tr>
+                    <td><strong>16</strong></td>
+                    <td>Review & Final Exam</td>
+                </tr>
+                <tr>
+                    <td><strong>Finals Week</strong></td>
+                    <td>Group Project 4 Demos</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="card-footer-note"><em>PLEASE REFER TO CANVAS FOR OFFICIAL CALENDAR.</em></p>
+    </section>
+
+    <section id="tools" class="card">
+        <h3><span class="emoji-icon">🚀</span>Tools You'll Need</h3>
+        <div class="tools-list">
+            <div class="tool-card">
+                <h4>Code Editor</h4>
+                <p><a href="https://code.visualstudio.com/" target="_blank">VS Code</a></p>
+                <p class="tool-description">Popular & beginner-friendly</p>
+            </div>
+            <div class="tool-card">
+                <h4>Version Control</h4>
+                <p><a href="https://git-scm.com/" target="_blank">Git</a> & <a href="https://github.com/" target="_blank">GitHub</a></p>
+                <p class="tool-description">Track changes and collaborate</p>
+            </div>
+            <div class="tool-card">
+                <h4>Web Development</h4>
+                <p>HTML, CSS, JavaScript</p>
+                <p class="tool-description">Frontend fundamentals</p>
+            </div>
+            <div class="tool-card">
+                <h4>Backend</h4>
+                <p>Node.js, Express</p>
+                <p class="tool-description">Server-side development</p>
+            </div>
+            <div class="tool-card">
+                <h4>Database</h4>
+                <p>Postgres (SQL)</p>
+                <p class="tool-description">Data storage and retrieval</p>
+            </div>
+        </div>
+
+        <h4 style="margin-top: 2rem;">📝 Code Editors (Choose Your Favorite)</h4>
+        <div class="tools-list">
+            <div class="tool-card">
+                <h4><a href="https://code.visualstudio.com/" target="_blank">VS Code</a></h4>
+                <p>Popular & beginner-friendly</p>
+            </div>
+            <div class="tool-card">
+                <h4><a href="https://www.vim.org/" target="_blank">Vim</a></h4>
+                <p>For those who love keyboard shortcuts ⚡</p>
+            </div>
+            <div class="tool-card">
+                <h4><a href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a></h4>
+                <p>Feature-rich IDE for JavaScript</p>
+            </div>
+            <div class="tool-card">
+                <h4><a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a></h4>
+                <p>Lightweight and fast</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="grid-container">
+        <section id="resources" class="card">
+            <h3><span class="emoji-icon">📚</span>Resources</h3>
+            <ul class="resource-list">
+                <li><a href="https://developer.mozilla.org/en-US/" target="_blank">MDN Web Docs</a></li>
+                <li><a href="https://javascript.info/" target="_blank">JavaScript.info</a></li>
+                <li><a href="https://lab.github.com/" target="_blank">GitHub Learning Lab</a></li>
+                <li><a href="https://www.w3schools.com/html/default.asp" target="_blank">W3Schools</a></li>
+            </ul>
+        </section>
+
+        <section id="expectations" class="card">
+            <h3><span class="emoji-icon">💡</span>Expectations</h3>
+            <ul class="expectations-list">
+                <li>Be curious, experiment, and <strong>ask questions</strong>!</li>
+                <li>Use AI tools <strong>responsibly</strong>—learn from them, don't just copy-paste.</li>
+                <li><strong>Commit</strong> your work frequently. (<code>git commit -m "Save my progress"</code>)</li>
+                <li>Have fun while building awesome things! 🚀</li>
+            </ul>
+        </section>
+    </div>
 </main>
 
 <footer>
-    <section>
-
-    </section>
+    <div class="container footer-content">
+        <div class="footer-links">
+            <a href="https://www.sfsu.edu/" target="_blank">SFSU Website</a>
+            <a href="https://cs.sfsu.edu/" target="_blank">Computer Science Department</a>
+            <a href="https://ilearn.sfsu.edu" target="_blank">Canvas</a>
+            <a href="#" id="instructor-email">Contact Instructor</a>
+        </div>
+        <p class="copyright">&copy; <span id="current-year">2025</span> San Francisco State University. All rights reserved.</p>
+    </div>
 </footer>
 
+<script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
 
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Auto-update the year in the footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Set current semester (can be updated each semester)
+    function getCurrentSemester() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth();
+
+        if (month >= 0 && month <= 4) {
+            return `Spring ${year}`;
+        } else if (month >= 5 && month <= 7) {
+            return `Summer ${year}`;
+        } else {
+            return `Fall ${year}`;
+        }
+    }
+
+    document.getElementById('current-semester').textContent = getCurrentSemester();
+
+    // Set instructor email
+    document.getElementById('instructor-email').href = 'mailto:instructor@sfsu.edu';
+
+    // Theme toggle functionality
+    const themeSwitch = document.getElementById('theme-switch');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-theme');
+        themeSwitch.checked = true;
+    }
+
+    themeSwitch.addEventListener('change', function() {
+        if (this.checked) {
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // Profile image hover effect
+    const profileImg = document.querySelector('.instructor-profile');
+    profileImg.addEventListener('mouseover', () => {
+        profileImg.style.boxShadow = '0 0 15px var(--sfsu-gold)';
+    });
+    profileImg.addEventListener('mouseout', () => {
+        profileImg.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
+    });
+</script>
 </body>
-
-
 </html>

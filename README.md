@@ -12,25 +12,25 @@ Welcome to **CSC 317** at **San Francisco State University**! 🎉 This course w
 
 ## 📆 Course Calendar
 
-| Week | Topics |
-|------|--------|
-| **1** | Introduction & Environment Setup | 
-| **2** | Unit 1: GitHub Classroom, Assignment 1 |
-| **3** | HTML & Semantic Web |
-| **4** | HTML & Semantic Web (Continued) |
-| **5** | Linux/Unix Command Line |
-| **6** | HTTP Fundamentals |
-| **7** | CSS & Responsive Design |
-| **8** | JavaScript Fundamentals |
-| **9** | Backend Basics | |
-| **10** | Databases | 
-| **11** | Group Project 1 Demos & Node.js/Express | 
-| **12** | Authentication & Security | | |
-| **13** | Group Project 2 Demos & Advanced Topics | 
-| **14** | Advanced Topics | | |
-| **15** | Group Project 3 Demos & Advanced Topics | 
-| **16** | Review & Final Exam | 
-| **Finals Week** | Group Project 4 Demos | 
+| Week            | Topics                                  |
+|-----------------|-----------------------------------------|
+| **1**           | Introduction & Environment Setup        | 
+| **2**           | Unit 1: GitHub Classroom, Assignment 1  |
+| **3**           | HTML & Semantic Web                     |
+| **4**           | HTML & Semantic Web (Continued)         |
+| **5**           | CSS & Responsive Design                 |
+| **6**           | CSS & Responsive Design (Continued)     |
+| **7**           | Unix Terminal & HTTP Fundamentals       |
+| **8**           | JavaScript Fundamentals                 |
+| **9**           | Backend Basics                          |
+| **10**          | Databases                               | 
+| **11**          | Group Project 1 Demos & Node.js/Express | 
+| **12**          | Authentication & Security               |
+| **13**          | Group Project 2 Demos & Advanced Topics | 
+| **14**          | Advanced Topics                         | 
+| **15**          | Group Project 3 Demos & Advanced Topics | 
+| **16**          | Review & Final Exam                     | 
+| **Finals Week** | Group Project 4 Demos                   | 
 
 PLEASE REFER TO CANVAS FOR OFFICIAL CALENDAR.
 
@@ -52,6 +52,7 @@ PLEASE REFER TO CANVAS FOR OFFICIAL CALENDAR.
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
 - [JavaScript.info](https://javascript.info/)
 - [GitHub Learning Lab](https://lab.github.com/)
+- [W3Schools](https://www.w3schools.com/html/default.asp)
 
 ## 💡 Expectations
 - Be curious, experiment, and **ask questions**!
