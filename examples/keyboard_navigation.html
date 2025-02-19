@@ -8,16 +8,36 @@
 </head>
 <body>
     <h2>Keyboard Navigation in Forms</h2>
-    <form>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" tabindex="1">
-        <br><br>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" tabindex="2">
-        <br><br>
+    <table>
+        <tr>
+            <td>
+                <form>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" tabindex="1" autofocus>
+                    <br><br>
 
-        <button type="submit" tabindex="3">Login</button>
-    </form>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" tabindex="3" >
+                    <br><br>
+
+                    <button type="submit" tabindex="3">Login</button>
+                </form>
+            </td>
+            <td>
+                <form>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" tabindex="2">
+                    <br><br>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" tabindex="4" >
+                    <br><br>
+
+                    <button type="submit" tabindex="3">Login</button>
+                </form>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

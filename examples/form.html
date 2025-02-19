@@ -63,7 +63,7 @@
     <form id="userForm" onsubmit="return validateForm()">
         <!-- Email Input -->
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required placeholder="Enter your email">
+        <input type="email" id="email" name="email" required placeholder="Enter your email" pattern="\w">
         <span class="error-message" id="emailError">Please enter a valid email.</span>
 
         <!-- Number Input -->
