@@ -80,7 +80,7 @@ Your assignment should be organized in the following folder structure:
 - All HTML and CSS must be validated using:
     - [W3C HTML Validator](https://validator.w3.org/)
     - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
-- Include validation results in your SUBMISSION.md file
+- 
 
 ## Assessment Criteria
 - **Hand-written CSS (30%)**: Proper implementation of CSS concepts, responsiveness, code quality
@@ -111,12 +111,6 @@ This assignment is due one week after Lecture 4.
 
 ## Analysis
 [Write a 250-500 word analysis comparing the different approaches]
-
-## Validation Results
-[Include screenshots or text results from W3C validators for your HTML and CSS files]
-
-### Hand-Written CSS
-[Discuss your approach, challenges, and results]
 
 ### AI-Generated CSS (Text Prompt)
 [Include your prompt and discuss the results]
