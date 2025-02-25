@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rodrigo Oliveira - CS Student Portfolio</title>
-    <link rel="stylesheet" href="sfsu.css">
+    <link rel="stylesheet" href="styles/styles.css" id="css-theme">
+    <style>
+        /* Theme Switcher Styling */
+        .theme-switcher {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            z-index: 1000;
+        }
+
+        .theme-switcher h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .theme-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .theme-button {
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .theme-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .theme-button.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #0069d9;
+        }
+    </style>
+
 </head>
 <body>
+
+
 
 <header>
     <img src="images/profile.jpeg" alt="Rodrigo Oliveira" class="profile-img">
@@ -99,41 +147,62 @@
     </section>
 </footer>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<!-- Theme Switcher -->
+<div class="theme-switcher">
+    <h3>Theme Switcher</h3>
+    <div class="theme-buttons">
+        <button class="theme-button active" data-theme="styles">Hand-Written</button>
+        <button class="theme-button" data-theme="ai-1">AI 1</button>
+        <button class="theme-button" data-theme="ai-2">AI 2</button>
+        <button class="theme-button" data-theme="ai-3">AI 3</button>
+        <button class="theme-button" data-theme="ai-4">AI 4</button>
+        <button class="theme-button" data-theme="ai-5">AI 5</button>
+        <button class="theme-button" data-theme="ai-3">AI Image</button>
+        <button class="theme-button" data-theme="hybrid">Hybrid</button>
+    </div>
+</div>
+
+<!-- Theme Switcher Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all theme buttons
+        const themeButtons = document.querySelectorAll('.theme-button');
+        // Get the stylesheet link element
+        const themeStylesheet = document.getElementById('css-theme');
+
+        // Function to set active theme
+        function setActiveTheme(themeName) {
+            // Update stylesheet href
+            themeStylesheet.href = `styles/${themeName}.css`;
+
+            // Update active button state
+            themeButtons.forEach(button => {
+                if (button.dataset.theme === themeName) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+
+            // Save preference to localStorage
+            localStorage.setItem('preferredTheme', themeName);
+        }
+
+        // Add click event to all theme buttons
+        themeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const themeName = this.dataset.theme;
+                setActiveTheme(themeName);
+            });
+        });
+
+        // Check if there's a saved theme preference
+        const savedTheme = localStorage.getItem('preferredTheme');
+        if (savedTheme) {
+            setActiveTheme(savedTheme);
+        }
+    });
+</script>
+
 </body>
 </html>

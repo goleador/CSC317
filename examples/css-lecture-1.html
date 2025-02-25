@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Foundations - Lecture 1 Example</title>
+    <link rel="stylesheet" href="assets/css-lecture-1.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#box-model">Box Model</a>
+        <a href="#selectors">Selectors</a>
+        <a href="#typography">Typography</a>
+        <a href="#colors">Colors</a>
+    </nav>
+
+    <!-- Header/About Section -->
+    <header id="about">
+        <h1>CSS Foundations</h1>
+        <img src="assets/profile.jpeg" alt="CSS Logo" class="profile-image">
+        
+        <h2>About CSS</h2>
+        <p>CSS (Cascading Style Sheets) is the language we use to style an HTML document.</p>
+        <p>CSS describes how HTML elements should be displayed.</p>
+        
+        <h3>Connect with CSS Resources:</h3>
+        <p>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN CSS</a> |
+            <a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a> |
+            <a href="https://www.w3.org/Style/CSS/" target="_blank">W3C CSS</a>
+        </p>
+    </header>
+
+    <!-- Box Model Section -->
+    <section id="box-model">
+        <h2>The CSS Box Model</h2>
+        
+        <div class="box-container">
+            <div class="box box-content">
+                <h3>Content Box</h3>
+                <p>box-sizing: content-box</p>
+                <p>width: 300px</p>
+                <p>padding: 20px</p>
+                <p>border: 5px</p>
+                <p>Total width: 350px</p>
+            </div>
+            
+            <div class="box box-border">
+                <h3>Border Box</h3>
+                <p>box-sizing: border-box</p>
+                <p>width: 300px</p>
+                <p>padding: 20px</p>
+                <p>border: 5px</p>
+                <p>Total width: 300px</p>
+            </div>
+        </div>
+        
+        <div class="box-parts">
+            <div class="box-demo">
+                <div class="margin">Margin
+                    <div class="border">Border
+                        <div class="padding">Padding
+                            <div class="content">Content</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selectors Section -->
+    <section id="selectors">
+        <h2>CSS Selectors</h2>
+        
+        <div class="selector-examples">
+            <h3>Basic Selectors</h3>
+            
+            <div class="selector-group">
+                <p>Element Selector (p)</p>
+                <p class="special">Class Selector (.special)</p>
+                <p id="unique">ID Selector (#unique)</p>
+            </div>
+            
+            <h3>Combinators</h3>
+            
+            <div class="parent-container">
+                <p>Descendant selector (div p)</p>
+                <div>
+                    <p>This is a descendant paragraph</p>
+                </div>
+                
+                <p>Child selector (div > p)</p>
+                <div class="parent">
+                    <p>This is a direct child paragraph</p>
+                    <div>
+                        <p>This is not a direct child</p>
+                    </div>
+                </div>
+                
+                <h4>Adjacent Sibling Selector (h4 + p)</h4>
+                <p>This paragraph is adjacent to the heading</p>
+                <span>This span is not selected</span>
+                <p>This paragraph is not adjacent to the heading</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography Section -->
+    <section id="typography">
+        <h2>Typography in CSS</h2>
+        
+        <div class="typography-examples">
+            <div class="font-family">
+                <h3>Font Family Examples</h3>
+                <p class="serif">This text uses a serif font.</p>
+                <p class="sans-serif">This text uses a sans-serif font.</p>
+                <p class="monospace">This text uses a monospace font.</p>
+                <p class="cursive">This text uses a cursive font.</p>
+                <p class="fantasy">This text uses a fantasy font.</p>
+            </div>
+            
+            <div class="font-size">
+                <h3>Font Size Examples</h3>
+                <p class="px-size">This text is sized in pixels (16px).</p>
+                <p class="em-size">This text is sized in em (1.5em).</p>
+                <p class="rem-size">This text is sized in rem (1.2rem).</p>
+                <p class="percent-size">This text is sized in percentage (120%).</p>
+            </div>
+            
+            <div class="font-weight">
+                <h3>Font Weight Examples</h3>
+                <p class="light">This text has a light font weight (300).</p>
+                <p class="normal">This text has a normal font weight (400).</p>
+                <p class="bold">This text has a bold font weight (700).</p>
+                <p class="extra-bold">This text has an extra bold font weight (900).</p>
+            </div>
+            
+            <div class="line-height">
+                <h3>Line Height Example</h3>
+                <p class="line-height-example">
+                    This paragraph has a specific line height setting. Line height controls the
+                    vertical space between lines of text. A good line height improves readability,
+                    especially for longer paragraphs. The ideal line height is typically between
+                    1.4 and 1.6 for body text.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colors Section -->
+    <section id="colors">
+        <h2>Working with Colors in CSS</h2>
+        
+        <div class="color-examples">
+            <div class="color-group">
+                <h3>Named Colors</h3>
+                <div class="color-box named-red">Red</div>
+                <div class="color-box named-blue">Blue</div>
+                <div class="color-box named-green">Green</div>
+            </div>
+            
+            <div class="color-group">
+                <h3>Hexadecimal Colors</h3>
+                <div class="color-box hex-red">#FF0000</div>
+                <div class="color-box hex-blue">#0000FF</div>
+                <div class="color-box hex-green">#00FF00</div>
+            </div>
+            
+            <div class="color-group">
+                <h3>RGB Colors</h3>
+                <div class="color-box rgb-red">rgb(255, 0, 0)</div>
+                <div class="color-box rgb-blue">rgb(0, 0, 255)</div>
+                <div class="color-box rgb-green">rgb(0, 255, 0)</div>
+            </div>
+            
+            <div class="color-group">
+                <h3>RGBA Colors (with Opacity)</h3>
+                <div class="color-box rgba-red">rgba(255, 0, 0, 0.5)</div>
+                <div class="color-box rgba-blue">rgba(0, 0, 255, 0.5)</div>
+                <div class="color-box rgba-green">rgba(0, 255, 0, 0.5)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CSS Foundations Course. All rights reserved.</p>
+    </footer>
+</body>
+</html>

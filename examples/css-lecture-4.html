@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms, Final Polish & Best Practices - Lecture 4 Example</title>
+    <link rel="stylesheet" href="assets/css-lecture-4.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">
+            <a href="#">CSS Advanced</a>
+        </div>
+        <div class="nav-links">
+            <a href="#form-styling">Form Styling</a>
+            <a href="#form-validation">Form Validation</a>
+            <a href="#css-organization">CSS Organization</a>
+            <a href="#portfolio-example">Example</a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Forms, Final Polish & Best Practices</h1>
+        <p>Learn how to create beautiful and accessible forms, organize your CSS, and optimize performance.</p>
+    </header>
+
+    <!-- Form Styling Section -->
+    <section id="form-styling">
+        <h2>Form Styling</h2>
+        
+        <div class="section-content">
+            <h3>Basic Form Styling</h3>
+            
+            <div class="demo-section">
+                <h4>Default vs. Styled Form</h4>
+                
+                <div class="forms-comparison">
+                    <div class="form-container default-form">
+                        <h5>Default Browser Styling</h5>
+                        <form>
+                            <div>
+                                <label for="default-name">Name:</label>
+                                <input type="text" id="default-name" placeholder="Your name">
+                            </div>
+                            
+                            <div>
+                                <label for="default-email">Email:</label>
+                                <input type="email" id="default-email" placeholder="your.email@example.com">
+                            </div>
+                            
+                            <div>
+                                <label for="default-message">Message:</label>
+                                <textarea id="default-message" placeholder="Your message"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label for="default-select">Subject:</label>
+                                <select id="default-select">
+                                    <option value="">Select a subject</option>
+                                    <option value="inquiry">General Inquiry</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="support">Support</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <input type="checkbox" id="default-checkbox">
+                                <label for="default-checkbox">Subscribe to newsletter</label>
+                            </div>
+                            
+                            <div>
+                                <button type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="form-container styled-form">
+                        <h5>Custom Styling</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="styled-name">Name</label>
+                                <input type="text" id="styled-name" placeholder="Your name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="styled-email">Email</label>
+                                <input type="email" id="styled-email" placeholder="your.email@example.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="styled-message">Message</label>
+                                <textarea id="styled-message" placeholder="Your message"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="styled-select">Subject</label>
+                                <div class="custom-select">
+                                    <select id="styled-select">
+                                        <option value="">Select a subject</option>
+                                        <option value="inquiry">General Inquiry</option>
+                                        <option value="feedback">Feedback</option>
+                                        <option value="support">Support</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="custom-checkbox">
+                                    <input type="checkbox" id="styled-checkbox">
+                                    <span class="checkmark"></span>
+                                    <label for="styled-checkbox">Subscribe to newsletter</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-section">
+                <h4>Focus States & Accessibility</h4>
+                
+                <div class="form-container styled-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="focus-demo">Focus State Demo (Click on input)</label>
+                            <input type="text" id="focus-demo" placeholder="Focus on me!">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="required-demo">Required Field</label>
+                            <input type="text" id="required-demo" required placeholder="This field is required">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="visually-hidden" for="screen-reader-demo">Hidden label for screen readers</label>
+                            <input type="text" id="screen-reader-demo" placeholder="I have a visually hidden label">
+                            <span class="helper-text">This input has a label that's only visible to screen readers.</span>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>/* Improved focus states for accessibility */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+}
+
+/* Visual indication for required fields */
+input:required,
+textarea:required {
+  border-left: 3px solid var(--primary-color);
+}
+
+/* Accessible labels that are visually hidden */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Validation Section -->
+    <section id="form-validation">
+        <h2>Form Validation</h2>
+        
+        <div class="section-content">
+            <div class="demo-section">
+                <h4>HTML5 Form Validation</h4>
+                
+                <div class="form-container styled-form">
+                    <form id="validation-form" novalidate>
+                        <div class="form-group">
+                            <label for="validate-name">Name (required)</label>
+                            <input type="text" id="validate-name" required placeholder="Your name">
+                            <div class="error-message">Please enter your name</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="validate-email">Email (valid format required)</label>
+                            <input type="email" id="validate-email" required placeholder="your.email@example.com">
+                            <div class="error-message">Please enter a valid email address</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="validate-password">Password (min 8 characters)</label>
+                            <input type="password" id="validate-password" required minlength="8" placeholder="Minimum 8 characters">
+                            <div class="error-message">Password must be at least 8 characters</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="validate-url">Website (optional, must be valid URL)</label>
+                            <input type="url" id="validate-url" placeholder="https://example.com">
+                            <div class="error-message">Please enter a valid URL</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="validate-phone">Phone (pattern: XXX-XXX-XXXX)</label>
+                            <input type="tel" id="validate-phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+                            <div class="error-message">Please enter a phone number in the format XXX-XXX-XXXX</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Validate</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>/* Style invalid inputs after interaction */
+input:not(:focus):not(:placeholder-shown):invalid {
+  border-color: #ff3b30;
+  background-color: rgba(255, 59, 48, 0.05);
+}
+
+/* Show error message for invalid inputs */
+input:not(:focus):not(:placeholder-shown):invalid +.error-message {
+  display: block;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Organization Section -->
+    <section id="css-organization">
+        <h2>CSS Organization & Best Practices</h2>
+
+        <div class="section-content">
+            <div class="demo-section">
+                <h4>CSS Methodologies</h4>
+
+                <div class="organization-examples">
+                    <div class="methodology-card">
+                        <h5>BEM (Block, Element, Modifier)</h5>
+                        <div class="code-sample">
+                            <pre><code>.card {}                /* Block */
+.card__title {}         /* Element */
+.card__image {}         /* Element */
+.card--featured {}      /* Modifier */
+.card__button--large {} /* Element with modifier */</code></pre>
+                        </div>
+                        <p>BEM creates a clear relationship between parent and child elements and makes the CSS more readable and maintainable.</p>
+                    </div>
+
+                    <div class="methodology-card">
+                        <h5>SMACSS (Scalable and Modular Architecture for CSS)</h5>
+                        <div class="code-sample">
+                            <pre><code>/* Base rules */
+body, a, p, h1 {}
+
+/* Layout rules */
+.l-header, .l-sidebar, .l-grid {}
+
+/* Module rules */
+.card, .btn, .form-group {}
+
+/* State rules */
+.is-active, .is-hidden, .is-collapsed {}
+
+/* Theme rules */
+.theme-dark, .theme-light {}</code></pre>
+                        </div>
+                        <p>SMACSS categorizes CSS rules by their purpose, creating a more organized structure.</p>
+                    </div>
+
+                    <div class="methodology-card">
+                        <h5>OOCSS (Object-Oriented CSS)</h5>
+                        <div class="code-sample">
+                            <pre><code>/* Separate structure from skin */
+.btn { /* structure */ }
+.btn-primary, .btn-secondary { /* skin */ }
+
+/* Separate container from content */
+.card-title { /* Styling applies regardless of location */ }</code></pre>
+                        </div>
+                        <p>OOCSS focuses on reusability by separating structure from appearance and container from content.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h4>Performance Optimization</h4>
+
+                <div class="optimization-examples">
+                    <div class="optimization-card">
+                        <h5>Selector Efficiency</h5>
+                        <div class="code-sample">
+                            <pre><code>/* Avoid */
+.header ul li a { color: blue; }  /* Deep nesting */
+* { margin-bottom: 10px; }        /* Universal selector */
+
+/* Better */
+.nav-link { color: blue; }        /* Direct, specific */
+.content > * + * { margin-top: 10px; } /* Target what you need */</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="optimization-card">
+                        <h5>Avoid Expensive Properties</h5>
+                        <div class="code-sample">
+                            <pre><code>/* These properties can be performance-intensive */
+.expensive {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-shadow: 0 1px 1px #000;
+  filter: blur(5px);
+  opacity: 0.8;
+  background-image: radial-gradient(circle, red, blue);
+}
+
+/* For animations, prefer these properties */
+.performant {
+  transform: scale(1.1);  /* Uses GPU acceleration */
+  opacity: 0.8;           /* Doesn't trigger layout */
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h4>Cross-Browser Compatibility</h4>
+
+                <div class="compatibility-examples">
+                    <div class="code-sample">
+                        <pre><code>/* Vendor Prefixes (can be automated with tools like Autoprefixer) */
+.transform-example {
+  -webkit-transform: rotate(45deg); /* Safari, Chrome */
+  -moz-transform: rotate(45deg);    /* Firefox */
+  -ms-transform: rotate(45deg);     /* IE */
+  transform: rotate(45deg);         /* Standard */
+}
+
+/* Feature Queries */
+@supports (display: grid) {
+  .container {
+    display: grid;
+  }
+}
+
+@supports not (display: grid) {
+  .container {
+    display: flex;
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Example Section -->
+    <section id="portfolio-example">
+        <h2>Portfolio Website Example</h2>
+
+        <div class="section-content">
+            <p class="section-intro">This example demonstrates a professional portfolio contact form and extra-curricular section with all the techniques we've learned.</p>
+
+            <div class="portfolio-example">
+                <div class="portfolio-section contact-section">
+                    <h3>Contact Form</h3>
+
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            <div class="error-message">Please enter a valid email address</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Message Subject">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="portfolio-section extra-curricular">
+                    <h3>Extra-Curricular Activities</h3>
+
+                    <div class="activities-container">
+                        <div class="activity-card">
+                            <div class="activity-icon">👨‍💻</div>
+                            <h4>Computer Science Club</h4>
+                            <p class="activity-role">President</p>
+                            <p>Leading weekly coding workshops and organizing hackathons for students.</p>
+                        </div>
+
+                        <div class="activity-card">
+                            <div class="activity-icon">🏆</div>
+                            <h4>CodeFest 2023</h4>
+                            <p class="activity-role">2nd Place Winner</p>
+                            <p>Created an innovative app for connecting students with tutors.</p>
+                        </div>
+
+                        <div class="activity-card">
+                            <div class="activity-icon">📚</div>
+                            <h4>Local Library</h4>
+                            <p class="activity-role">Volunteer Code Teacher</p>
+                            <p>Teaching basic programming concepts to middle school students.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">↑</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Advanced CSS Course. All rights reserved.</p>
+        <p>Made with ❤️ and CSS</p>
+    </footer>
+
+    <script>
+        // Form Validation Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const validationForm = document.getElementById('validation-form');
+
+            if (validationForm) {
+                validationForm.addEventListener('submit', function(event) {
+                    // If the form is not valid, prevent submission and show validation messages
+                    if (!this.checkValidity()) {
+                        event.preventDefault();
+                        // Add custom validation here if needed
+                    }
+                });
+
+                // Add validation feedback for each input
+                const inputs = validationForm.querySelectorAll('input');
+                inputs.forEach(input => {
+                    input.addEventListener('input', function() {
+                        // Custom validation logic could be added here
+                        if (this.validity.valid) {
+                            this.classList.remove('invalid');
+                            this.classList.add('valid');
+                        } else {
+                            this.classList.remove('valid');
+                            this.classList.add('invalid');
+                        }
+                    });
+                });
+            }
+
+            // Back to top button functionality
+            const backToTop = document.querySelector('.back-to-top');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTop.classList.add('show');
+                    } else {
+                        backToTop.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

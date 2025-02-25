@@ -1,0 +1,222 @@
+/*
+ Author: Rodrigo Oliveira
+ */
+
+/* Reset default styles and set an Iron Man-inspired base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Clean, readable font */
+}
+
+body {
+    background-color: #0d1b2a; /* Dark navy for a tech-night feel */
+    color: #ffffff; /* White text for high contrast */
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #a4161a; /* Iron Man red */
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle armor shadow */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #ffd60a; /* Iron Man gold for links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-links a:hover {
+    color: #ffffff; /* Brightens on hover like arc reactor glow */
+}
+
+/* Header/Intro Section */
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(45deg, #a4161a, #1b263b); /* Red to dark blue gradient */
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #ffd60a; /* Gold border like armor plating */
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ffd60a; /* Gold for the name */
+    text-shadow: 0 0 5px rgba(255, 214, 10, 0.7); /* Glow effect */
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #e6e6e6;
+    margin-top: 0.5rem;
+}
+
+/* General Section Styling */
+section {
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    max-width: 800px; /* Reasonable content width */
+}
+
+h2 {
+    color: #a4161a; /* Red for headings */
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #ffd60a; /* Gold underline like circuitry */
+    display: inline-block;
+}
+
+/* About Me Section */
+#about p {
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle metallic sheen */
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ffd60a33; /* Faint gold outline */
+}
+
+/* Education Section */
+#education h3 {
+    color: #ffd60a; /* Gold for subheadings */
+    margin-top: 1rem;
+}
+
+#education p {
+    color: #e6e6e6;
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: #1b263b; /* Dark blue like armor panels */
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #ffd60a33; /* Subtle gold edge */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
+}
+
+.project-card:hover {
+    transform: scale(1.03); /* Slight zoom like repulsor lift */
+    box-shadow: 0 0 10px rgba(255, 214, 10, 0.5); /* Gold glow */
+}
+
+.project-card h3 {
+    color: #a4161a;
+}
+
+.project-card p {
+    color: #e6e6e6;
+}
+
+/* Skills Section */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skills-list li {
+    background-color: #a4161a; /* Red for skills */
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    color: #ffd60a; /* Gold text */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.skills-list li:hover {
+    background-color: #ffd60a; /* Gold on hover */
+    color: #a4161a; /* Red text */
+}
+
+/* Contact Form/Footer */
+footer {
+    background-color: #a4161a;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.contact-info a {
+    color: #ffd60a;
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 214, 10, 0.7); /* Arc reactor glow */
+}
+
+footer p {
+    margin-top: 1rem;
+    color: #e6e6e6;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) { /* Desktop adjustments */
+    .nav-links {
+        gap: 3rem;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on desktop */
+    }
+
+    header {
+        padding: 4rem 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile adjustments */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 1.5rem 0.5rem;
+    }
+}

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layouts - Lecture 2 Example</title>
+    <link rel="stylesheet" href="assets/css-lecture-2.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">
+            <a href="#">FlexGrid Layouts</a>
+        </div>
+        <div class="nav-links">
+            <a href="#flexbox">Flexbox</a>
+            <a href="#grid">Grid</a>
+            <a href="#responsive">Responsive</a>
+            <a href="#examples">Examples</a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Responsive Layouts with Flexbox & Grid</h1>
+        <p>Learn how to create flexible and responsive layouts using modern CSS techniques.</p>
+    </header>
+
+    <!-- Flexbox Section -->
+    <section id="flexbox">
+        <h2>Flexbox Layouts</h2>
+        
+        <div class="section-content">
+            <h3>Flexbox Container Properties</h3>
+            
+            <div class="demo-section">
+                <h4>flex-direction</h4>
+                <div class="demo-container">
+                    <div class="flex-container direction-row">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                    </div>
+                </div>
+                <p class="demo-caption">flex-direction: row (default)</p>
+                
+                <div class="demo-container">
+                    <div class="flex-container direction-column">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                    </div>
+                </div>
+                <p class="demo-caption">flex-direction: column</p>
+            </div>
+            
+            <div class="demo-section">
+                <h4>justify-content</h4>
+                <div class="demo-container">
+                    <div class="flex-container justify-start">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+                <p class="demo-caption">justify-content: flex-start</p>
+                
+                <div class="demo-container">
+                    <div class="flex-container justify-center">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+                <p class="demo-caption">justify-content: center</p>
+                
+                <div class="demo-container">
+                    <div class="flex-container justify-between">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+                <p class="demo-caption">justify-content: space-between</p>
+            </div>
+            
+            <div class="demo-section">
+                <h4>align-items</h4>
+                <div class="demo-container">
+                    <div class="flex-container align-stretch">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item tall">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+                <p class="demo-caption">align-items: stretch (default)</p>
+                
+                <div class="demo-container">
+                    <div class="flex-container align-center">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item tall">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+                <p class="demo-caption">align-items: center</p>
+            </div>
+        </div>
+        
+        <div class="section-content">
+            <h3>Flexbox Item Properties</h3>
+            
+            <div class="demo-section">
+                <h4>flex-grow / flex-shrink / flex-basis</h4>
+                <div class="demo-container">
+                    <div class="flex-container">
+                        <div class="flex-item grow-1">flex-grow: 1</div>
+                        <div class="flex-item grow-2">flex-grow: 2</div>
+                        <div class="flex-item grow-1">flex-grow: 1</div>
+                    </div>
+                </div>
+                <p class="demo-caption">flex: 1 1 auto / flex: 2 1 auto / flex: 1 1 auto</p>
+            </div>
+            
+            <div class="demo-section">
+                <h4>order</h4>
+                <div class="demo-container">
+                    <div class="flex-container">
+                        <div class="flex-item order-3">order: 3</div>
+                        <div class="flex-item order-1">order: 1</div>
+                        <div class="flex-item order-2">order: 2</div>
+                    </div>
+                </div>
+                <p class="demo-caption">Items displayed by order value (lowest first)</p>
+            </div>
+            
+            <div class="demo-section">
+                <h4>align-self</h4>
+                <div class="demo-container">
+                    <div class="flex-container">
+                        <div class="flex-item">Default</div>
+                        <div class="flex-item align-self-start">flex-start</div>
+                        <div class="flex-item align-self-center">center</div>
+                        <div class="flex-item align-self-end">flex-end</div>
+                    </div>
+                </div>
+                <p class="demo-caption">align-self overrides the container's align-items</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid Section -->
+    <section id="grid">
+        <h2>CSS Grid Layouts</h2>
+        
+        <div class="section-content">
+            <h3>Grid Container Properties</h3>
+            
+            <div class="demo-section">
+                <h4>grid-template-columns</h4>
+                <div class="demo-container">
+                    <div class="grid-container columns-fixed">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                    </div>
+                </div>
+                <p class="demo-caption">grid-template-columns: 100px 100px 100px 100px</p>
+                
+                <div class="demo-container">
+                    <div class="grid-container columns-fr">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                    </div>
+                </div>
+                <p class="demo-caption">grid-template-columns: 1fr 2fr 1fr</p>
+                
+                <div class="demo-container">
+                    <div class="grid-container columns-repeat">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                    </div>
+                </div>
+                <p class="demo-caption">grid-template-columns: repeat(3, 1fr)</p>
+            </div>
+            
+            <div class="demo-section">
+                <h4>grid-template-rows</h4>
+                <div class="demo-container">
+                    <div class="grid-container rows-demo">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                    </div>
+                </div>
+                <p class="demo-caption">grid-template-rows: 50px 100px auto</p>
+            </div>
+            
+            <div class="demo-section">
+                <h4>grid-gap</h4>
+                <div class="demo-container">
+                    <div class="grid-container gap-demo">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                    </div>
+                </div>
+                <p class="demo-caption">gap: 20px</p>
+            </div>
+        </div>
+        
+        <div class="section-content">
+            <h3>Grid Item Placement</h3>
+            
+            <div class="demo-section">
+                <h4>grid-column / grid-row</h4>
+                <div class="demo-container">
+                    <div class="grid-container placement-demo">
+                        <div class="grid-item item-1">1</div>
+                        <div class="grid-item item-2">2</div>
+                        <div class="grid-item item-3">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                    </div>
+                </div>
+                <p class="demo-caption">Item 1: grid-column: 1 / 3; Item 2: grid-row: 1 / 3; Item 3: grid-column: 2 / 4, grid-row: 2 / 3</p>
+            </div>
+            
+            <div class="demo-section">
+                <h4>grid-template-areas</h4>
+                <div class="demo-container">
+                    <div class="grid-container areas-demo">
+                        <div class="grid-item grid-header">Header</div>
+                        <div class="grid-item grid-sidebar">Sidebar</div>
+                        <div class="grid-item grid-content">Content</div>
+                        <div class="grid-item grid-footer">Footer</div>
+                    </div>
+                </div>
+                <p class="demo-caption">Layout using named grid areas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsive Section -->
+    <section id="responsive">
+        <h2>Responsive Design</h2>
+        
+        <div class="section-content">
+            <h3>Media Queries Examples</h3>
+            
+            <div class="demo-section">
+                <h4>Basic Media Query</h4>
+                <div class="responsive-demo">
+                    <div class="responsive-box">
+                        <p>Resize the window to see this element change!</p>
+                        <p class="viewport-size"></p>
+                    </div>
+                </div>
+                <p class="demo-caption">Different styles applied at different viewport widths</p>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodrigo Oliveira - CS Student Portfolio</title>
+    <style>
+        /* Matrix-Inspired Cyberpunk Portfolio */
+
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --bg-color: #000000;
+            --text-color: #00ff41;
+            --secondary-text: #C0C0C0;
+            --accent-green: #00ff41;
+            --accent-cyan: #00ffee;
+            --dark-gray: #222222;
+            --glow-intensity: 10px;
+            --shadow-intensity: 20px;
+        }
+
+        /* General Styles */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Share Tech Mono', monospace;
+            text-shadow: 0 0 var(--glow-intensity) var(--accent-green);
+        }
+
+        /* Matrix Code Effect (Optional Background) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/0/06/Matrix_Digital_Rain_animation_medium_letters_shine.gif');
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            background: var(--dark-gray);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 0px var(--shadow-intensity) var(--accent-green);
+        }
+
+        h1 {
+            color: var(--accent-green);
+            font-size: 2.5rem;
+            text-shadow: 0px 0px var(--glow-intensity) var(--accent-green);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            padding: 8px 15px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 5px;
+            text-shadow: 0px 0px var(--glow-intensity) var(--accent-cyan);
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+            text-shadow: 0px 0px var(--glow-intensity) var(--accent-green);
+            border-color: var(--accent-green);
+            box-shadow: 0px 0px var(--shadow-intensity) var(--accent-green);
+        }
+
+        /* Buttons */
+        .button {
+            background: var(--accent-green);
+            color: var(--bg-color);
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 var(--shadow-intensity) var(--accent-green);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background: var(--accent-cyan);
+            box-shadow: 0px 0px var(--shadow-intensity) var(--accent-cyan);
+        }
+
+        /* Profile Image */
+        .profile-img {
+            border: 4px solid var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0px 0px var(--shadow-intensity) var(--accent-green);
+            width: 150px;
+            height: 150px;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: rgba(10, 15, 20, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px var(--shadow-intensity) var(--accent-green);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px calc(var(--shadow-intensity) + 10px) var(--accent-green);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--dark-gray);
+            box-shadow: 0px 0px var(--shadow-intensity) var(--accent-green);
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="assets/profile.jpeg" alt="Rodrigo Oliveira" class="profile-img">
+    <h1>Rodrigo Oliveira</h1>
+    <p class="subtitle">CTO at Glassdoor - Lecturer at SFSU</p>
+</header>
+<nav>
+    <ol class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ol>
+</nav>
+<main>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am an engineer and entrepreneur with 25+ years of experience in software development and leadership. Currently, I lead technological innovation at Glassdoor, overseeing engineering, data, and AI teams. Previously, I was CTO at WW after co-founding Hot5 Fitness. I’ve also held leadership roles at Sun Microsystems and RealPage. As a volunteer lecturer at SFSU, I’m passionate about helping students bridge theory and practice in web development.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <article class="project-card">
+                <h3>Weather Dashboard</h3>
+                <p>A web application that displays real-time weather data using HTML, CSS, and Python Flask backend.</p>
+            </article>
+            <article class="project-card">
+                <h3>Task Manager</h3>
+                <p>A simple todo list application built with HTML, CSS, and local storage functionality.</p>
+            </article>
+            <article class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>This responsive portfolio website showcasing my projects and skills (you're looking at it!).</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Javascript</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>Git</li>
+            <li>SQL</li>
+        </ul>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <h3>San Francisco State University</h3>
+        <p>Bachelor of Science in Computer Science</p>
+    </section>
+
+    <section id="hobbies">
+        <h2>Hobbies</h2>
+        <ul class="hobbies-list">
+            <li><img src="assets/guitar.jpeg" alt="Guitar" /></li>
+            <li><img src="assets/soccer.jpeg" alt="Soccer"/></li>
+            <li><img src="assets/surfing.jpeg" alt="Surfing" /></li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <section id="contact" class="contact-info">
+        <h2>Contact</h2>
+        <p>
+            <a href="">GitHub</a>
+            <a href="">LinkedIn</a>
+        </p>
+        <p>Copyright &copy; Rodrigo Oliveira 2020</p>
+    </section>
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

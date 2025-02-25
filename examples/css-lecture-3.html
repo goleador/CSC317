@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Styling & Animation - Lecture 3 Example</title>
+    <link rel="stylesheet" href="assets/css-lecture-3.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">
+            <a href="#">CSS Advanced</a>
+        </div>
+        <div class="nav-links">
+            <a href="#pseudo">Pseudo-Classes & Elements</a>
+            <a href="#variables">CSS Variables</a>
+            <a href="#transitions">Transitions</a>
+            <a href="#animations">Animations</a>
+            <a href="#filters">Filters</a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Advanced Styling & Animation</h1>
+        <p>Learn how to create engaging user experiences with advanced CSS techniques.</p>
+    </header>
+
+    <!-- Pseudo-Classes and Pseudo-Elements Section -->
+    <section id="pseudo">
+        <h2>Pseudo-Classes & Pseudo-Elements</h2>
+        
+        <div class="section-content">
+            <h3>Pseudo-Classes</h3>
+            
+            <div class="demo-section">
+                <h4>User Action States</h4>
+                
+                <div class="pseudo-demo">
+                    <a href="#" class="demo-link">Hover over me!</a>
+                    <button class="demo-button">Click and hold me!</button>
+                    <input type="text" class="demo-input" placeholder="Focus on me!">
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>a:hover { color: red; }
+button:active { background-color: darkblue; }
+input:focus { border-color: green; }</code></pre>
+                </div>
+            </div>
+            
+            <div class="demo-section">
+                <h4>Structural Pseudo-Classes</h4>
+                
+                <div class="pseudo-demo">
+                    <ul class="structural-list">
+                        <li>First item</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                        <li>Fourth item</li>
+                        <li>Fifth item</li>
+                        <li>Sixth item</li>
+                    </ul>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>li:first-child { font-weight: bold; }
+li:last-child { color: blue; }
+li:nth-child(odd) { background-color: #f5f5f5; }
+li:nth-child(3n) { color: green; }</code></pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-content">
+            <h3>Pseudo-Elements</h3>
+            
+            <div class="demo-section">
+                <h4>::before and ::after</h4>
+                
+                <div class="pseudo-demo">
+                    <p class="demo-before">This paragraph has content before it</p>
+                    <p class="demo-after">This paragraph has content after it</p>
+                    <a href="#" class="external-link">External link with icon</a>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>.demo-before::before {
+  content: "➤ ";
+  color: blue;
+}
+
+.demo-after::after {
+  content: " (End of paragraph)";
+  font-style: italic;
+  color: gray;
+}
+
+.external-link::after {
+  content: " ↗";
+  font-size: 0.8em;
+}</code></pre>
+                </div>
+            </div>
+            
+            <div class="demo-section">
+                <h4>::first-letter and ::first-line</h4>
+                
+                <div class="pseudo-demo">
+                    <p class="fancy-text">This paragraph has a fancy first letter and first line. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies ultrices, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>.fancy-text::first-letter {
+  font-size: 3em;
+  font-weight: bold;
+  color: #ff6600;
+  float: left;
+  margin-right: 5px;
+}
+
+.fancy-text::first-line {
+  font-style: italic;
+  color: #0066cc;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Variables Section -->
+    <section id="variables">
+        <h2>CSS Variables (Custom Properties)</h2>
+        
+        <div class="section-content">
+            <div class="demo-section">
+                <h4>Basic Usage</h4>
+                
+                <div class="variables-demo">
+                    <div class="theme-card theme-default">
+                        <h3>Default Theme</h3>
+                        <p>This card uses the default theme colors.</p>
+                        <button>Button</button>
+                    </div>
+                    
+                    <div class="theme-card theme-dark">
+                        <h3>Dark Theme</h3>
+                        <p>This card uses dark theme colors.</p>
+                        <button>Button</button>
+                    </div>
+                    
+                    <div class="theme-card theme-colorful">
+                        <h3>Colorful Theme</h3>
+                        <p>This card uses a colorful theme.</p>
+                        <button>Button</button>
+                    </div>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>:root {
+  --primary-color: #0066cc;
+  --secondary-color: #ff6600;
+  --text-color: #333333;
+  --bg-color: #ffffff;
+  --border-radius: 5px;
+}
+
+.theme-card {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+}
+
+.theme-card button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Theme variations */
+.theme-dark {
+  --primary-color: #7700cc;
+  --secondary-color: #00ccff;
+  --text-color: #ffffff;
+  --bg-color: #333333;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transitions Section -->
+    <section id="transitions">
+        <h2>CSS Transitions</h2>
+        
+        <div class="section-content">
+            <div class="demo-section">
+                <h4>Basic Transitions</h4>
+                
+                <div class="transitions-demo">
+                    <div class="transition-card t-color">
+                        <p>Hover to change color</p>
+                    </div>
+                    
+                    <div class="transition-card t-transform">
+                        <p>Hover to transform</p>
+                    </div>
+                    
+                    <div class="transition-card t-multiple">
+                        <p>Hover for multiple transitions</p>
+                    </div>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>.t-color {
+  background-color: #0066cc;
+  transition: background-color 0.5s ease;
+}
+
+.t-color:hover {
+  background-color: #ff6600;
+}
+
+.t-transform {
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+}
+
+.t-transform:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.t-multiple {
+  background-color: #333;
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: 
+    background-color 0.5s ease,
+    transform 0.3s ease-out,
+    box-shadow 0.3s linear;
+}
+
+.t-multiple:hover {
+  background-color: #7700cc;
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}</code></pre>
+                </div>
+            </div>
+            
+            <div class="demo-section">
+                <h4>Timing Functions</h4>
+                
+                <div class="transitions-demo">
+                    <div class="timing-container">
+                        <div class="timing-ball t-linear">Linear</div>
+                        <div class="timing-ball t-ease">Ease</div>
+                        <div class="timing-ball t-ease-in">Ease In</div>
+                        <div class="timing-ball t-ease-out">Ease Out</div>
+                        <div class="timing-ball t-ease-in-out">Ease In Out</div>
+                        <div class="timing-ball t-cubic-bezier">Cubic Bezier</div>
+                    </div>
+                    <button id="play-timing">Play Animation</button>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>.timing-ball {
+  transition: transform 1.5s;
+}
+
+.t-linear { transition-timing-function: linear; }
+.t-ease { transition-timing-function: ease; }
+.t-ease-in { transition-timing-function: ease-in; }
+.t-ease-out { transition-timing-function: ease-out; }
+.t-ease-in-out { transition-timing-function: ease-in-out; }
+.t-cubic-bezier { 
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55); 
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animations Section -->
+    <section id="animations">
+        <h2>CSS Animations</h2>
+        
+        <div class="section-content">
+            <div class="demo-section">
+                <h4>Basic Keyframe Animations</h4>
+                
+                <div class="animations-demo">
+                    <div class="animation-card a-pulse">
+                        <p>Pulse</p>
+                    </div>
+                    
+                    <div class="animation-card a-bounce">
+                        <p>Bounce</p>
+                    </div>
+                    
+                    <div class="animation-card a-spin">
+                        <p>Spin</p>
+                    </div>
+                    
+                    <div class="animation-card a-fade">
+                        <p>Fade</p>
+                    </div>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.a-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.a-bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.a-spin {
+  animation: spin 4s linear infinite;
+}
+
+@keyframes fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.a-fade {
+  animation: fade 3s ease-in-out infinite;
+}</code></pre>
+                </div>
+            </div>
+            
+            <div class="demo-section">
+                <h4>Animation Properties</h4>
+                
+                <div class="animations-demo">
+                    <div class="animation-controls">
+                        <div class="animation-box" id="animation-box">Animation Box</div>
+                        <div class="controls">
+                            <button data-property="animation-duration" data-value="1s">Faster</button>
+                            <button data-property="animation-duration" data-value="4s">Slower</button>
+                            <button data-property="animation-direction" data-value="alternate">Alternate</button>
+                            <button data-property="animation-direction" data-value="normal">Normal</button>
+                            <button data-property="animation-iteration-count" data-value="1">Once</button>
+                            <button data-property="animation-iteration-count" data-value="infinite">Infinite</button>
+                            <button data-property="animation-play-state" data-value="paused">Pause</button>
+                            <button data-property="animation-play-state" data-value="running">Play</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>.animation-box {
+  animation: colorAndMove 2s ease infinite;
+}
+
+@keyframes colorAndMove {
+  0% {
+    background-color: #0066cc;
+    transform: translateX(0);
+  }
+  50% {
+    background-color: #ff6600;
+    transform: translateX(150px);
+  }
+  100% {
+    background-color: #0066cc;
+    transform: translateX(0);
+  }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section id="filters">
+        <h2>CSS Filters</h2>
+        
+        <div class="section-content">
+            <div class="demo-section">
+                <h4>Filter Functions</h4>
+                
+                <div class="filters-demo">
+                    <div class="filter-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Original image" class="original-image">
+                        <p>Original</p>
+                    </div>
+                    
+                    <div class="filter-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Grayscale image" class="filter-grayscale">
+                        <p>grayscale(100%)</p>
+                    </div>
+                    
+                    <div class="filter-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Blur image" class="filter-blur">
+                        <p>blur(5px)</p>
+                    </div>
+                    
+                    <div class="filter-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Brightness image" class="filter-brightness">
+                        <p>brightness(150%)</p>
+                    </div>
+                    
+                    <div class="filter-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Contrast image" class="filter-contrast">
+                        <p>contrast(200%)</p>
+                    </div>
+                    
+                    <div class="filter-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Hue-rotate image" class="filter-hue-rotate">
+                        <p>hue-rotate(180deg)</p>
+                    </div>
+                    
+                    <div class="filter-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Sepia image" class="filter-sepia">
+                        <p>sepia(100%)</p>
+                    </div>
+                    
+                    <div class="filter-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Drop-shadow image" class="filter-drop-shadow">
+                        <p>drop-shadow(5px 5px 5px #000)</p>
+                    </div>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>.filter-grayscale { filter: grayscale(100%); }
+.filter-blur { filter: blur(5px); }
+.filter-brightness { filter: brightness(150%); }
+.filter-contrast { filter: contrast(200%); }
+.filter-hue-rotate { filter: hue-rotate(180deg); }
+.filter-sepia { filter: sepia(100%); }
+.filter-drop-shadow { filter: drop-shadow(5px 5px 5px #000); }</code></pre>
+                </div>
+            </div>
+            
+            <div class="demo-section">
+                <h4>Multiple Filters</h4>
+                
+                <div class="filters-demo">
+                    <div class="filter-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Original image" class="original-image">
+                        <p>Original</p>
+                    </div>
+                    
+                    <div class="filter-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Multiple filters image" class="filter-multiple">
+                        <p>Multiple Filters</p>
+                    </div>
+                    
+                    <div class="filter-card filter-hover-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Hover filter image" class="filter-hover">
+                        <p>Hover to see transition</p>
+                    </div>
+                </div>
+                
+                <div class="code-sample">
+                    <pre><code>.filter-multiple {
+  filter: contrast(150%) brightness(110%) sepia(30%);
+}
+
+.filter-hover {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+.filter-hover:hover {
+  filter: grayscale(0%);
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Cards Example -->
+    <section id="projects">
+        <h2>Portfolio Project Cards Example</h2>
+        
+        <div class="section-content">
+            <p class="section-intro">This example demonstrates how to use the techniques we've learned to create engaging project cards for a portfolio website.</p>
+            
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250" alt="Project 1 Screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3><a href="#" class="project-title">Weather App</a></h3>
+                        <p>A web application that shows real-time weather information for any location in the world.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250" alt="Project 2 Screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3><a href="#" class="project-title">Task Manager</a></h3>
+                        <p>A simple and elegant task management application with drag-and-drop functionality.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">LocalStorage</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250" alt="Project 3 Screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3><a href="#" class="project-title">E-commerce Website</a></h3>
+                        <p>A responsive e-commerce website with product filtering and cart functionality.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">React</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Advanced CSS Course. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for animations demo
+        document.getElementById('play-timing').addEventListener('click', function() {
+            const balls = document.querySelectorAll('.timing-ball');
+            balls.forEach(ball => {
+                ball.classList.remove('move');
+                setTimeout(() => {
+                    ball.classList.add('move');
+                }, 50);
+            });
+        });
+
+        // JavaScript for animation properties demo
+        document.querySelectorAll('.controls button').forEach(button => {
+            button.addEventListener('click', function() {
+                const property = this.getAttribute('data-property');
+                const value = this.getAttribute('data-value');
+                const box = document.getElementById('animation-box');
+                
+                box.style[property] = value;
+                
+                // Reset animation to make changes take effect
+                if (property !== 'animation-play-state') {
+                    box.classList.remove('animated');
+                    setTimeout(() => {
+                        box.classList.add('animated');
+                    }, 10);
+                }
+            });
+        });
+
+        // Initialize animation box
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('animation-box').classList.add('animated');
+        });
+    </script>
+</body>
+</html>
