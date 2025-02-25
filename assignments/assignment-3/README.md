@@ -16,8 +16,8 @@ Create a completely handwritten CSS file that styles your portfolio website acco
 - Implement a responsive layout that works well on mobile, tablet, and desktop screens
 - Use CSS variables for a consistent color scheme and easy theming
 - Apply appropriate spacing, typography, and visual hierarchy
-- Style all sections of your portfolio (navigation, about, education, experience, projects, contact form)
-- Include at least one transition or animation effect
+- Style all sections of your portfolio (navigation, about, education, experience, projects, skills)
+- (OPTIONAL)Include at least one transition or animation effect
 - Ensure all interactive elements have appropriate hover/focus states
 - Add comments explaining your approach to each major section
 
@@ -58,9 +58,11 @@ Your assignment should be organized in the following folder structure:
 │   ├── ai-2.css       (AI-generated with image + text prompt)
 │   └── hybrid.css     (Combined solution)
 └── images/
-    └── [all images used in your portfolio incluiding images used for generation]
-└── screenshots/
-    └── [all screenshots or images used for ai generation]
+│   └── [all images used in your portfolio incluiding images used for generation]
+└── prompts/
+│   ├── ai-1-css-prompt.md     (Prompt used for ai-1.css)
+│   ├── ai-2-css-prompt.md     (Prompt used for ai-2.css)
+│   └── [all images used in your portfolio incluiding images used for generation]
 ```
 
 ## Deliverables
@@ -71,7 +73,6 @@ Your assignment should be organized in the following folder structure:
     - `ai-2.css` (AI-generated with image + text prompt)
     - `hybrid.css` (combined solution with source comments)
 3. A `SUBMISSION.md` file containing:
-    - Screenshots of your portfolio with each CSS file applied
     - A brief analysis (250-500 words) comparing the different approaches
     - Discussion of what you learned from this exercise
     - Which version you prefer and why
@@ -111,15 +112,6 @@ This assignment is due one week after Lecture 4.
 
 ## Analysis
 [Write a 250-500 word analysis comparing the different approaches]
-
-### AI-Generated CSS (Text Prompt)
-[Include your prompt and discuss the results]
-
-### AI-Generated CSS (Image + Text Prompt)
-[Include your prompt, reference image link (inside screenshots), and discuss the results]
-
-### Hybrid Solution
-[Explain your integration approach and decisions]
 
 ## Lessons Learned
 [Discuss what you learned from this exercise]
