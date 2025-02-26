@@ -276,180 +276,31 @@ body {
 
 ---
 
-## Let's Start the Workshop
+## What You Should Do Before Next Class
 
-**Portfolio Website Part 1:**
-- Setting up CSS file
-- Styling the navigation bar
-- Creating header and about sections
-- Adding basic responsiveness
+Between now and our next class, make sure you:
 
----
+1️⃣ Read the assignment carefully and post any questions on Discord or Canvas discussions.
 
-## Workshop: Setting Up CSS
+2️⃣ Set up your workspace:
 
-Create a file named `styles.css` in the same directory as your HTML file.
+• Create a new assignment-3 folder.
 
-Link it in your HTML file's `<head>` section:
+• Copy your existing code and images from assignments-2 into this folder.
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Content here -->
-</body>
-</html>
-```
+• Double-check that everything still works.
 
----
+3️⃣ Start styling!
 
-## Workshop: CSS Reset
+• Inside assignment-3, create a styles folder.
 
-At the top of your CSS file, add:
+• Add a styles.css file for your hand-coded CSS.
 
-```css
-/* CSS Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+• Link your index.html to your styles file.
 
-body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  color: #333;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-```
+• Begin styling your header, profile image, and add a custom font of your choice.
 
----
 
-## Workshop: Navigation Bar
-
-```css
-/* Navigation */
-nav {
-  background-color: #333;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: #ddd;
-}
-```
-
-Remember to update your HTML to use `<nav>` instead of `<div>` for navigation.
-
----
-
-## Workshop: Header & About Section
-
-```css
-/* Header/About Section */
-#about {
-  padding: 3rem 0;
-  text-align: center;
-}
-
-#about img {
-  border-radius: 50%;
-  margin: 1.5rem 0;
-  border: 5px solid #eee;
-}
-
-#about h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-#about h2 {
-  font-size: 1.8rem;
-  margin: 2rem 0 1rem;
-  color: #555;
-}
-
-#about p {
-  margin-bottom: 1rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-```
-
----
-
-## Workshop: Social Links
-
-```css
-/* Social Links */
-#about h3 {
-  margin-top: 2rem;
-  font-size: 1.3rem;
-}
-
-#about a {
-  color: #0066cc;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-#about a:hover {
-  text-decoration: underline;
-}
-```
-
----
-
-## Workshop: Basic Responsiveness
-
-```css
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  nav {
-    text-align: center;
-  }
-  
-  nav a {
-    display: inline-block;
-    margin: 5px 10px;
-  }
-  
-  #about h1 {
-    font-size: 2rem;
-  }
-  
-  #about h2 {
-    font-size: 1.5rem;
-  }
-}
-```
-
----
-
-## Next Steps
-
-1. Complete the remaining portfolio sections on your own
-2. Make sure to adapt the navigation to semantic HTML
-3. Experiment with different colors and typography
-4. Next lecture: Flexbox and Grid for more advanced layouts
 
 ---
 
