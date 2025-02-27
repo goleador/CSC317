@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EM vs REM</title>
+    <style>
+        html {
+            font-size: 16px;
+        }
+        .parent {
+            font-size: 20px;
+        }
+        .child-em {
+            font-size: 2em; /* 2 times the parent (20px * 2 = 40px) */
+        }
+        .child-rem {
+            font-size: 2rem; /* 2 times root (16px * 2 = 32px) */
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    Parent font size: 20px
+    <p class="child-em">This text is 2em (40px)</p>
+    <p class="child-rem">This text is 2rem (32px)</p>
+</div>
+</body>
+</html>

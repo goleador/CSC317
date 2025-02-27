@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid with fr</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr; /* 1 part, 2 parts, 1 part */
+            gap: 10px;
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .grid-item {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid darkblue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="grid-container">
+    <div class="grid-item">1fr</div>
+    <div class="grid-item">2fr</div>
+    <div class="grid-item">1fr</div>
+</div>
+
+</body>
+</html>
