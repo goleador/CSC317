@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Template Areas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #27ae60;
+        }
+
+        p.description {
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .demo-container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .code {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #27ae60;
+            font-family: monospace;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        /* Grid Template Areas - Basic Layout */
+        .grid-basic {
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "sidebar content content"
+                "footer footer footer";
+            grid-template-columns: 200px 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 10px;
+            height: 400px;
+        }
+
+        .grid-basic > div {
+            padding: 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #e74c3c;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #3498db;
+        }
+
+        .content {
+            grid-area: content;
+            background-color: #27ae60;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: #9b59b6;
+        }
+
+        /* Complex Layout */
+        .grid-complex {
+            display: grid;
+            grid-template-areas:
+                "nav nav nav nav"
+                "sidebar-1 main main sidebar-2"
+                "sidebar-1 feature-1 feature-2 sidebar-2"
+                "footer footer footer footer";
+            grid-template-columns: 150px 1fr 1fr 150px;
+            grid-template-rows: 60px 1fr 1fr 60px;
+            gap: 10px;
+            height: 500px;
+        }
+
+        .grid-complex > div {
+            padding: 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav { 
+            grid-area: nav; 
+            background-color: #34495e;
+        }
+
+        .sidebar-1 { 
+            grid-area: sidebar-1; 
+            background-color: #f39c12;
+        }
+
+        .main { 
+            grid-area: main; 
+            background-color: #16a085;
+        }
+
+        .sidebar-2 { 
+            grid-area: sidebar-2; 
+            background-color: #f39c12;
+        }
+
+        .feature-1 { 
+            grid-area: feature-1; 
+            background-color: #2c3e50;
+        }
+
+        .feature-2 { 
+            grid-area: feature-2; 
+            background-color: #2c3e50;
+        }
+
+        .footer-area { 
+            grid-area: footer; 
+            background-color: #34495e;
+        }
+
+        /* Using Empty Grid Areas */
+        .grid-empty {
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "sidebar content ."
+                "footer footer footer";
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: auto 1fr auto;
+            gap: 10px;
+            height: 300px;
+        }
+
+        .grid-empty > div {
+            padding: 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Dashboard Layout */
+        .dashboard {
+            display: grid;
+            grid-template-areas:
+                "header header header header"
+                "sidebar widget-1 widget-2 widget-3"
+                "sidebar widget-4 widget-5 widget-6"
+                "sidebar main main main"
+                "footer footer footer footer";
+            grid-template-columns: 200px repeat(3, 1fr);
+            grid-template-rows: 80px repeat(2, 150px) 1fr 60px;
+            gap: 10px;
+            height: 700px;
+        }
+
+        .dashboard > div {
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .dashboard .header {
+            grid-area: header;
+            background-color: #2c3e50;
+        }
+
+        .dashboard .sidebar {
+            grid-area: sidebar;
+            background-color: #34495e;
+        }
+
+        .widget-1 {
+            grid-area: widget-1;
+            background-color: #e74c3c;
+        }
+
+        .widget-2 {
+            grid-area: widget-2;
+            background-color: #3498db;
+        }
+
+        .widget-3 {
+            grid-area: widget-3;
+            background-color: #27ae60;
+        }
+
+        .widget-4 {
+            grid-area: widget-4;
+            background-color: #f39c12;
+        }
+
+        .widget-5 {
+            grid-area: widget-5;
+            background-color: #9b59b6;
+        }
+
+        .widget-6 {
+            grid-area: widget-6;
+            background-color: #16a085;
+        }
+
+        .dashboard .main {
+            grid-area: main;
+            background-color: #95a5a6;
+        }
+
+        .dashboard .footer {
+            grid-area: footer;
+            background-color: #2c3e50;
+        }
+
+        /* Responsive Layout with Media Queries */
+        .responsive-grid {
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "nav nav nav"
+                "sidebar content ads"
+                "footer footer footer";
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: auto auto 1fr auto;
+            gap: 10px;
+            height: 500px;
+        }
+
+        .responsive-grid > div {
+            padding: 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-area {
+            grid-area: nav;
+            background-color: #7f8c8d;
+        }
+
+        .ads {
+            grid-area: ads;
+            background-color: #f1c40f;
+        }
+
+        /* Media Query Responsive Layout */
+        @media (max-width: 768px) {
+            .responsive-grid {
+                grid-template-areas:
+                    "header header"
+                    "nav nav"
+                    "content content"
+                    "sidebar ads"
+                    "footer footer";
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto 1fr auto auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .responsive-grid {
+                grid-template-areas:
+                    "header"
+                    "nav"
+                    "content"
+                    "sidebar"
+                    "ads"
+                    "footer";
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto auto auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Grid Template Areas</h1>
+    <p class="description">Grid template areas provide a visual way to define your grid layout, making complex designs easier to understand and maintain.</p>
+
+    <div class="section">
+        <h2>Basic Layout</h2>
+        <p class="description">Create a common page layout with header, sidebar, content, and footer using grid-template-areas.</p>
+
+        <div class="code">
+            .container {<br>
+            &nbsp;&nbsp;display: grid;<br>
+            &nbsp;&nbsp;grid-template-areas:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"header header header"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"sidebar content content"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"footer footer footer";<br>
+            &nbsp;&nbsp;grid-template-columns: 200px 1fr 1fr;<br>
+            &nbsp;&nbsp;grid-template-rows: auto 1fr auto;<br>
+            }
+        </div>
+
+        <div class="demo-container">
+            <div class="grid-basic">
+                <div class="header">Header</div>
+                <div class="sidebar">Sidebar</div>
+                <div class="content">Content</div>
+                <div class="footer">Footer</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Complex Layout</h2>
+        <p class="description">Using grid-template-areas for more complex layouts with multiple sections.</p>
+
+        <div class="code">
+            .container {<br>
+            &nbsp;&nbsp;display: grid;<br>
+            &nbsp;&nbsp;grid-template-areas:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"nav nav nav nav"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"sidebar-1 main main sidebar-2"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"sidebar-1 feature-1 feature-2 sidebar-2"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"footer footer footer footer";<br>
+            &nbsp;&nbsp;grid-template-columns: 150px 1fr 1fr 150px;<br>
+            &nbsp;&nbsp;grid-template-rows: 60px 1fr 1fr 60px;<br>
+            }
+        </div>
+
+        <div class="demo-container">
+            <div class="grid-complex">
+                <div class="nav">Navigation</div>
+                <div class="sidebar-1">Sidebar 1</div>
+                <div class="main">Main Content</div>
+                <div class="sidebar-2">Sidebar 2</div>
+                <div class="feature-1">Feature 1</div>
+                <div class="feature-2">Feature 2</div>
+                <div class="footer-area">Footer</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Using Empty Grid Areas</h2>
+        <p class="description">You can use a period (.) to create an empty grid area that won't be filled with content.</p>
+
+        <div class="code">
+            .container {<br>
+            &nbsp;&nbsp;display: grid;<br>
+            &nbsp;&nbsp;grid-template-areas:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"header header header"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"sidebar content ."<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"footer footer footer";<br>
+            &nbsp;&nbsp;grid-template-columns: 200px 1fr 200px;<br>
+            &nbsp;&nbsp;grid-template-rows: auto 1fr auto;<br>
+            }
+        </div>
+
+        <div class="demo-container">
+            <div class="grid-empty">
+                <div class="header">Header</div>
+                <div class="sidebar">Sidebar</div>
+                <div class="content">Content</div>
+                <div class="footer">Footer</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Dashboard Layout</h2>
+        <p class="description">A more complex dashboard layout using grid-template-areas.</p>
+
+        <div class="code">
+            .dashboard {<br>
+            &nbsp;&nbsp;display: grid;<br>
+            &nbsp;&nbsp;grid-template-areas:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"header header header header"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"sidebar widget-1 widget-2 widget-3"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"sidebar widget-4 widget-5 widget-6"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"sidebar main main main"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"footer footer footer footer";<br>
+            &nbsp;&nbsp;grid-template-columns: 200px repeat(3, 1fr);<br>
+            &nbsp;&nbsp;grid-template-rows: 80px repeat(2, 150px) 1fr 60px;<br>
+            }
+        </div>
+
+        <div class="demo-container">
+            <div class="dashboard">
+                <div class="header">Header</div>
+                <div class="sidebar">Sidebar</div>
+                <div class="widget-1">Widget 1</div>
+                <div class="widget-2">Widget 2</div>
+                <div class="widget-3">Widget 3</div>
+                <div class="widget-4">Widget 4</div>
+                <div class="widget-5">Widget 5</div>
+                <div class="widget-6">Widget 6</div>
+                <div class="main">Main Content</div>
+                <div class="footer">Footer</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Responsive Grid Template Areas</h2>
+        <p class="description">Use media queries to redefine grid-template-areas for different screen sizes. Resize your browser to see the layout change.</p>
+
+        <div class="code">
+            /* Desktop */
+            .responsive-grid {<br>
+            &nbsp;&nbsp;grid-template-areas:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"header header header"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"nav nav nav"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"sidebar content ads"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"footer footer footer";<br>
+            }<br><br>
+            
+            /* Tablet */
+            @media (max-width: 768px) {<br>
+            &nbsp;&nbsp;.responsive-grid {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;grid-template-areas:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"header header"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"nav nav"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"content content"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sidebar ads"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"footer footer";<br>
+            &nbsp;&nbsp;}<br>
+            }<br><br>
+            
+            /* Mobile */
+            @media (max-width: 480px) {<br>
+            &nbsp;&nbsp;.responsive-grid {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;grid-template-areas:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"header"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"nav"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"content"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sidebar"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ads"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"footer";<br>
+            &nbsp;&nbsp;}<br>
+            }
+        </div>
+
+        <div class="demo-container">
+            <div class="responsive-grid">
+                <div class="header">Header</div>
+                <div class="nav-area">Navigation</div>
+                <div class="sidebar">Sidebar</div>
+                <div class="content">Content</div>
+                <div class="ads">Ads</div>
+                <div class="footer">Footer</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

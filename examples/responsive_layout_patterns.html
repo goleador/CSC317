@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout Patterns</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        h2 {
+            margin-top: 40px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #9b59b6;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #666;
+        }
+
+        p.description {
+            margin-bottom: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .demo-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .code {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #9b59b6;
+            font-family: monospace;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        /* Mobile First Layout */
+        .mobile-first-container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .mobile-first-header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .mobile-first-nav {
+            background-color: #2c3e50;
+            margin-top: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .mobile-first-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-first-nav li a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-first-nav li:last-child a {
+            border-bottom: none;
+        }
+
+        .mobile-first-content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .mobile-first-main {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            flex: 1;
+        }
+
+        .mobile-first-sidebar {
+            background-color: #e74c3c;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .mobile-first-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .mobile-first-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .mobile-first-card-img {
+            height: 120px;
+            background-color: #3498db;
+        }
+
+        .mobile-first-card-content {
+            padding: 15px;
+        }
+
+        .mobile-first-footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        /* Media Queries for Mobile First */
+        @media (min-width: 768px) {
+            .mobile-first-nav ul {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .mobile-first-nav li a {
+                border-bottom: none;
+                border-right: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .mobile-first-nav li:last-child a {
+                border-right: none;
+            }
+
+            .mobile-first-cards {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .mobile-first-card {
+                flex: 1 1 calc(50% - 5px);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .mobile-first-content {
+                flex-direction: row;
+            }
+
+            .mobile-first-main {
+                flex: 2;
+            }
+
+            .mobile-first-sidebar {
+                flex: 1;
+            }
+
+            .mobile-first-card {
+                flex: 1 1 calc(33.333% - 7px);
+            }
+        }
+
+        /* Column Drop Pattern */
+        .column-drop {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .column-drop-header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .column-drop-sidebar-1 {
+            background-color: #e74c3c;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .column-drop-content {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .column-drop-sidebar-2 {
+            background-color: #2ecc71;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        @media (min-width: 768px) {
+            .column-drop {
+                flex-flow: row wrap;
+            }
+
+            .column-drop-header {
+                width: 100%;
+            }
+
+            .column-drop-sidebar-1 {
+                flex: 1;
+                order: 1;
+            }
+
+            .column-drop-content {
+                flex: 3;
+                order: 2;
+            }
+
+            .column-drop-sidebar-2 {
+                width: 100%;
+                order: 3;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .column-drop-sidebar-2 {
+                flex: 1;
+                width: auto;
+                order: 3;
+            }
+        }
+
+        /* Layout Shifter Pattern */
+        .layout-shifter {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .layout-shifter-header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .layout-shifter-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .layout-shifter-content {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .layout-shifter-sidebar {
+            background-color: #e74c3c;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .layout-shifter-footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        @media (min-width: 768px) {
+            .layout-shifter-container {
+                flex-direction: row;
+            }
+
+            .layout-shifter-content {
+                flex: 2;
+                order: 2;
+            }
+
+            .layout-shifter-sidebar {
+                flex: 1;
+                order: 1;
+            }
+        }
+
+        /* Tiny Tweaks Pattern */
+        .tiny-tweaks {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tiny-tweaks-header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .tiny-tweaks-content {
+            background-color: #ecf0f1;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .tiny-tweaks-footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        /* Tiny Tweaks Media Queries */
+        @media (min-width: 768px) {
+            .tiny-tweaks-content {
+                padding: 30px;
+                font-size: 1.1em;
+            }
+        }
+
+        /* Off Canvas Pattern */
+        .off-canvas {
+            position: relative;
+            overflow: hidden;
+            height: 400px; /* Fixed height for demo */
+        }
+
+        .off-canvas-menu {
+            position: absolute;
+            left: -200px;
+            width: 200px;
+            height: 100%;
+            background-color: #2c3e50;
+            color: white;
+            transition: transform 0.3s ease;
+            z-index: 1;
+        }
+
+        .off-canvas-menu ul {
+            list-style: none;
+            padding: 20px;
+        }
+
+        .off-canvas-menu li {
+            margin-bottom: 10px;
+        }
+
+        .off-canvas-menu a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .off-canvas-content {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            background-color: #ecf0f1;
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .off-canvas-toggle {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Off Canvas JavaScript simulation */
+        .off-canvas.active .off-canvas-menu {
+            transform: translateX(200px);
+        }
+
+        .off-canvas.active .off-canvas-content {
+            transform: translateX(200px);
+        }
+
+        @media (min-width: 768px) {
+            .off-canvas-menu {
+                left: 0;
+                transform: none;
+            }
+
+            .off-canvas-content {
+                margin-left: 200px;
+                width: calc(100% - 200px);
+            }
+
+            .off-canvas-toggle {
+                display: none;
+            }
+
+            .off-canvas.active .off-canvas-content {
+                transform: none;
+            }
+        }
+
+        /* CSS Grid Layout Pattern */
+        .grid-pattern {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 10px;
+        }
+
+        .grid-pattern-header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .grid-pattern-nav {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .grid-pattern-sidebar {
+            background-color: #e74c3c;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .grid-pattern-content {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .grid-pattern-footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-pattern {
+                grid-template-columns: 200px 1fr;
+                grid-template-areas:
+                    "header header"
+                    "nav nav"
+                    "sidebar content"
+                    "footer footer";
+            }
+
+            .grid-pattern-header {
+                grid-area: header;
+            }
+
+            .grid-pattern-nav {
+                grid-area: nav;
+            }
+
+            .grid-pattern-sidebar {
+                grid-area: sidebar;
+            }
+
+            .grid-pattern-content {
+                grid-area: content;
+            }
+
+            .grid-pattern-footer {
+                grid-area: footer;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .grid-pattern {
+                grid-template-columns: 200px 1fr 200px;
+                grid-template-areas:
+                    "header header header"
+                    "nav nav nav"
+                    "sidebar content sidebar2"
+                    "footer footer footer";
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Responsive Layout Patterns</h1>
+    <p class="description">Common responsive design patterns to create layouts that work well across different screen sizes. Each pattern adapts to viewport changes in different ways.</p>
+
+    <div class="section">
+        <h2>Mobile-First Approach</h2>
+        <p class="description">Start with a mobile design and add complexity as the viewport grows. This approach focuses on delivering the core content and functionality to mobile users first.</p>
+
+        <div class="demo-container">
+            <div class="mobile-first-container">
+                <header class="mobile-first-header">
+                    <h3>Website Title</h3>
+                </header>
+                
+                <nav class="mobile-first-nav">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="mobile-first-content">
+                    <main class="mobile-first-main">
+                        <h3>Main Content</h3>
+                        <p>This is the main content area. On mobile, it appears above the sidebar. On larger screens, they display side-by-side.</p>
+                    </main>
+                    
+                    <aside class="mobile-first-sidebar">
+                        <h3>Sidebar</h3>
+                        <p>This sidebar stacks below the main content on mobile but appears alongside on larger screens.</p>
+                    </aside>
+                </div>
+                
+                <div class="mobile-first-cards">
+                    <div class="mobile-first-card">
+                        <div class="mobile-first-card-img"></div>
+                        <div class="mobile-first-card-content">
+                            <h4>Card 1</h4>
+                            <p>Card content that adapts to screen size.</p>
+                        </div>
+                    </div>
+                    <div class="mobile-first-card">
+                        <div class="mobile-first-card-img"></div>
+                        <div class="mobile-first-card-content">
+                            <h4>Card 2</h4>
+                            <p>Card content that adapts to screen size.</p>
+                        </div>
+                    </div>
+                    <div class="mobile-first-card">
+                        <div class="mobile-first-card-img"></div>
+                        <div class="mobile-first-card-content">
+                            <h4>Card 3</h4>
+                            <p>Card content that adapts to screen size.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <footer class="mobile-first-footer">
+                    <p>Footer content</p>
+                </footer>
+            </div>
+        </div>
+
+        <div class="code">/* Mobile First Base Styles */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Component styling for mobile */
+.nav ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .nav ul {
+        flex-direction: row;
+    }
+    
+    .cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .card {
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+/* Desktop (992px and up) */
+@media (min-width: 992px) {
+    .content {
+        flex-direction: row;
+    }
+    
+    .main {
+        flex: 2;
+    }
+    
+    .sidebar {
+        flex: 1;
+    }
+    
+    .card {
+        flex: 1 1 calc(33.333% - 10px);
+    }
+}</div>
+    </div>
+
+    <div class="section">
+        <h2>Column Drop Pattern</h2>
+        <p class="description">As the screen width gets narrower, columns stack vertically in a predetermined order. This pattern works well for layouts with distinct content sections.</p>
+
+        <div class="demo-container">
+            <div class="column-drop">
+                <header class="column-drop-header">
+                    <h3>Header</h3>
+                </header>
+                <aside class="column-drop-sidebar-1">
+                    <h3>Sidebar 1</h3>
+                    <p>This sidebar appears first on mobile, but on tablet and desktop it moves to the left side.</p>
+                </aside>
+                <main class="column-drop-content">
+                    <h3>Main Content</h3>
+                    <p>This main content area appears second on mobile, and expands on larger screens.</p>
+                    <p>As the screen narrows, columns stack in a predetermined order.</p>
+                </main>
+                <aside class="column-drop-sidebar-2">
+                    <h3>Sidebar 2</h3>
+                    <p>This sidebar appears last on mobile, on tablet it remains at the bottom, but on desktop it moves to the right side.</p>
+                </aside>
+            </div>
+        </div>
+
+        <div class="code">/* Column Drop - Mobile First */
+.column-drop {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    /* header styles */
+}
+
+.sidebar-1 {
+    /* sidebar 1 styles */
+}
+
+.content {
+    /* content styles */
+}
+
+.sidebar-2 {
+    /* sidebar 2 styles */
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .column-drop {
+        flex-flow: row wrap;
+    }
+    
+    .header {
+        width: 100%;
+    }
+    
+    .sidebar-1 {
+        flex: 1;
+    }
+    
+    .content {
+        flex: 3;
+    }
+    
+    .sidebar-2 {
+        width: 100%; /* Full width at the bottom */
+    }
+}
+
+/* Desktop (992px and up) */
+@media (min-width: 992px) {
+    .sidebar-2 {
+        flex: 1;
+        width: auto; /* Reset width */
+    }
+}</div>
+    </div>
+
+    <div class="section">
+        <h2>Layout Shifter Pattern</h2>
+        <p class="description">This pattern makes significant layout changes across different screen sizes, not just stacking columns. It offers the most control but can be more complex to implement.</p>
+
+        <div class="demo-container">
+            <div class="layout-shifter">
+                <header class="layout-shifter-header">
+                    <h3>Header</h3>
+                </header>
+                <div class="layout-shifter-container">
+                    <main class="layout-shifter-content">
+                        <h3>Main Content</h3>
+                        <p>The main content area repositions based on screen size.</p>
+                        <p>On mobile, it appears above the sidebar.</p>
+                        <p>On larger screens, the sidebar moves to the left and the content to the right.</p>
+                    </main>
+                    <aside class="layout-shifter-sidebar">
+                        <h3>Sidebar</h3>
+                        <p>This sidebar changes position dramatically as screen size changes.</p>
+                    </aside>
+                </div>
+                <footer class="layout-shifter-footer">
+                    <p>Footer</p>
+                </footer>
+            </div>
+        </div>
+
+        <div class="code">/* Layout Shifter - Mobile First */
+.layout-shifter {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    /* content styles */
+}
+
+.sidebar {
+    /* sidebar styles */
+}
+
+/* Tablet and Above (768px and up) */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+    
+    .content {
+        flex: 2;
+        order: 2; /* Move content to the right */
+    }
+    
+    .sidebar {
+        flex: 1;
+        order: 1; /* Move sidebar to the left */
+    }
+}</div>
+    </div>
+
+    <div class="section">
+        <h2>Tiny Tweaks Pattern</h2>
+        <p class="description">Makes small changes to layout, typography, and image size across different screen sizes. Best for single-column layouts that just need minor adjustments.</p>
+
+        <div class="demo-container">
+            <div class="tiny-tweaks">
+                <header class="tiny-tweaks-header">
+                    <h3>Header</h3>
+                </header>
+                <main class="tiny-tweaks-content">
+                    <h3>Single Column Layout</h3>
+                    <p>This layout makes minor adjustments based on screen size, like font size, padding, and margins.</p>
+                    <p>It maintains the same basic single column structure across all devices, with subtle enhancements for larger screens.</p>
+                    <p>This pattern is ideal for simple content-focused designs like blogs, articles, or documentation.</p>
+                </main>
+                <footer class="tiny-tweaks-footer">
+                    <p>Footer</p>
+                </footer>
+            </div>
+        </div>
+
+        <div class="code">/* Tiny Tweaks - Mobile First */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content {
+    padding: 20px;
+    font-size: 1em;
+}
+
+/* Subtle enhancements for larger screens */
+@media (min-width: 768px) {
+    .content {
+        padding: 30px;
+        font-size: 1.1em;
+    }
+}</div>
+    </div>
+
+    <div class="section">
+        <h2>Off Canvas Pattern</h2>
+        <p class="description">Places less frequently used content (like navigation or filters) off screen, showing it only when explicitly requested. Common in mobile interfaces for navigation menus.</p>
+
+        <div class="demo-container">
+            <div class="off-canvas" id="offCanvas">
+                <nav class="off-canvas-menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <main class="off-canvas-content">
+                    <button class="off-canvas-toggle" id="menuToggle">Toggle Menu</button>
+                    <h3>Off Canvas Pattern</h3>
+                    <p>This pattern places less frequently used content (like navigation) off screen on mobile devices.</p>
+                    <p>Click the "Toggle Menu" button to see the off-canvas menu slide in from the left.</p>
+                    <p>On larger screens, the menu is permanently visible alongside the content.</p>
+                    <p>This pattern is commonly used for responsive navigation systems.</p>
+                </main>
+            </div>
+        </div>
+
+        <div class="code">/* Off Canvas - Mobile First */
+.off-canvas {
+    position: relative;
+    overflow: hidden;
+}
+
+.menu {
+    position: absolute;
+    left: -200px; /* Hide off screen */
+    width: 200px;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.content {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+/* Active state (when menu button is clicked) */
+.off-canvas.active .menu {
+    transform: translateX(200px); /* Slide in */
+}
+
+.off-canvas.active .content {
+    transform: translateX(200px); /* Push content */
+}
+
+/* Desktop (768px and up) */
+@media (min-width: 768px) {
+    .menu {
+        left: 0; /* Always visible */
+        transform: none;
+    }
+    
+    .content {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+    }
+    
+    .menu-toggle {
+        display: none; /* Hide toggle button */
+    }
+    
+    .off-canvas.active .content {
+        transform: none; /* No need to transform */
+    }
+}</div>
+
+<script>
+    // Simple JavaScript to toggle the off-canvas menu
+    document.getElementById('menuToggle').addEventListener('click', function() {
+        document.getElementById('offCanvas').classList.toggle('active');
+    });
+</script>
+    </div>
+
+    <div class="section">
+        <h2>CSS Grid Layout Pattern</h2>
+        <p class="description">Uses CSS Grid's powerful layout capabilities to create responsive designs by redefining the grid template areas at different breakpoints.</p>
+
+        <div class="demo-container">
+            <div class="grid-pattern">
+                <header class="grid-pattern-header">Header</header>
+                <nav class="grid-pattern-nav">Navigation</nav>
+                <aside class="grid-pattern-sidebar">Sidebar</aside>
+                <main class="grid-pattern-content">
+                    <h3>Main Content</h3>
+                    <p>This layout uses CSS Grid to create a responsive design that changes dramatically at different breakpoints.</p>
+                    <p>On mobile, everything stacks vertically.</p>
+                    <p>On tablet, the sidebar appears to the left of content.</p>
+                    <p>On desktop, additional elements might appear.</p>
+                </main>
+                <footer class="grid-pattern-footer">Footer</footer>
+            </div>
+        </div>
+
+        <div class="code">/* CSS Grid Layout - Mobile First */
+.grid-pattern {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    grid-gap: 10px;
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .grid-pattern {
+        grid-template-columns: 200px 1fr;
+        grid-template-areas:
+            "header header"
+            "nav nav"
+            "sidebar content"
+            "footer footer";
+    }
+    
+    .header { grid-area: header; }
+    .nav { grid-area: nav; }
+    .sidebar { grid-area: sidebar; }
+    .content { grid-area: content; }
+    .footer { grid-area: footer; }
+}
+
+/* Desktop (992px and up) */
+@media (min-width: 992px) {
+    .grid-pattern {
+        grid-template-columns: 200px 1fr 200px;
+        grid-template-areas:
+            "header header header"
+            "nav nav nav"
+            "sidebar content sidebar2"
+            "footer footer footer";
+    }
+}</div>
+    </div>
+</body>
+</html>
