@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Into Scene Effect</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow-x: hidden; font-family: Arial, sans-serif; }
+
+        .section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .section:nth-child(1) { background: #1a1a1a; }
+        .section:nth-child(2) { background: #333; }
+        .section:nth-child(3) { background: #555; }
+        .section:nth-child(4) { background: #777; }
+
+    </style>
+</head>
+<body>
+
+<div class="section">Welcome</div>
+<div class="section">Entering Scene...</div>
+<div class="section">Deep Inside</div>
+<div class="section">Final Scene</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".section").forEach((section, index) => {
+        gsap.fromTo(section,
+            { scale: 1.5, opacity: 0 },
+            { scale: 1, opacity: 1,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top bottom", // Triggers when section enters viewport
+                    end: "center center", // Fully visible
+                    scrub: true, // Smooth scrolling effect
+                    pin: true, // Pins the section in place while scrolling
+                }
+            });
+    });
+</script>
+
+</body>
+</html>

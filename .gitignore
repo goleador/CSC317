@@ -1,5 +1,7 @@
 **/.grade/
 
+**/quizzes/
+
 
 # macOS
 .DS_Store

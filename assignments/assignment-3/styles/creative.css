@@ -412,7 +412,7 @@ footer h2 {
     border-radius: 30px;
     font-weight: 500;
     font-size: 0.8rem;
-    cursor: pointer;
+    cursor: crosshair;
     transition: all 0.3s ease;
 }
 

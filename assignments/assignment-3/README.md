@@ -29,15 +29,15 @@ Create a completely handwritten CSS file that styles your portfolio website acco
     - Typography style
     - Layout preferences
     - Any specific design elements you want included
-- Save the AI's response as `ai-1.css` without modifications
-- Include your prompt as a comment at the top of the file
+- Save the AI's response as `styles\ai-1.css` without modifications
+- Save the prompt you used as `prompts\ai-1-css-prompt.md`
 
 ### 3. AI-Generated CSS with Image + Text Prompt (`ai-2.css`)
 - Use an AI tool that accepts images as input (like Claude, Midjourney, DALL-E)
 - Find a website, UI design, or style reference image that represents your desired aesthetic
 - Create a prompt that includes both the image and text description
-- Save the AI's response as `ai-2.css` without modifications
-- Include a link to your reference image and your prompt as comments at the top of the file
+- Save the AI's response as `styles\ai-2.css` without modifications
+- Save the prompt you used as `prompts\ai-2-css-prompt.md`
 
 ### 4. Hybrid Solution (`hybrid.css`)
 - Create a new CSS file that combines the best elements from at least two of your other CSS files
