@@ -26,7 +26,7 @@ If you don't already have Node.js installed:
    Both commands should display version numbers if installation was successful
 
 ### 2. "Hello JavaScript" Program
-Create a simple JavaScript file (`hello.js`) that:
+Create a simple JavaScript file (`/assignments/assignment-4/hello.js`) that:
 - Outputs "Hello, JavaScript!" to the console
 - Includes at least one variable
 - Includes at least one function 
@@ -54,7 +54,7 @@ Run your JavaScript file using Node.js:
 4. You should see your output message in the terminal
 
 ### 3. Browser Experiment
-Create a simple HTML page that:
+Create a simple HTML page `/assignments/assignment-4/index.html` that:
 - Links to your JavaScript file
 - Contains a button that, when clicked, calls a function from your JavaScript file
 - Displays some dynamic content on the page when the button is clicked
@@ -90,6 +90,31 @@ Example HTML:
   - Setting breakpoints in your JavaScript code
   - Viewing network requests
 
+### 5. Enable GitHub Pages for Your Repository
+Set up GitHub Pages to host your HTML and JavaScript files:
+
+1. Push your files to your GitHub repository:
+   ```
+   git add .
+   git commit -m "Add JavaScript assignment files"
+   git push
+   ```
+
+2. Enable GitHub Pages:
+   - Go to your repository on GitHub
+   - Click on "Settings" (tab in the top navigation bar)
+   - Scroll down to the "GitHub Pages" section
+   - Under "Source", select "main branch" 
+   - Click "Save"
+
+3. Wait a few minutes for your site to deploy (you'll see a green success message with a URL)
+
+4. Visit your GitHub Pages URL to verify your HTML page works correctly online
+   - The URL format will be: `https://yourusername.github.io/CSC317/`
+   - You may need to add the filename to the URL if your HTML file is not named index.html, for example: `https://yourusername.github.io/CSC317/index.html`
+
+5. Make note of this URL as you'll need it for future parts of the assignment
+
 ## Submission
 While this part is ungraded, you should complete it by Wednesday to be prepared for the next parts of Assignment 4. You do not need to submit anything for this part, but make sure to keep your files for reference and further development in upcoming parts.
 
@@ -109,6 +134,13 @@ While this part is ungraded, you should complete it by Wednesday to be prepared 
 - Check browser console (F12) for any error messages
 - Ensure the file path to your JavaScript is correct
 - Try using a different browser if problems persist
+
+### GitHub Pages Issues
+- Make sure your repository is public (GitHub Pages doesn't work with private repositories on free accounts)
+- Check that your files are in the main branch
+- Remember that GitHub Pages can take a few minutes to update after changes
+- If your site shows a 404 error, make sure your file paths are correct and case-sensitive
+- For repository-level GitHub Pages, your files need to be at the root level or correctly referenced
 
 ## Resources
 
