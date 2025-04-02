@@ -115,8 +115,98 @@ Set up GitHub Pages to host your HTML and JavaScript files:
 
 5. Make note of this URL as you'll need it for future parts of the assignment
 
+## Part 1 - JS Calculator 
+
+## Overview
+For this project, you'll create a fully functional calculator that mimics the design and functionality of the iOS/Android calculator app. This project will let you apply the JavaScript fundamentals we've covered in our first week, including DOM manipulation, event handling, functions, and more.
+
+## Requirements
+
+### Core Functionality
+Your calculator should implement these basic operations:
+- Addition, subtraction, multiplication, and division
+- Clear functionality (AC button)
+- Positive/negative toggle
+- Percentage calculation
+- Decimal point input
+- Equals operation
+
+### User Interface
+- Create a grid-based layout similar to the iOS calculator
+- Include a display area showing the current input/result
+- Design should include:
+    - Number buttons (0-9)
+    - Operation buttons (+, -, ×, ÷)
+    - Utility buttons (AC, +/-, %, =)
+    - Decimal point button (.)
+- Apply appropriate colors and styling:
+    - Dark background
+    - Light colored text
+    - Orange operation buttons
+    - Gray utility buttons
+    - Dark gray number buttons
+
+### Technical Requirements
+- Use vanilla JavaScript (no libraries or frameworks)
+- Create a responsive design that works on different screen sizes
+- Implement keyboard support for numbers and operations
+- Handle edge cases (division by zero, etc.)
+- Implement proper input validation
+- Use event listeners for button clicks and keyboard input
+- Apply ES6+ features where appropriate
+
+## Implementation Steps
+
+### 1. HTML Structure
+- Create the calculator container
+- Add the display area
+- Create a grid for the buttons
+- Add all necessary buttons with appropriate labels
+
+### 2. CSS Styling
+- Set up the grid layout
+- Style the display area
+- Format the buttons (colors, shapes, sizes)
+- Add hover/active states for buttons
+- Make the design responsive
+
+### 3. JavaScript Functionality
+- Implement functions to:
+    - Capture and display button inputs
+    - Perform calculations
+    - Handle special functions (AC, +/-, %)
+    - Process and display results
+- Add keyboard event listeners
+- Implement secure evaluation of expressions
+- Handle error cases
+
+
+## Project Deliverables
+- Complete HTML, CSS, and JavaScript files
+- A README.md explaining your implementation choices
+- Host your calculator on GitHub Pages
+- Submit the GitHub repository link
+
+## Evaluation Criteria
+- Functionality: Does the calculator work correctly?
+- Code Quality: Is the code well-organized and error free?
+- Design: Does it look similar to the iOS/Android calculator?
+- User Experience: Is it intuitive and easy to use?
+- Error Handling: Does it handle edge cases gracefully?
+- Implementation of JavaScript concepts covered in lectures
+
+## Tips
+- Start by implementing the basic UI
+- Add number input functionality first
+- Then implement basic operations one at a time
+- Test each feature thoroughly before moving to the next
+- Don't worry about complex operations initially
+- Use console.log() for debugging
+- Consider using separate functions for different responsibilities
+- Test keyboard input separately from button clicks
+
 ## Submission
-While this part is ungraded, you should complete it by Wednesday to be prepared for the next parts of Assignment 4. You do not need to submit anything for this part, but make sure to keep your files for reference and further development in upcoming parts.
+While this part is ungraded, you should complete it by Monday to be prepared for the next parts of Assignment 4. You do not need to submit anything for this part, but make sure to keep your files for reference and further development in upcoming parts.
 
 ## Troubleshooting Common Issues
 
