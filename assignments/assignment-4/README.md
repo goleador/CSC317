@@ -388,10 +388,10 @@ AI-generated CSS is allowed for creating alternate themes, but not for your defa
 
 Implement complete memory functionality for your calculator:
 
-M+ (Memory Add): Add displayed value to memory
-M- (Memory Subtract): Subtract displayed value from memory
-MR (Memory Recall): Recall and display the stored value
-MC (Memory Clear): Clear the memory
+- M+ (Memory Add): Add displayed value to memory
+- M- (Memory Subtract): Subtract displayed value from memory
+- MR (Memory Recall): Recall and display the stored value
+- MC (Memory Clear): Clear the memory
 
 
 Display an indicator when memory contains a non-zero value
