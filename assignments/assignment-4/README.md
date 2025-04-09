@@ -374,7 +374,31 @@ Late submissions will be subject to the course late policy as outlined in the sy
 - Consider how the calculator fits into your overall portfolio design
 - Use consistent styling between your portfolio and calculator
 - Make sure your portfolio looks professional with the new project added
+  
+## 🌟 Bonus Point Opportunities
+You can earn extra points by implementing any of these additional features:
+### 1. Theme Switcher (10 points)
 
+Add a theme switching functionality to your calculator and portfolio
+Include at least two distinct themes beyond the default design
+Implement a user-friendly way to toggle between themes
+AI-generated CSS is allowed for creating alternate themes, but not for your default theme
+
+### 2. Calculator Memory Functions (10 points)
+
+Implement complete memory functionality for your calculator:
+
+M+ (Memory Add): Add displayed value to memory
+M- (Memory Subtract): Subtract displayed value from memory
+MR (Memory Recall): Recall and display the stored value
+MC (Memory Clear): Clear the memory
+
+
+Display an indicator when memory contains a non-zero value
+Include clear instructions on how to use the memory functions
+
+You may implement either or both features for a maximum of 20 bonus points.
+Bonus features must be fully functional, well-implemented, and documented in your SUBMISSION.md file to receive points.  
 
 ## Resources
 
