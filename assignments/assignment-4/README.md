@@ -145,7 +145,7 @@ Your calculator should implement these basic operations:
     - Orange operation buttons
     - Gray utility buttons
     - Dark gray number buttons
-
+ 
 ### Technical Requirements
 - Use vanilla JavaScript (no libraries or frameworks)
 - Create a responsive design that works on different screen sizes
@@ -205,8 +205,6 @@ Your calculator should implement these basic operations:
 - Consider using separate functions for different responsibilities
 - Test keyboard input separately from button clicks
 
-## Submission
-While this part is ungraded, you should complete it by Monday to be prepared for the next parts of Assignment 4. You do not need to submit anything for this part, but make sure to keep your files for reference and further development in upcoming parts.
 
 ## Troubleshooting Common Issues
 
@@ -231,6 +229,152 @@ While this part is ungraded, you should complete it by Monday to be prepared for
 - Remember that GitHub Pages can take a few minutes to update after changes
 - If your site shows a 404 error, make sure your file paths are correct and case-sensitive
 - For repository-level GitHub Pages, your files need to be at the root level or correctly referenced
+
+
+## Part 2 - Portfolio Integration
+
+### Overview
+In this part of the assignment, you'll integrate your JavaScript calculator from Part 1 into your personal portfolio website from Assignment 3. This will give you practice with linking between pages, organizing project files, and presenting your work professionally.
+
+### Requirements
+
+1. **Portfolio Setup**
+   - Copy your portfolio website files from Assignment 3 into your Assignment 4 directory
+   - Update your portfolio's structure to include a projects section (if it doesn't already have one)
+   - Make sure to fix all HTML and CSS errors from Assignment 3
+   - **Note: this step will overwrite the index.html in Part 0.**
+
+2. **Calculator Integration**
+   - Add your calculator as the first project in your portfolio's project section
+   - Create a project card/entry for the calculator that includes:
+     - Project title ("JavaScript Calculator")
+     - Brief description of the calculator and its features
+     - Screenshot or preview image of the calculator
+     - Technologies used (HTML, CSS, JavaScript)
+     - Link to the calculator page
+
+3. **Navigation Structure**
+   - Ensure your calculator.html page is properly linked from the portfolio
+   - Add a "Back to Portfolio" link on your calculator page
+   - Make sure all navigation links work correctly
+
+4. **Code Organization**
+   - Organize your files in a clean directory structure
+   - Ensure all file paths are correct after integration
+   - Update any relative links as needed
+
+5. **Testing & Deployment**
+   - Test all functionality on your local machine
+   - Deploy the updated portfolio to GitHub Pages
+   - Verify that navigation between pages works on the live site
+
+### Deliverables
+- Updated portfolio website with integrated calculator project
+- Functioning navigation between portfolio and calculator
+- GitHub repository containing all files
+- Live GitHub Pages deployment
+
+## Final Submission
+**All Parts Due: Wednesday, April 16th by 11:59 PM**
+
+### Requirements
+
+To complete Assignment 4, you must submit all three parts:
+- Part 0: Environment Setup
+- Part 1: JS Calculator
+- Part 2: Portfolio Integration
+
+### ⚠️ Important: Directory Structure and Naming Conventions ⚠️
+
+You **MUST** follow this exact directory structure and naming conventions for your assignment submission:
+
+```
+assignments/
+│
+└── assignment-4/
+    │
+    ├── README.md                 # Assignment instructions (this doc)
+    ├── SUBMISSION.md             # Student submission details
+    ├── index.html                # Main portfolio page from Assignment 3
+    ├── calculator.html           # Calculator webpage
+    │
+    ├── styles/
+    │   ├── styles.css            # Main portfolio styling
+    |   ├── ...                   # Other CSS from Assignment 3 
+    │   └── calculator.css        # Calculator styling
+    │
+    ├── scripts/
+    │   ├── hello.js              # Part 0: Simple JavaScript file
+    │   ├── script.js             # Main portfolio JavaScript (if any)
+    │   └── calculator.js         # Calculator functionality
+    │
+    └── images/
+        ├── profile.jpg           # Profile picture
+        ├── calculator-preview.jpg # Calculator screenshot for portfolio
+```
+
+
+
+### Submission Materials
+
+1. **GitHub Repository**
+   - All code must be committed and pushed to your GitHub repository
+   - Repository should contain all files organized in a clean directory structure
+   - Code should be well-commented and formatted
+
+2. **GitHub Pages Deployment**
+   - Your portfolio with integrated calculator must be live on GitHub Pages
+   - All links must work correctly in the live deployment
+
+3. **SUBMISSION.md File**
+   - Create a SUBMISSION.md file in your assignment-4 folder
+   - Include the following information:
+     - Your name and student ID
+     - Links to:
+       - GitHub repository
+       - Live GitHub Pages URL
+     - Brief description of your implementation (100-200 words)
+     - Any challenges you faced and how you overcame them
+     - Any additional features or improvements you added beyond the requirements
+     - Acknowledgment of any resources, tutorials, or code snippets you used
+
+### Submission Process
+
+1. Commit and push your final code to GitHub
+2. Verify your GitHub Pages deployment is working
+3. Submit the following links to Canvas:
+   - GitHub repository URL (link to your repo)
+   - GitHub Pages URL (link to your assignments-4 folder)
+
+### Evaluation
+
+Your assignment will be evaluated based on:
+- Completion of all requirements across all three parts
+- Functionality of your calculator
+- Successful integration with your portfolio
+- Code quality and organization
+- User experience and design
+- Implementation of JavaScript concepts covered in class
+
+### Late Submissions
+
+Late submissions will be subject to the course late policy as outlined in the syllabus.
+
+
+### Evaluation Criteria
+- Correct integration of calculator into portfolio
+- Functioning navigation between pages
+- Professional presentation of the calculator project
+- Code organization and structure
+- Overall portfolio design and usability
+
+### Tips
+- Make sure your calculator is fully functional before integration
+- Test all links thoroughly
+- Consider how the calculator fits into your overall portfolio design
+- Use consistent styling between your portfolio and calculator
+- Make sure your portfolio looks professional with the new project added
+
 
 ## Resources
 
