@@ -10,5 +10,5 @@ function serverFn(req, res) {
 const server = http.createServer(serverFn);
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, 'localhost', () => { console.log('Server is running') });
+server.listen(PORT, '0.0.0.00.0.0.00.0.0.00.0.0.00.0.0.00.0.0.00.0.0.00.0.0.00.0.0.0', () => { console.log('Server is running') });
 
