@@ -9,4 +9,6 @@ function serverFn(req, res) {
         
 const server = http.createServer(serverFn);
 
-server.listen(3000, 'localhost', () => { console.log('Server is running') });
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, 'localhost', () => { console.log('Server is running') });
+
