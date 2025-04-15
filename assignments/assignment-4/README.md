@@ -1,6 +1,4 @@
 # Assignment 4: The Exciting World of JavaScript
-**Due: Wednesday**  
-**This part is ungraded but required for subsequent parts**
 
 ## Part 0 - Environment Setup
 This is Part 0 of Assignment 4: "The Exciting World of JavaScript", focused on setting up your JavaScript development environment. While this part will not be graded, it's essential to complete it before moving on to the graded portions of the assignment. The goal is to ensure everyone has a working JavaScript environment before we dive deeper into programming concepts.
