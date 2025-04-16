@@ -181,7 +181,7 @@ Your calculator should implement these basic operations:
 
 ## Project Deliverables
 - Complete HTML, CSS, and JavaScript files
-- A README.md explaining your implementation choices
+- A SUBMISSION.md explaining your implementation choices
 - Host your calculator on GitHub Pages
 - Submit the GitHub repository link
 
