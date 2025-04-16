@@ -1,0 +1,65 @@
+body {
+    background-color: black;
+    color: white;
+}
+#calculator {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    max-width: 390px;
+}
+
+#calculation {
+    height: 5rem;
+    grid-column: span 4;
+    text-align: right;
+    font-size: 18px;
+    color: lightgray;
+    background-color: black;
+    border-width: 0;
+}
+
+#display {
+    background-color: black;
+    height: 5rem;
+    grid-column: span 4;
+    text-align: right;
+    font-size: 32px;
+    border-width: 0;
+    color: white;
+}
+
+input[type="button"] {
+    width: 5rem;
+    height: 5rem;
+    color: white;
+    border-radius: 50%;
+    border-width: 0;
+    margin: 4px;
+    font-size: 2em;
+}
+
+.number {
+    background-color: darkgray;
+}
+
+.operator {
+    background-color: darkorange;
+}
+
+.special_fn {
+    background-color: gray;
+}
+
+.number:active, .number.pressed  {
+    background-color: lightgray;
+}
+
+.operator:active, .operator.pressed {
+    background-color: orange;
+}
+
+.special_fn:active, .special_fn.pressed {
+    background-color: lightgray;
+}

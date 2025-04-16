@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="scripts/calculator.js"></script>
+    <link rel="stylesheet" href="styles/calculator.css">
+</head>
+<body class="synthwave-theme">
+<form id="calculator" name="calculator">
+    <input type="text" name="calculation" id="calculation" disabled>
+    <input type="text" name="display" id="display" disabled>
+    <input type="button" value="AC" onclick="ac()" id="all_clear" class="special_fn">
+    <input type="button" value="+/-" onclick="flipSign()" id="sign"  class="special_fn">
+    <input type="button" value="%" onclick="percentage()" id="percent" class="special_fn">
+    <input type="button" value="/" onclick="addValue(this.value)" id="divide" class="operator">
+
+    <input type="button" value="7" onclick="addValue(this.value)" id="seven" class="number">
+    <input type="button" value="8" onclick="addValue(this.value)" id="eight"  class="number">
+    <input type="button" value="9" onclick="addValue(this.value)" id="nine" class="number">
+    <input type="button" value="x" onclick="addValue('*')" id="multiply" class="operator">
+
+    <input type="button" value="4" onclick="addValue(this.value)" id="four" class="number">
+    <input type="button" value="5" onclick="addValue(this.value)" id="five" class="number">
+    <input type="button" value="6" onclick="addValue(this.value)" id="six" class="number">
+    <input type="button" value="-" onclick="addValue(this.value)" id="subtract" class="operator">
+
+    <input type="button" value="1" onclick="addValue(this.value)" id="one" class="number">
+    <input type="button" value="2" onclick="addValue(this.value)" id="two" class="number">
+    <input type="button" value="3" onclick="addValue(this.value)" id="three" class="number">
+    <input type="button" value="+" onclick="addValue(this.value)" id="add" class="operator">
+
+    <input type="button" value="" onclick="addValue(this.value)" id="blank" class="number" disabled>
+    <input type="button" value="0" onclick="addValue(this.value)" id="zero" class="number">
+    <input type="button" value="." onclick="addValue(this.value)" id="dot" class="number">
+    <input type="button" value="=" onclick="calculate()" id="equal" class="operator">
+</form>
+</body>
+</html>

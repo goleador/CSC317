@@ -4,6 +4,7 @@ function serverFn(req, res) {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   
+  console.log(req.url);
   res.end('Hello, World!');
 }
         

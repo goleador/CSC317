@@ -1,0 +1,1015 @@
+/* Concept 1: iOS-Inspired */
+.ios-theme {
+    --main-bg: #f2f2f7;
+    --display-bg: #f8f8fa;
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+    --operator-bg: #ff9f0a;
+    --operator-text: #ffffff;
+    --special-bg: #d1d1d6;
+    --special-text: #000000;
+    --display-text: #000000;
+    --btn-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    --border-radius: 24px;
+    --btn-radius: 22px;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body.ios-theme {
+    background-color: var(--main-bg);
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.ios-theme #calculator {
+    background-color: var(--main-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 320px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.ios-theme #calculation,
+.ios-theme #display {
+    grid-column: span 4;
+    height: 60px;
+    margin-bottom: 10px;
+    background-color: var(--display-bg);
+    border: none;
+    text-align: right;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--display-text);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.ios-theme #calculation {
+    height: 30px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 5px;
+}
+
+.ios-theme input[type="button"] {
+    height: 70px;
+    font-size: 28px;
+    border: none;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ios-theme .number {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    box-shadow: var(--btn-shadow);
+}
+
+.ios-theme .operator {
+    background-color: var(--operator-bg);
+    color: var(--operator-text);
+    font-weight: 600;
+}
+
+.ios-theme .special_fn {
+    background-color: var(--special-bg);
+    color: var(--special-text);
+}
+
+.ios-theme #zero {
+    grid-column: span 1;
+}
+
+.ios-theme .pressed {
+    opacity: 0.7;
+    transform: scale(0.95);
+}
+
+/* Concept 2: TI-83 Graphing Calculator Retro */
+.ti-83-theme {
+    --main-bg: #27292d;
+    --calculator-bg: #27292d;
+    --display-bg: #9ca192;
+    --btn-bg: #414345;
+    --btn-text: #ffffff;
+    --operator-bg: #007acc;
+    --operator-text: #ffffff;
+    --special-bg: #cc0000;
+    --special-text: #ffffff;
+    --display-text: #212121;
+    --btn-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+    --border-radius: 10px;
+    --font: 'Courier New', monospace;
+}
+
+body.ti-83-theme {
+    background-color: var(--main-bg);
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.ti-83-theme #calculator {
+    background-color: var(--calculator-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    width: 340px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.8);
+    border: 4px solid #1a1a1a;
+}
+
+.ti-83-theme #calculation,
+.ti-83-theme #display {
+    grid-column: span 4;
+    height: 45px;
+    margin-bottom: 15px;
+    background-color: var(--display-bg);
+    border: 2px inset #212121;
+    text-align: right;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--display-text);
+    padding: 10px;
+    font-family: 'LCD', 'Courier New', monospace;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.ti-83-theme #calculation {
+    height: 25px;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.ti-83-theme input[type="button"] {
+    height: 50px;
+    font-size: 20px;
+    border: 2px solid #212121;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--btn-shadow);
+    font-weight: bold;
+}
+
+.ti-83-theme .number {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+}
+
+.ti-83-theme .operator {
+    background-color: var(--operator-bg);
+    color: var(--operator-text);
+}
+
+.ti-83-theme .special_fn {
+    background-color: var(--special-bg);
+    color: var(--special-text);
+}
+
+.ti-83-theme #zero {
+    grid-column: span 2;
+}
+
+.ti-83-theme .pressed {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+/* Concept 3: Neon Synthwave */
+.synthwave-theme {
+    --main-bg: #1a1a2e;
+    --calculator-bg: rgba(25, 25, 65, 0.7);
+    --display-bg: #000428;
+    --btn-bg: #16213e;
+    --btn-text: #00eeff;
+    --operator-bg: #720e9e;
+    --operator-text: #f72585;
+    --special-bg: #4361ee;
+    --special-text: #ffffff;
+    --display-text: #f72585;
+    --btn-shadow: 0 0 8px rgba(0, 238, 255, 0.5);
+    --border-radius: 8px;
+    --neon-glow: 0 0 10px rgba(247, 37, 133, 0.8), 0 0 20px rgba(247, 37, 133, 0.5), 0 0 30px rgba(247, 37, 133, 0.3);
+    --font: 'Orbitron', sans-serif;
+}
+
+body.synthwave-theme {
+    background: linear-gradient(45deg, #0d1b2a, #1a1a2e, #16213e);
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.synthwave-theme #calculator {
+    background-color: var(--calculator-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    width: 330px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    box-shadow: 0 0 20px rgba(247, 37, 133, 0.5);
+    border: 2px solid #f72585;
+    backdrop-filter: blur(10px);
+}
+
+.synthwave-theme #calculation,
+.synthwave-theme #display {
+    grid-column: span 4;
+    height: 55px;
+    margin-bottom: 15px;
+    background-color: var(--display-bg);
+    border: 2px solid #f72585;
+    text-align: right;
+    font-size: 35px;
+    font-weight: 500;
+    color: var(--display-text);
+    padding: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 0 10px rgba(247, 37, 133, 0.3);
+    text-shadow: 0 0 5px rgba(247, 37, 133, 0.8);
+}
+
+.synthwave-theme #calculation {
+    height: 30px;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.synthwave-theme input[type="button"] {
+    height: 60px;
+    font-size: 24px;
+    border: 2px solid;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.synthwave-theme .number {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border-color: #00eeff;
+    box-shadow: 0 0 5px rgba(0, 238, 255, 0.7);
+    text-shadow: 0 0 5px rgba(0, 238, 255, 0.8);
+}
+
+.synthwave-theme .operator {
+    background-color: var(--operator-bg);
+    color: var(--operator-text);
+    border-color: #f72585;
+    box-shadow: 0 0 5px rgba(247, 37, 133, 0.7);
+    text-shadow: 0 0 5px rgba(247, 37, 133, 0.8);
+}
+
+.synthwave-theme .special_fn {
+    background-color: var(--special-bg);
+    color: var(--special-text);
+    border-color: #4361ee;
+    box-shadow: 0 0 5px rgba(67, 97, 238, 0.7);
+}
+
+.synthwave-theme #zero {
+    grid-column: span 1;
+}
+
+.synthwave-theme .pressed {
+    transform: scale(0.95);
+    box-shadow: var(--neon-glow);
+}
+
+/* Concept 4: Wooden Vintage Calculator */
+.vintage-theme {
+    --main-bg: #f5f0e1;
+    --calculator-bg: #deb887;
+    --display-bg: #8b7355;
+    --btn-bg: #d2b48c;
+    --btn-text: #3c2f2f;
+    --operator-bg: #a0522d;
+    --operator-text: #f5f0e1;
+    --special-bg: #8b4513;
+    --special-text: #f5f0e1;
+    --display-text: #d9d2bc;
+    --border-radius: 0px;
+    --btn-radius: 0px;
+    --font: 'Georgia', serif;
+}
+
+body.vintage-theme {
+    background-color: var(--main-bg);
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+}
+
+.vintage-theme #calculator {
+    background-color: var(--calculator-bg);
+    padding: 25px;
+    width: 350px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+    border: 8px solid #8b4513;
+    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+    position: relative;
+}
+
+.vintage-theme #calculator::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%);
+    pointer-events: none;
+}
+
+.vintage-theme #calculation,
+.vintage-theme #display {
+    grid-column: span 4;
+    height: 50px;
+    margin-bottom: 20px;
+    background-color: var(--display-bg);
+    border: 4px inset #5c4033;
+    text-align: right;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--display-text);
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.vintage-theme #calculation {
+    height: 25px;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.vintage-theme input[type="button"] {
+    height: 55px;
+    font-size: 22px;
+    border: 3px outset #8b7355;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    font-weight: bold;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.vintage-theme .number {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+}
+
+.vintage-theme .operator {
+    background-color: var(--operator-bg);
+    color: var(--operator-text);
+}
+
+.vintage-theme .special_fn {
+    background-color: var(--special-bg);
+    color: var(--special-text);
+}
+
+.vintage-theme #zero {
+    grid-column: span 1;
+}
+
+.vintage-theme .pressed {
+    transform: translate(2px, 2px);
+    border-style: inset;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Concept 5: Terminator/Skynet Theme */
+.terminator-theme {
+    --main-bg: #000000;
+    --calculator-bg: #1a1a1a;
+    --display-bg: #2b0000;
+    --btn-bg: #2d2d2d;
+    --btn-text: #cccccc;
+    --operator-bg: #840000;
+    --operator-text: #ffffff;
+    --special-bg: #4a4a4a;
+    --special-text: #ff0000;
+    --display-text: #ff0000;
+    --border-radius: 2px;
+    --btn-radius: 2px;
+    --font: 'Courier New', monospace;
+    --scan-line: rgba(255, 0, 0, 0.08);
+    --glow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+@keyframes scanline {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.85;
+    }
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+    5% {
+        opacity: 0.9;
+    }
+    10% {
+        opacity: 1;
+    }
+    15% {
+        opacity: 0.9;
+    }
+    20% {
+        opacity: 1;
+    }
+    55% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0.9;
+    }
+    65% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+body.terminator-theme {
+    background-color: var(--main-bg);
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #ff0000;
+    background-image:
+            radial-gradient(circle at 50% 50%, rgba(50, 50, 50, 0.3), rgba(0, 0, 0, 0.5)),
+            repeating-linear-gradient(0deg, rgba(40, 40, 40, 0.1), rgba(40, 40, 40, 0.1) 2px, transparent 2px, transparent 4px);
+}
+
+.terminator-theme #calculator {
+    background-color: var(--calculator-bg);
+    padding: 20px;
+    width: 340px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3), 0 0 60px rgba(0, 0, 0, 0.8);
+    border: 4px solid #333;
+    position: relative;
+    border-radius: 5px;
+}
+
+.terminator-theme #calculator::before {
+    content: "SKYNET SYSTEMS MODEL T-800";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+}
+
+.terminator-theme #calculator::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+            0deg,
+            var(--scan-line) 0px,
+            var(--scan-line) 2px,
+            transparent 2px,
+            transparent 4px
+    );
+    pointer-events: none;
+    animation: scanline 8s linear infinite;
+    opacity: 0.3;
+    z-index: 10;
+}
+
+.terminator-theme #calculation,
+.terminator-theme #display {
+    grid-column: span 4;
+    height: 50px;
+    margin-bottom: 15px;
+    background-color: var(--display-bg);
+    border: 2px inset #444;
+    text-align: right;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--display-text);
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+    animation: flicker 4s infinite;
+}
+
+.terminator-theme #calculation {
+    height: 25px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: rgba(255, 0, 0, 0.7);
+}
+
+.terminator-theme #display::before,
+.terminator-theme #calculation::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+            linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.03)),
+            repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    transparent 1px,
+                    rgba(0, 0, 0, 0.2) 1px,
+                    rgba(0, 0, 0, 0.2) 2px
+            );
+    pointer-events: none;
+}
+
+.terminator-theme input[type="button"] {
+    height: 55px;
+    font-size: 20px;
+    border: 2px solid #444;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.terminator-theme .number {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    box-shadow: inset 0 0 2px rgba(255, 0, 0, 0.2);
+}
+
+.terminator-theme .number::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.terminator-theme .operator {
+    background-color: var(--operator-bg);
+    color: var(--operator-text);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.terminator-theme .special_fn {
+    background-color: var(--special-bg);
+    color: var(--special-text);
+    text-shadow: 0 0 3px rgba(255, 0, 0, 0.5);
+}
+
+.terminator-theme #zero {
+    grid-column: span 1;
+}
+
+.terminator-theme .pressed {
+    transform: scale(0.95);
+    box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.3);
+    border-color: #ff0000;
+}
+
+.terminator-theme #equal {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    animation: blink 2s infinite;
+}
+
+/* Concept 6: Matrix Theme */
+.matrix-theme {
+    --main-bg: #000000;
+    --calculator-bg: #0c0c0c;
+    --display-bg: #000000;
+    --btn-bg: #0c1a0c;
+    --btn-text: #00ff00;
+    --operator-bg: #001a00;
+    --operator-text: #00ff00;
+    --special-bg: #001500;
+    --special-text: #00ff00;
+    --display-text: #00ff00;
+    --border-radius: 0px;
+    --btn-radius: 0px;
+    --font: 'Courier New', monospace;
+    --glow: 0 0 8px rgba(0, 255, 0, 0.7);
+}
+
+@keyframes matrixRain {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+@keyframes textFlicker {
+    0%, 100% { opacity: 1; }
+    8%, 10% { opacity: 0.8; }
+    20%, 25% { opacity: 1; }
+    30% { opacity: 0.9; }
+    40% { opacity: 1; }
+    50%, 70% { opacity: 0.9; }
+    80%, 90% { opacity: 1; }
+    95% { opacity: 0.9; }
+}
+
+body.matrix-theme {
+    background-color: var(--main-bg);
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.matrix-theme::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='5000' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300FF00' fill-opacity='0.3'%3E%3Ctext x='10' y='20' font-family='monospace' font-size='15'%3E01010%3C/text%3E%3Ctext x='40' y='40' font-family='monospace' font-size='15'%3E10101%3C/text%3E%3Ctext x='20' y='60' font-family='monospace' font-size='15'%3E01010%3C/text%3E%3Ctext x='30' y='80' font-family='monospace' font-size='15'%3E10101%3C/text%3E%3Ctext x='10' y='100' font-family='monospace' font-size='15'%3E01010%3C/text%3E%3Ctext x='70' y='120' font-family='monospace' font-size='15'%3E10101%3C/text%3E%3Ctext x='40' y='140' font-family='monospace' font-size='15'%3E01010%3C/text%3E%3Ctext x='20' y='160' font-family='monospace' font-size='15'%3E10101%3C/text%3E%3Ctext x='50' y='180' font-family='monospace' font-size='15'%3E01010%3C/text%3E%3Ctext x='10' y='200' font-family='monospace' font-size='15'%3E10101%3C/text%3E%3C/g%3E%3C/svg%3E");
+    animation: matrixRain 20s linear infinite;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.matrix-theme #calculator {
+    background-color: var(--calculator-bg);
+    padding: 20px;
+    width: 340px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2), 0 0 60px rgba(0, 0, 0, 0.8);
+    border: 2px solid #004000;
+    position: relative;
+    z-index: 1;
+}
+
+.matrix-theme #calculator::before {
+    content: "THE ONE";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #00ff00;
+    text-shadow: var(--glow);
+    letter-spacing: 2px;
+}
+
+.matrix-theme #calculation,
+.matrix-theme #display {
+    grid-column: span 4;
+    height: 50px;
+    margin-bottom: 15px;
+    background-color: var(--display-bg);
+    border: 1px solid #007000;
+    text-align: right;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--display-text);
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8), 0 0 5px rgba(0, 255, 0, 0.3);
+    text-shadow: var(--glow);
+    position: relative;
+    overflow: hidden;
+    animation: textFlicker 5s infinite;
+    letter-spacing: 1px;
+}
+
+.matrix-theme #calculation {
+    height: 25px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.matrix-theme #display::after {
+    content: "_";
+    position: absolute;
+    right: 10px;
+    animation: textFlicker 1s infinite;
+}
+
+.matrix-theme input[type="button"] {
+    height: 55px;
+    font-size: 20px;
+    border: 1px solid #003f00;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    transition: all 0.1s ease;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+.matrix-theme .number::before,
+.matrix-theme .operator::before,
+.matrix-theme .special_fn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 50, 0, 0.3), rgba(0, 20, 0, 0.1));
+    z-index: -1;
+}
+
+.matrix-theme .number {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+.matrix-theme .operator {
+    background-color: var(--operator-bg);
+    color: var(--operator-text);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+    box-shadow: 0 0 3px rgba(0, 255, 0, 0.3);
+}
+
+.matrix-theme .special_fn {
+    background-color: var(--special-bg);
+    color: var(--special-text);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+.matrix-theme #zero {
+    grid-column: span 1;
+}
+
+.matrix-theme .pressed {
+    transform: scale(0.95);
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.5);
+    text-shadow: 0 0 8px rgba(0, 255, 0, 1);
+}
+
+.matrix-theme #equal {
+    position: relative;
+    overflow: hidden;
+}
+
+.matrix-theme #equal::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(transparent, transparent, rgba(0, 255, 0, 0.2), transparent, transparent);
+    transform: rotate(45deg);
+    animation: matrixRain 3s linear infinite;
+}
+
+/* Concept 7: Predator Theme */
+.predator-theme {
+    --main-bg: #0a0f15;
+    --calculator-bg: #141d25;
+    --display-bg: #040a10;
+    --btn-bg: #1c2630;
+    --btn-text: #ffcc00;
+    --operator-bg: #990000;
+    --operator-text: #ffcc00;
+    --special-bg: #5c0000;
+    --special-text: #ffcc00;
+    --display-text: #ffcc00;
+    --border-radius: 4px;
+    --btn-radius: 4px;
+    --font: 'Arial', sans-serif;
+    --heat-glow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+@keyframes heatVision {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(20deg); }
+}
+
+@keyframes targetLock {
+    0%, 100% {
+        box-shadow: 0 0 0 1px rgba(255, 204, 0, 0.5),
+        0 0 0 3px rgba(255, 0, 0, 0.3),
+        0 0 0 6px rgba(255, 204, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 0 1px rgba(255, 204, 0, 0.8),
+        0 0 0 4px rgba(255, 0, 0, 0.4),
+        0 0 0 8px rgba(255, 204, 0, 0.2);
+    }
+}
+
+body.predator-theme {
+    background-color: var(--main-bg);
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image:
+            linear-gradient(rgba(10, 15, 20, 0.7), rgba(10, 15, 20, 0.7)),
+            url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 L100 100 M100 0 L0 100' stroke='%23333' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+.predator-theme #calculator {
+    background-color: var(--calculator-bg);
+    padding: 20px;
+    width: 340px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.4);
+    border: 2px solid #333;
+    position: relative;
+    animation: heatVision 8s ease-in-out infinite;
+    background-image:
+            linear-gradient(135deg, rgba(50, 50, 50, 0.1) 25%, transparent 25%,
+            transparent 50%, rgba(50, 50, 50, 0.1) 50%, rgba(50, 50, 50, 0.1) 75%,
+            transparent 75%, transparent);
+    background-size: 4px 4px;
+    border-radius: var(--border-radius);
+}
+
+.predator-theme #calculator::before {
+    content: "YAUTJA TARGET SYSTEM";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: var(--heat-glow);
+    letter-spacing: 1px;
+}
+
+.predator-theme #calculation,
+.predator-theme #display {
+    grid-column: span 4;
+    height: 50px;
+    margin-bottom: 15px;
+    background-color: var(--display-bg);
+    border: 1px solid #333;
+    text-align: right;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--display-text);
+    padding: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8), 0 0 5px rgba(255, 204, 0, 0.3);
+    text-shadow: var(--heat-glow);
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.predator-theme #calculation {
+    height: 25px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.predator-theme #display::before,
+.predator-theme #calculation::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+            repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255, 204, 0, 0.03) 2px, rgba(255, 204, 0, 0.03) 4px);
+    pointer-events: none;
+}
+
+.predator-theme input[type="button"] {
+    height: 55px;
+    font-size: 18px;
+    border: 1px solid #333;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
+    position: relative;
+    background-image:
+            linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.05) 40%,
+            rgba(255, 255, 255, 0) 100%);
+}
+
+.predator-theme .number {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+}
+
+.predator-theme .operator {
+    background-color: var(--operator-bg);
+    color: var(--operator-text);
+    background-image:
+            linear-gradient(to bottom,
+            rgba(255, 50, 50, 0.2) 0%,
+            rgba(255, 50, 50, 0.05) 50%,
+            rgba(255, 50, 50, 0) 100%);
+}
+
+.predator-theme .special_fn {
+    background-color: var(--special-bg);
+    color: var(--special-text);
+}
+
+.predator-theme #zero {
+    grid-column: span 1;
+}
+
+.predator-theme .pressed {
+    transform: scale(0.95);
+    box-shadow: inset 0 0 10px rgba(255, 204, 0, 0.3);
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.8);
+}
+
+.predator-theme #equal {
+    position: relative;
+    overflow: hidden;
+    animation: targetLock 3s infinite;
+}
