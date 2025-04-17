@@ -1,0 +1,9 @@
+<% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+<div class="form-errors">
+  <ul>
+    <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }); %>
+  </ul>
+</div>
+<% } %>

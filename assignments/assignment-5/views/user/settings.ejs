@@ -1,0 +1,55 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+  <div class="settings-container">
+    <h1>Account Settings</h1>
+    
+    <%- include('../partials/flash-message') %>
+    <%- include('../partials/form-errors') %>
+    
+    <form action="/user/settings" method="POST">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username"
+          value="<%= user.username %>"
+          required
+          minlength="3"
+          maxlength="20"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email"
+          value="<%= user.email %>"
+          disabled
+        >
+        <div class="form-hint">Email cannot be changed</div>
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" class="btn primary-btn">Save Changes</button>
+      </div>
+    </form>
+    
+    <div class="settings-section">
+      <h3>Account Security</h3>
+      <p>To maintain the security of your account, we recommend:</p>
+      <ul>
+        <li>Using a strong, unique password</li>
+        <li>Not sharing your login credentials</li>
+        <li>Logging out when using shared computers</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

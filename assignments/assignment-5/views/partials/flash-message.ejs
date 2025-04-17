@@ -1,0 +1,6 @@
+<% if (typeof flashMessage !== 'undefined' && flashMessage) { %>
+<div class="flash-message <%= flashMessage.type %>">
+  <p><%= flashMessage.text %></p>
+  <button class="close-btn" onclick="this.parentElement.style.display='none'">×</button>
+</div>
+<% } %>

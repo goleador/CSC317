@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | Authentication Template</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/">Auth Template</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/" class="<%= path === '/' ? 'active' : '' %>">Home</a></li>
+        <li><a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a></li>
+        
+        <% if (isAuthenticated) { %>
+          <li><a href="/user/profile">Profile</a></li>
+          <li><a href="/user/settings">Settings</a></li>
+          <li><a href="/auth/logout">Logout</a></li>
+        <% } else { %>
+          <li><a href="/auth/login">Login</a></li>
+          <li><a href="/auth/register">Register</a></li>
+        <% } %>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="error-container">
+        <h1><%= title %></h1>
+        <div class="error-box">
+          <p class="error-message"><%= message %></p>
+          
+          <% if (error && error.status) { %>
+            <p class="error-code">Status Code: <%= error.status %></p>
+          <% } %>
+          
+          <% if (error && error.stack && process.env.NODE_ENV === 'development') { %>
+            <details>
+              <summary>Error Details (Development Only)</summary>
+              <pre><%= error.stack %></pre>
+            </details>
+          <% } %>
+        </div>
+        
+        <div class="error-actions">
+          <a href="/" class="btn primary-btn">Return to Home</a>
+          <button class="btn secondary-btn" onclick="window.history.back()">Go Back</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <%= new Date().getFullYear() %> Authentication Template. For educational purposes only.</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

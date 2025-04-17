@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} | Authentication Template</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/">Auth Template</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/" class="{{#if (isActiveRoute path '/')}}active{{/if}}">Home</a></li>
+        <li><a href="/about" class="{{#if (isActiveRoute path '/about')}}active{{/if}}">About</a></li>
+        
+        {{#if isAuthenticated}}
+          <li><a href="/user/profile" class="{{#if (isActiveRoute path '/user/profile')}}active{{/if}}">Profile</a></li>
+          <li><a href="/user/settings" class="{{#if (isActiveRoute path '/user/settings')}}active{{/if}}">Settings</a></li>
+          <li><a href="/auth/logout">Logout</a></li>
+        {{else}}
+          <li><a href="/auth/login" class="{{#if (isActiveRoute path '/auth/login')}}active{{/if}}">Login</a></li>
+          <li><a href="/auth/register" class="{{#if (isActiveRoute path '/auth/register')}}active{{/if}}">Register</a></li>
+        {{/if}}
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{> flash-message flashMessage=flashMessage}}
+    
+    {{{body}}}
+  </main>
+
+  <footer>
+    <p>&copy; {{currentYear}} Authentication Template. For educational purposes only.</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

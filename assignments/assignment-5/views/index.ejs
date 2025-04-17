@@ -1,0 +1,39 @@
+<%- include('./partials/header') %>
+
+<div class="container">
+  <div class="welcome-section">
+    <h1><%= message %></h1>
+    <p>A simple authentication system for web applications</p>
+    
+    <% if (isAuthenticated) { %>
+      <div class="action-buttons">
+        <a href="/user/profile" class="btn primary-btn">View Profile</a>
+      </div>
+    <% } else { %>
+      <div class="action-buttons">
+        <a href="/auth/login" class="btn primary-btn">Login</a>
+        <a href="/auth/register" class="btn secondary-btn">Register</a>
+      </div>
+    <% } %>
+  </div>
+  
+  <div class="features-section">
+    <h2>Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>User Authentication</h3>
+        <p>Secure login and registration with password hashing</p>
+      </div>
+      <div class="feature-card">
+        <h3>Session Management</h3>
+        <p>Persistent sessions with secure cookies</p>
+      </div>
+      <div class="feature-card">
+        <h3>Protected Routes</h3>
+        <p>Restrict access to authenticated users only</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('./partials/footer') %>

@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+  <div class="profile-container">
+    <h1>User Profile</h1>
+    
+    <div class="profile-card">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <!-- Display first letter of username as avatar -->
+          <span><%= user.username.charAt(0) %></span>
+        </div>
+        <div class="profile-title">
+          <h2><%= user.username %></h2>
+          <p class="subtitle">Member since <%= typeof user.createdAt !== 'undefined' ? helpers.formatDate(user.createdAt) : 'N/A' %></p>
+        </div>
+      </div>
+      
+      <div class="profile-info">
+        <div class="info-item">
+          <span class="label">Email Address</span>
+          <span class="value"><%= user.email %></span>
+        </div>
+      </div>
+      
+      <div class="profile-actions">
+        <a href="/user/settings" class="btn secondary-btn">Edit Profile</a>
+      </div>
+    </div>
+    
+    <div class="profile-section">
+      <h3>Protected Content</h3>
+      <p>This page is only accessible to authenticated users. You're seeing this because you're logged in!</p>
+      <p>This is where your application would display user-specific content and functionality.</p>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
