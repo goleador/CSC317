@@ -1,0 +1,122 @@
+/*
+ Author: Rodrigo Oliveira
+ */
+
+/* 1. Global Styles & Variables */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #333;
+    --spacing-unit: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Typography */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-unit);
+}
+
+/* 3. Layout & Navigation */
+header {
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
+nav {
+    background-color: var(--secondary-color);
+    padding: var(--spacing-unit);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-unit);
+    list-style: none;
+    padding: 0;
+}
+
+/* 4. Sections & Cards */
+section {
+    padding: calc(var(--spacing-unit) * 2);
+    margin: var(--spacing-unit) 0;
+}
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-unit);
+}
+
+.project-card {
+    flex: 1 1 300px;
+    padding: var(--spacing-unit);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* 5. Skills Section */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.skills-list li {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+/* 6. Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-card {
+        flex: 1 1 100%;
+    }
+}
+
+/* 7. Hover Effects */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.project-card:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}

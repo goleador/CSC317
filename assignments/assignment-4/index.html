@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodrigo Oliveira - CS Student Portfolio</title>
+    <link rel="stylesheet" href="styles/min.css" id="css-theme">
+    <style>
+        /* Theme Switcher Styling */
+        .theme-switcher {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            z-index: 1000;
+        }
+
+        .theme-switcher h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .theme-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .theme-button {
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .theme-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .theme-button.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #0069d9;
+        }
+    </style>
+
+</head>
+<body>
+<header>
+    <img src="images/profile.jpeg" alt="Rodrigo Oliveira" class="profile-img">
+    <h1>Rodrigo Oliveira</h1>
+    <p class="subtitle">CTO at Glassdoor -- Lecturer at SFSU</p>
+</header>
+<nav>
+    <ol class="nav-links">
+        <li><a href="#about">About</a></li>
+        <!--<li><a href="#experience">Experience</a></li>-->
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ol>
+</nav>
+<main>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am an engineer and entrepreneur with 25+ years of experience in software development and leadership. Currently, I lead technological innovation at Glassdoor, overseeing engineering, data, and AI teams. Previously, I was CTO at WW after co-founding Hot5 Fitness. I’ve also held leadership roles at Sun Microsystems and RealPage. As a volunteer lecturer at SFSU, I’m passionate about helping students bridge theory and practice in web development.</p>
+    </section>
+
+    <!--
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3>Glassdoor</h3>
+                <p>This responsive portfolio website showcasing my projects and skills (you're looking at it!).</p>
+            </div>
+            <div class="experience-card">
+                <h3>CTO - WW (Formally Weight Watchers)</h3>
+                <p>A simple todo list application built with HTML, CSS, and local storage functionality.</p>
+            </div>
+            <div class="experience-card">
+                <h3> Co-Founder and CTO - Hot5 Fitness</h3>
+                <p>As CTO and co-founder of Hot5 Fitness, a mobile-first, angel-funded startup driven by a passion for technology and fitness, I led a small but highly skilled team in bringing our vision to life. Together, we designed and developed the highly rated Hot5 Fitness iOS app, delivering an intuitive and engaging workout experience that users loved. Through innovation, agility, and teamwork, we built something remarkable—ultimately leading to Hot5 Fitness being acquired by WW (formerly Weight Watchers) in 2015.</p>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <article class="project-card">
+                <h3>Weather Dashboard</h3>
+                <p>A web application that displays real-time weather data using HTML, CSS, and Python Flask backend.</p>
+            </article>
+            <article class="project-card">
+                <h3>Task Manager</h3>
+                <p>A simple todo list application built with HTML, CSS, and local storage functionality.</p>
+            </article>
+            <article class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>This responsive portfolio website showcasing my projects and skills (you're looking at it!).</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Javascript</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>Git</li>
+            <li>SQL</li>
+        </ul>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <h3>San Francisco State University</h3>
+        <p>Bachelor of Science in Computer Science</p>
+    </section>
+</main>
+
+<footer>
+    <section id="contact" class="contact-info">
+        <h2>Contact</h2>
+        <p>
+            <a href="mailto:">Email</a>
+            <a href="">GitHub</a>
+            <a href="">LinkedIn</a>
+        </p>
+        <p>Copyright &copy; Rodrigo Oliveira 2020</p>
+    </section>
+</footer>
+
+<!-- Theme Switcher -->
+<div class="theme-switcher">
+    <h3>Theme Switcher</h3>
+    <div class="theme-buttons">
+        <button class="theme-button active" data-theme="styles">Hand-Written</button>
+        <button class="theme-button" data-theme="min">Minimalist</button>
+        <button class="theme-button" data-theme="creative">Creative</button>
+        <button class="theme-button" data-theme="pro">Professional</button>
+        <button class="theme-button" data-theme="crazy">Crazy</button>
+        <button class="theme-button" data-theme="ai-1">AI 1</button>
+        <button class="theme-button" data-theme="ai-2">AI 2</button>
+        <button class="theme-button" data-theme="ai-3">AI 3</button>
+        <button class="theme-button" data-theme="ai-4">AI 4</button>
+        <button class="theme-button" data-theme="ai-5">AI 5</button>
+        <button class="theme-button" data-theme="ai-3">AI Image</button>
+        <button class="theme-button" data-theme="hybrid">Hybrid</button>
+    </div>
+</div>
+
+<!-- Theme Switcher Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all theme buttons
+        const themeButtons = document.querySelectorAll('.theme-button');
+        // Get the stylesheet link element
+        const themeStylesheet = document.getElementById('css-theme');
+
+        // Function to set active theme
+        function setActiveTheme(themeName) {
+            // Update stylesheet href
+            themeStylesheet.href = `styles/${themeName}.css`;
+
+            // Update active button state
+            themeButtons.forEach(button => {
+                if (button.dataset.theme === themeName) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+
+            // Save preference to localStorage
+            localStorage.setItem('preferredTheme', themeName);
+        }
+
+        // Add click event to all theme buttons
+        themeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const themeName = this.dataset.theme;
+                setActiveTheme(themeName);
+            });
+        });
+
+        // Check if there's a saved theme preference
+        const savedTheme = localStorage.getItem('preferredTheme');
+        if (savedTheme) {
+            setActiveTheme(savedTheme);
+        }
+    });
+</script>
+
+</body>
+</html>

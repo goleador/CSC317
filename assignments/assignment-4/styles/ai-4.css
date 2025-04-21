@@ -1,0 +1,222 @@
+/*
+ Author: Rodrigo Oliveira
+ */
+
+/* Reset default styles and set a Brazilian soccer-inspired base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Clean, readable font */
+}
+
+body {
+    background-color: #f7e018; /* Vibrant yellow like the team's jersey */
+    color: #192f60; /* Dark blue for text, inspired by the flag */
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #19ae47; /* Green from the Brazilian flag */
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #ffffff; /* White for contrast */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-links a:hover {
+    color: #192f60; /* Dark blue on hover, like the shorts */
+}
+
+/* Header/Intro Section */
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(45deg, #f7e018, #19ae47); /* Yellow to green gradient */
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #192f60; /* Blue border */
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #192f60; /* Dark blue for the name */
+    text-shadow: 2px 2px 4px rgba(25, 174, 71, 0.5); /* Green shadow for flair */
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-top: 0.5rem;
+}
+
+/* General Section Styling */
+section {
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    max-width: 800px; /* Reasonable content width */
+    background-color: #ffffff; /* White for content blocks */
+    border-radius: 8px;
+}
+
+h2 {
+    color: #19ae47; /* Green for headings */
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #192f60; /* Blue underline */
+    display: inline-block;
+}
+
+/* About Me Section */
+#about p {
+    padding: 1rem;
+    border: 1px solid #f7e018; /* Yellow border for energy */
+}
+
+/* Education Section */
+#education h3 {
+    color: #192f60; /* Blue for subheadings */
+    margin-top: 1rem;
+}
+
+#education p {
+    color: #333333; /* Darker gray for readability */
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: #f0f0f0; /* Light gray for contrast */
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #19ae47; /* Green accent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
+}
+
+.project-card:hover {
+    transform: scale(1.03); /* Slight zoom like a goal celebration */
+    box-shadow: 0 5px 15px rgba(25, 174, 71, 0.3); /* Green shadow */
+}
+
+.project-card h3 {
+    color: #19ae47;
+}
+
+.project-card p {
+    color: #333333;
+}
+
+/* Skills Section */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skills-list li {
+    background-color: #192f60; /* Blue for skills */
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    color: #f7e018; /* Yellow text */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.skills-list li:hover {
+    background-color: #f7e018; /* Yellow on hover */
+    color: #192f60; /* Blue text */
+}
+
+/* Contact Form/Footer */
+footer {
+    background-color: #19ae47;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.contact-info a {
+    color: #f7e018; /* Yellow for links */
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(247, 224, 24, 0.7); /* Yellow glow */
+}
+
+footer p {
+    margin-top: 1rem;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) { /* Desktop adjustments */
+    .nav-links {
+        gap: 3rem;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on desktop */
+    }
+
+    header {
+        padding: 4rem 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile adjustments */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 1.5rem 0.5rem;
+    }
+}

@@ -1,0 +1,228 @@
+/*
+ Author: Rodrigo Oliveira
+ */
+
+/* Reset default styles and set a Matrix-inspired base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace; /* Monospace font for code-like feel */
+}
+
+body {
+    background-color: #000000; /* Black background like the Matrix void */
+    color: #00ff00; /* Neon green for text, like digital rain */
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #1a1a1a; /* Dark gray for contrast */
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #00ff00; /* Green border */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #00ff00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-links a:hover {
+    color: #ffffff; /* White on hover like a glitch */
+    text-shadow: 0 0 5px #00ff00; /* Green glow */
+}
+
+/* Header/Intro Section */
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(45deg, #000000, #1a1a1a); /* Subtle dark gradient */
+    border-bottom: 2px dashed #00ff00; /* Dashed green line */
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #00ff00; /* Green border */
+    margin-bottom: 1rem;
+    filter: grayscale(50%) sepia(50%) hue-rotate(90deg); /* Matrix-green tint */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00; /* Neon glow */
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #00cc00; /* Slightly darker green */
+    margin-top: 0.5rem;
+}
+
+/* General Section Styling */
+section {
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    max-width: 800px; /* Reasonable content width */
+    background-color: #1a1a1a; /* Dark gray for content blocks */
+    border: 1px solid #00ff00; /* Green outline */
+    border-radius: 4px;
+}
+
+h2 {
+    color: #00ff00;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    border-bottom: 1px solid #00cc00; /* Subtle green underline */
+    display: inline-block;
+}
+
+/* About Me Section */
+#about p {
+    padding: 1rem;
+    border: 1px dashed #00ff00; /* Dashed green for code-like effect */
+}
+
+/* Education Section */
+#education h3 {
+    color: #00cc00; /* Darker green for subheadings */
+    margin-top: 1rem;
+}
+
+#education p {
+    color: #00ff00;
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: #111111; /* Almost black */
+    padding: 1.5rem;
+    border: 1px solid #00ff00;
+    border-left: 4px solid #00cc00; /* Thicker green accent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Glitchy lift */
+    box-shadow: 0 0 15px #00ff00; /* Neon green glow */
+}
+
+.project-card h3 {
+    color: #00ff00;
+}
+
+.project-card p {
+    color: #00cc00;
+}
+
+/* Skills Section */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skills-list li {
+    background-color: #00ff00; /* Green background */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skills-list li:hover {
+    background-color: #ffffff; /* White on hover */
+    color: #00ff00; /* Green text */
+    box-shadow: 0 0 5px #00ff00; /* Glow effect */
+}
+
+/* Contact Form/Footer */
+footer {
+    background-color: #1a1a1a;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid #00ff00;
+}
+
+.contact-info a {
+    color: #00ff00;
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ff00; /* Neon glow */
+}
+
+footer p {
+    margin-top: 1rem;
+    color: #00cc00;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) { /* Desktop adjustments */
+    .nav-links {
+        gap: 3rem;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on desktop */
+    }
+
+    header {
+        padding: 4rem 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile adjustments */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 1.5rem 0.5rem;
+    }
+}

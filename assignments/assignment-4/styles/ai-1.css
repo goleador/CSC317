@@ -1,0 +1,211 @@
+/*
+ Author: Rodrigo Oliveira
+ */
+
+/* Reset default styles and set a Spider-Man inspired base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Clean, readable font */
+}
+
+body {
+    background-color: #1a1a2e; /* Dark blue-gray background like Spider-Man's night scenes */
+    color: #ffffff; /* White text for contrast */
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #d00000; /* Spider-Man red */
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-links a:hover {
+    color: #00b7eb; /* Spider-Man blue for hover effect */
+}
+
+/* Header/Intro Section */
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(45deg, #d00000, #003087); /* Red to blue gradient */
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle web-like shadow */
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #e6e6e6;
+    margin-top: 0.5rem;
+}
+
+/* General Section Styling */
+section {
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    max-width: 800px; /* Reasonable content width */
+}
+
+h2 {
+    color: #d00000; /* Red for headings */
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #00b7eb; /* Blue web-line effect */
+    display: inline-block;
+}
+
+/* About Me Section */
+#about p {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight white overlay */
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* Education Section */
+#education h3 {
+    color: #00b7eb; /* Blue for subheadings */
+    margin-top: 1rem;
+}
+
+#education p {
+    color: #e6e6e6;
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: #003087; /* Dark blue card */
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* Hover effect */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Slight lift like Spider-Man swinging */
+}
+
+.project-card h3 {
+    color: #d00000;
+}
+
+.project-card p {
+    color: #e6e6e6;
+}
+
+/* Skills Section */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skills-list li {
+    background-color: #00b7eb;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Contact Form/Footer */
+footer {
+    background-color: #d00000;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.contact-info a {
+    color: #00b7eb;
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffffff;
+}
+
+footer p {
+    margin-top: 1rem;
+    color: #e6e6e6;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) { /* Desktop adjustments */
+    .nav-links {
+        gap: 3rem;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on desktop */
+    }
+
+    header {
+        padding: 4rem 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile adjustments */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 1.5rem 0.5rem;
+    }
+}
