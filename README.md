@@ -23,8 +23,8 @@ Welcome to **CSC 317** at **San Francisco State University**! 🎉 This course w
 | **7**           | Unix Terminal & HTTP Fundamentals       |
 | **8**           | JavaScript Fundamentals                 |
 | **9**           | Backend Basics                          |
-| **10**          | Databases                               | 
-| **11**          | Group Project 1 Demos & Node.js/Express | 
+| **10**          | Node and Express                        | 
+| **11**          | Database 1                               | 
 | **12**          | Authentication & Security               |
 | **13**          | Group Project 2 Demos & Advanced Topics | 
 | **14**          | Advanced Topics                         | 
@@ -38,12 +38,13 @@ PLEASE REFER TO CANVAS FOR OFFICIAL CALENDAR.
 - **Code Editor**: [VS Code](https://code.visualstudio.com/)
 - **Version Control**: [Git](https://git-scm.com/) & [GitHub](https://github.com/)
 - **Web Development**: HTML, CSS, JavaScript, Node.js, Express
-- **Database**: Postgres (SQL)
-- **Deployment**: TBD
+- **Database**: Postgres (SQL) or MongoDB
+- **Deployment**: Render.com
 
 ### **📝 Code Editors (Choose Your Favorite)**
 - [**VS Code**](https://code.visualstudio.com/) – Popular & beginner-friendly  
 - [**Vim**](https://www.vim.org/) – For those who love keyboard shortcuts ⚡  
+- [**NeoVim**](https://neovim.io/) - For those who love keyboard and still want to be modern
 - [**WebStorm**](https://www.jetbrains.com/webstorm/) – Feature-rich IDE for JavaScript  
 - [**Notepad++**](https://notepad-plus-plus.org/) – Lightweight and fast  
 

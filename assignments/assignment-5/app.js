@@ -85,11 +85,8 @@ let sessionConfig = {
   }
 };
 
-// For now, let's avoid using MongoDB as a session store to prevent index creation issues
-console.log('Using memory session store (not persistent, but will work for development)');
 
 // If you want to try using MongoDB store, uncomment this:
-/*
 try {
   if (process.env.MONGODB_URI) {
     sessionConfig.store = MongoStore.create({ 
@@ -109,12 +106,10 @@ try {
   console.error('Error configuring MongoDB session store:', error);
   console.log('Falling back to memory session store (not recommended for production)');
 }
-*/
 
 app.use(session(sessionConfig));
 
 // CSRF protection temporarily disabled
-/*
 try {
   app.use(csrf({ cookie: false }));  // Using session instead of cookie
 
@@ -137,13 +132,6 @@ try {
     next();
   });
 }
-*/
-
-// Provide a dummy CSRF token for templates
-app.use((req, res, next) => {
-  res.locals.csrfToken = 'csrf-protection-disabled';
-  next();
-});
 
 // Our custom locals middleware
 app.use(setLocals);

@@ -50,44 +50,73 @@ Your web application must include:
 Choose one of the following project ideas or propose your own (with instructor approval):
 
 1. **Recipe Sharing Platform**
-   - Users can create, share, and discover recipes
-   - Features: recipe upload with images, search, categories, ratings
+
+Entities: User, Recipe
+Minimal Features:
+Create recipe (title, description, instructions, ingredients)
+View all recipes
+View single recipe
+(Optional) Tag recipes, like recipes
 
 2. **Task Management System**
-   - Collaborative to-do lists and project management
-   - Features: task creation, due dates, progress tracking
 
-3. **Community Forum**
-   - Discussion platform for specific topics
-   - Features: threaded discussions, upvoting, categories
+Entities: User, Task, (optional: Project/List)
+Minimal Features:
+Create task (title, status)
+View/edit/delete tasks
+(Optional) Assign to user, add due date
 
-4. **E-Learning Content Hub**
-   - Platform for sharing educational materials
-   - Features: content upload, categorization, search, ratings
+3. **Twitter Clone**
 
-5. **Local Event Finder**
-   - Discover and post local events
-   - Features: event creation, category filtering, search
+Entities: User, Tweet/Post
+Minimal Features:
+Create post (text, timestamp)
+View feed
+(Optional) Like/retweet, reply
 
-6. **Fitness Tracker**
-   - Log and visualize workout progress
-   - Features: exercise logging, goal setting, progress visualization
+4. **Local Event Finder**
 
-7. **Book/Movie Review Site**
-   - Platform for reviewing and discussing media
-   - Features: ratings, reviews, recommendations
+Entities: User, Event
+Minimal Features:
+Create event (title, datetime, location)
+View all events
+(Optional) RSVP feature
 
-8. **Budget Planner**
-   - Personal finance management tool"
-   - Features: expense tracking, budget categories, reports
+5. **Fitness Tracker**
+
+Entities: User, Exercise/Entry
+Minimal Features:
+Log workout (type, duration, date)
+View log history
+
+6. **Book/Movie Review Site**
+
+Entities: User, Book/Movie, Review
+Minimal Features:
+Add book/movie
+Add review (rating, comment)
+View reviews
+
+7. **Budget Planner**
+
+Entities: User, Expense/Income
+Minimal Features:
+Add expense/income (amount, date, category)
+View summary/list
 
 9. **Digital Notebook/Wiki**
-   - Collaborative note-taking application
-   - Features: rich text editing, organization, search
+
+Entities: User, Note/Page
+Minimal Features:
+Create/edit note (title, content)
+View notes
 
 10. **Interactive Visualization Tool**
-    - Create and share data visualizations
-    - Features: chart generation, data import, customization
+
+Entities: User, Dataset/Chart
+Minimal Features:
+Upload data or input directly
+Render a basic chart (bar/line)
 
 Feel free to adapt these ideas or propose something entirely different that interests your team!
 

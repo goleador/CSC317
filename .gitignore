@@ -20,3 +20,8 @@ tmp/
 # IDE specific files
 .idea/
 .vscode/
+
+
+# Env files 
+# Ignore all .env files everywhere
+**/.env

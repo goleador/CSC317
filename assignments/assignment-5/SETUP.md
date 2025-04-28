@@ -8,8 +8,8 @@ Before you begin, you'll need to install the following software:
 
 1. Node.js and npm (Node Package Manager)
 2. MongoDB Community Edition
-3. A code editor (e.g., VS Code, Sublime Text, etc.)
-4. Git (optional, but recommended)
+3. A code editor (e.g., VS Code, Webstorm, etc.)
+4. Git 
 
 ## Step 1: Install Node.js and npm
 
