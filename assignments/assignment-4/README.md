@@ -185,13 +185,36 @@ Your calculator should implement these basic operations:
 - Host your calculator on GitHub Pages
 - Submit the GitHub repository link
 
-## Evaluation Criteria
-- Functionality: Does the calculator work correctly?
-- Code Quality: Is the code well-organized and error free?
-- Design: Does it look similar to the iOS/Android calculator?
-- User Experience: Is it intuitive and easy to use?
-- Error Handling: Does it handle edge cases gracefully?
-- Implementation of JavaScript concepts covered in lectures
+## Evaluation Criteria 
+### Correct integration of calculator into portfolio (35%)
+
+- Calculator functionality works properly (20%) 
+- Error free HTML (5%)
+- Error free CSS (5%)
+- Error free JS (5%)
+
+
+### Functioning navigation links (10%)
+
+- Working link to the calculator (5%)
+- Working link back from the calculator (5%)
+
+### Professional presentation of the calculator project (20%)
+
+- Clear project explanation and documentation (SUBMISSION.md) (8%)
+- User-friendly calculator interface (7%)
+- Proper error handling and input validation (5%)
+
+### Code organization and structure (15%)
+
+- Well-commented, readable code (5%)
+- Logical code organization (5%)
+- Modular approach with separation of concerns (5%)
+
+### Overall portfolio design and usability (20%)
+
+- Cohesive visual design (10%)
+- Responsive layout across devices (10%)
 
 ## Tips
 - Start by implementing the basic UI
