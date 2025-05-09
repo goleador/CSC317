@@ -125,8 +125,7 @@ Feel free to adapt these ideas or propose something entirely different that inte
 Your project must follow this directory structure:
 
 ```
-assignments/
-└── assignment-5/
+├── /
     ├── app.js
     ├── package.json
     ├── public/
@@ -180,5 +179,11 @@ Your project will be evaluated on:
 2. Submit your repository link through the class portal
 3. Upload your demo video to the designated platform
 4. Include a contribution.md file detailing each member's contributions
+
+
+## Due Date
+
+**May 14th, 11:59pm**
+
 
 Good luck with your projects! This is your opportunity to showcase all you've learned throughout the course while gaining valuable collaborative development experience.

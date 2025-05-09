@@ -1,4 +1,4 @@
-# SQL/PostgreSQL with Express.js: A Comprehensive Guide
+# SQL/PostgreSQL with Express.js
 
 ## Table of Contents
 1. [Introduction](#introduction)
