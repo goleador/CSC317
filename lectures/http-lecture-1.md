@@ -1,6 +1,6 @@
 # HTTP Fundamentals
 
-## Lecture 1: Introduction to HTTP (1 hour 15 minutes)
+## Lecture 1: Introduction to HTTP
 
 ### 1. Introduction to HTTP
 - What is HTTP (Hypertext Transfer Protocol)?
@@ -41,7 +41,7 @@
 
 ---
 
-## Lecture 2: Deep Dive into HTTP & Practical Applications (1 hour 15 minutes)
+## Lecture 2: Deep Dive into HTTP & Practical Applications 
 
 ### 1. HTTP Headers
 - Request headers:
