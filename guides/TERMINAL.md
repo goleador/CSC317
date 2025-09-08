@@ -1,4 +1,4 @@
-# 🚀 Crash Course: Basic Terminal for Web Development
+# 🚀 Basic Terminal for Web Development
 
 ## 📌 Objective
 This guide introduces the essential terminal commands for navigating, managing files, and executing processes on Unix-based systems (Linux/macOS) and Windows.
