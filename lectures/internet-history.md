@@ -16,11 +16,11 @@
 ### 1980s - Going Global
 - **1983**: DNS introduced (no more memorizing IP addresses!)
 - **1986**: NSFNET created (academic backbone)
-- **1989**: Tim Berners-Lee proposes the World Wide Web at CERN
+- **1989**: [Tim Berners-Lee proposes the World Wide Web](www-proposal.md) at CERN
 
 ### 1990s - The Web Explosion
-- **1991**: First website goes live (info.cern.ch)
-- **1993**: Mosaic browser with images!
+- **1991**: First website goes live [info.cern.ch](http://info.cern.ch)
+- **1993**: [Mosaic browser](https://en.wikipedia.org/wiki/NCSA_Mosaic) with images!
 - **1994**: Amazon, Yahoo founded
 - **1995**: JavaScript created in 10 days by Brendan Eich
 - **1996**: CSS 1.0 released; Space Jam website still online unchanged!
@@ -30,7 +30,7 @@
 ### 2000s - Web 2.0
 - **2003**: MySpace launches (Tom was everyone's first friend)
 - **2004**: Facebook launches (Harvard only, no "like" button until 2009!)
-- **2005**: YouTube's first video: "Me at the zoo" (19 seconds)
+- **2005**: YouTube's first video: ["Me at the zoo"](https://www.youtube.com/watch?v=jNQXAC9IVRw) (19 seconds)
 - **2006**: Twitter's first tweet; 140 char limit from SMS constraints
 - **2007**: iPhone changes mobile web forever (no App Store yet!)
 - **2008**: HTML5 draft published; Bitcoin whitepaper released
@@ -65,7 +65,6 @@
 - Status codes: 200 (OK), 404 (Not Found), 500 (Server Error)
 - **418**: "I'm a teapot" (actual joke status code from 1998!)
 - HTTPS = HTTP + encryption (TLS/SSL)
-- **Reality check**: 81% of websites still use insecure HTTP
 
 ## The Web Standards Trinity
 
@@ -160,4 +159,3 @@ button.addEventListener('click', () => {
 - [Internet History Timeline](https://www.computerhistory.org/internethistory/)
 - [How DNS Works (comic)](https://howdns.works/)
 - [HTTP Status Dogs](https://httpstatusdogs.com/)
-- [Evolution of the Web](http://www.evolutionoftheweb.com/)
