@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix-Style Movie Slider</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #141414;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Main Container */
+        .netflix-container {
+            padding: 50px 0;
+            min-height: 100vh;
+        }
+
+        /* Category Row */
+        .category-row {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        /* Category Title */
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            padding: 0 4%;
+            color: #e5e5e5;
+        }
+
+        /* Slider Container with Scroll Snap */
+        .slider-container {
+            position: relative;
+            padding: 0 4%;
+        }
+
+        .slider-wrapper {
+            /* Enable horizontal scrolling */
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            
+            /* Enable scroll snapping */
+            scroll-snap-type: x mandatory;
+            
+            /* Hide scrollbar for cleaner look */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .slider-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Individual Movie Card */
+        .movie-card {
+            /* Card sizing */
+            min-width: 250px;
+            height: 140px;
+            margin-right: 5px;
+            
+            /* Scroll snap alignment */
+            scroll-snap-align: start;
+            
+            /* Visual styling */
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            
+            /* Transition for hover effect */
+            transition: transform 0.3s ease, z-index 0s 0.3s;
+        }
+
+        /* Movie Thumbnail */
+        .movie-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Movie Info Overlay */
+        .movie-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .movie-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .movie-year {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Hover Effects */
+        .movie-card:hover {
+            transform: scale(1.3);
+            z-index: 10;
+            transition-delay: 0s, 0.5s; /* Delay z-index change */
+        }
+
+        .movie-card:hover .movie-info {
+            transform: translateY(0);
+        }
+
+        /* Navigation Arrows */
+        .slider-nav {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.5);
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 20;
+        }
+
+        .slider-nav:hover {
+            opacity: 1;
+        }
+
+        .nav-prev {
+            left: 0;
+        }
+
+        .nav-next {
+            right: 0;
+        }
+
+        .nav-arrow {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        /* Featured Banner */
+        .featured-banner {
+            height: 70vh;
+            position: relative;
+            margin-bottom: -100px;
+            padding: 0 4%;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, rgba(0,0,0,0.8), transparent),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23333" width="1200" height="600"/><text x="50%" y="50%" text-anchor="middle" fill="%23666" font-size="40">Featured Movie</text></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .featured-content {
+            max-width: 500px;
+        }
+
+        .featured-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .featured-description {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            color: #ddd;
+        }
+
+        .featured-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .btn-play {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-info {
+            background: rgba(109, 109, 110, 0.7);
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .movie-card {
+                min-width: 150px;
+                height: 85px;
+            }
+            
+            .featured-title {
+                font-size: 2rem;
+            }
+            
+            .featured-description {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Demo color blocks for movie thumbnails */
+        .demo-thumbnail-1 { background: linear-gradient(45deg, #FF6B6B, #C44569); }
+        .demo-thumbnail-2 { background: linear-gradient(45deg, #4ECDC4, #44A08D); }
+        .demo-thumbnail-3 { background: linear-gradient(45deg, #F7DC6F, #F39C12); }
+        .demo-thumbnail-4 { background: linear-gradient(45deg, #BB8FCE, #8E44AD); }
+        .demo-thumbnail-5 { background: linear-gradient(45deg, #85C1E2, #3498DB); }
+        .demo-thumbnail-6 { background: linear-gradient(45deg, #82E0AA, #27AE60); }
+        .demo-thumbnail-7 { background: linear-gradient(45deg, #F8B195, #F67280); }
+        .demo-thumbnail-8 { background: linear-gradient(45deg, #C06C84, #6C5B7B); }
+    </style>
+</head>
+<body>
+    <div class="netflix-container">
+        <!-- Featured Banner -->
+        <div class="featured-banner">
+            <div class="featured-content">
+                <h1 class="featured-title">Featured Movie</h1>
+                <p class="featured-description">
+                    Experience the magic of CSS transforms and transitions in this showcase
+                    of modern web design techniques.
+                </p>
+                <div class="featured-buttons">
+                    <button class="btn btn-play">▶ Play</button>
+                    <button class="btn btn-info">ℹ More Info</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Trending Now -->
+        <div class="category-row">
+            <h2 class="category-title">Trending Now</h2>
+            <div class="slider-container">
+                <div class="slider-nav nav-prev" onclick="scrollSlider(this, -1)">
+                    <span class="nav-arrow">‹</span>
+                </div>
+                <div class="slider-wrapper">
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-1"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">CSS Masterclass</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-2"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Flexbox Adventures</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-3"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Grid Layout Magic</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-4"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Animation Wonders</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-5"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Responsive Design</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-6"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">CSS Variables</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-7"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Transform Tales</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-8"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Transition Theater</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav nav-next" onclick="scrollSlider(this, 1)">
+                    <span class="nav-arrow">›</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Popular on CSC317 -->
+        <div class="category-row">
+            <h2 class="category-title">Popular on CSC317</h2>
+            <div class="slider-container">
+                <div class="slider-nav nav-prev" onclick="scrollSlider(this, -1)">
+                    <span class="nav-arrow">‹</span>
+                </div>
+                <div class="slider-wrapper">
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-6"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Box Model Basics</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-7"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Selector Stories</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-8"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Media Query Magic</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-1"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Pseudo Power</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-2"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Filter Features</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-thumbnail demo-thumbnail-3"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">Typography Tales</div>
+                            <div class="movie-year">2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav nav-next" onclick="scrollSlider(this, 1)">
+                    <span class="nav-arrow">›</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minimal JavaScript for arrow navigation -->
+    <script>
+        function scrollSlider(button, direction) {
+            const slider = button.parentElement.querySelector('.slider-wrapper');
+            const scrollAmount = 250 * 3; // Scroll 3 cards at a time
+            slider.scrollBy({
+                left: scrollAmount * direction,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

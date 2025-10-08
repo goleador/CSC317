@@ -121,6 +121,100 @@ Key benefits:
 }
 ```
 
+
+Got it 👍 — here are multiple examples of flex-basis in action. Think of flex-basis as the starting size for a flex item before flex-grow and flex-shrink rules are applied.
+
+⸻
+
+1. flex-basis: auto; (default)
+
+.item {
+  flex: 0 1 auto;
+}
+
+	•	The item’s content size or its width/height (if set) will decide its starting size.
+	•	Example: if you set width: 200px, then the basis is 200px.
+
+⸻
+
+2. flex-basis: 0;
+
+.item {
+  flex: 1 1 0;
+}
+
+	•	The item starts with 0 width/height.
+	•	All space will be distributed based only on flex-grow values.
+	•	Common trick: flex: 1 is actually shorthand for flex: 1 1 0.
+
+⸻
+
+3. flex-basis: 200px;
+
+.item {
+  flex: 0 1 200px;
+}
+
+	•	The item will try to start at 200px wide.
+	•	If there’s extra space, flex-grow decides how much it expands.
+	•	If space is tight, flex-shrink allows it to shrink below 200px.
+
+⸻
+
+4. flex-basis: 50%;
+
+.item {
+  flex: 0 1 50%;
+}
+
+	•	The item will try to take half the container’s width (in row flex direction).
+	•	Great for evenly splitting layouts.
+
+⸻
+
+5. flex-basis: content;
+
+.item {
+  flex: 0 1 content;
+}
+
+	•	Uses the intrinsic content size of the item (kind of like auto but stricter).
+	•	Support is less universal across browsers, but it means: “size me exactly to my content.”
+
+⸻
+
+Quick Demo Example
+
+<div class="container">
+  <div class="item auto">auto</div>
+  <div class="item zero">0</div>
+  <div class="item px">200px</div>
+  <div class="item percent">50%</div>
+</div>
+
+.container {
+  display: flex;
+  gap: 10px;
+}
+
+.item.auto    { flex: 0 1 auto; background: lightblue; }
+.item.zero    { flex: 1 1 0; background: lightgreen; }
+.item.px      { flex: 0 1 200px; background: lightcoral; }
+.item.percent { flex: 0 1 50%; background: khaki; }
+
+
+⸻
+
+👉 Rule of thumb:
+	•	Use 0 when you want all items to just share space equally.
+	•	Use auto when you want them to respect their content/width.
+	•	Use fixed units (px, %) when you want explicit control.
+
+⸻
+
+Do you want me to also make a side-by-side visual diagram (boxes expanding/shrinking differently) to show how these actually render?
+
+
 ---
 
 ## Common Flexbox Patterns

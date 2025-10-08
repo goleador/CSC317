@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify-Style Music Player</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        /* CSS Variables for Theming */
+        :root {
+            --spotify-green: #1DB954;
+            --spotify-black: #191414;
+            --spotify-dark: #121212;
+            --spotify-gray: #535353;
+            --spotify-light-gray: #B3B3B3;
+            --sidebar-width: 240px;
+            --player-height: 90px;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: #000;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "🎵";
+            font-size: 1.8rem;
+        }
+
+        .nav-section {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            color: var(--spotify-light-gray);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: color 0.2s, background-color 0.2s;
+        }
+
+        .nav-item:hover {
+            color: #fff;
+            background-color: #282828;
+        }
+
+        .nav-item.active {
+            color: #fff;
+            background-color: #282828;
+        }
+
+        .nav-icon {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Playlist Section in Sidebar */
+        .playlists {
+            flex: 1;
+            overflow-y: auto;
+            margin-top: 1rem;
+            border-top: 1px solid #282828;
+            padding-top: 1rem;
+        }
+
+        .playlist-item {
+            padding: 0.5rem 0;
+            color: var(--spotify-light-gray);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .playlist-item:hover {
+            color: #fff;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            background: linear-gradient(to bottom, #1f1f1f 0%, #121212 100%);
+            overflow-y: auto;
+            padding-bottom: var(--player-height);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 23px;
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--spotify-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 0 2rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Album Grid */
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .album-card {
+            background-color: #181818;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            position: relative;
+        }
+
+        .album-card:hover {
+            background-color: #282828;
+            transform: translateY(-4px);
+        }
+
+        .album-card:hover .play-button {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .album-cover {
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: #282828;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Demo gradients for album covers */
+        .album-1 { background: linear-gradient(45deg, #FF6B6B, #FFE66D); }
+        .album-2 { background: linear-gradient(45deg, #4ECDC4, #44A08D); }
+        .album-3 { background: linear-gradient(45deg, #A8E6CF, #DCEDC1); }
+        .album-4 { background: linear-gradient(45deg, #FF8B94, #FFD3B6); }
+        .album-5 { background: linear-gradient(45deg, #FFAAA5, #FF8B94); }
+        .album-6 { background: linear-gradient(45deg, #B4A7D6, #8E7CC3); }
+
+        .album-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .album-artist {
+            color: var(--spotify-light-gray);
+            font-size: 0.875rem;
+        }
+
+        /* Play Button Overlay */
+        .play-button {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            width: 48px;
+            height: 48px;
+            background-color: var(--spotify-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .play-button:hover {
+            transform: scale(1.05) translateY(0);
+        }
+
+        .play-icon {
+            font-size: 1.2rem;
+            margin-left: 2px;
+        }
+
+        /* Now Playing Bar */
+        .now-playing-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--player-height);
+            background-color: #181818;
+            border-top: 1px solid #282828;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            padding: 0 1rem;
+            z-index: 100;
+        }
+
+        /* Currently Playing Info */
+        .now-playing-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .now-playing-cover {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+
+        .now-playing-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .now-playing-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .now-playing-artist {
+            font-size: 0.75rem;
+            color: var(--spotify-light-gray);
+        }
+
+        .heart-icon {
+            color: var(--spotify-light-gray);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .heart-icon:hover {
+            color: #fff;
+        }
+
+        .heart-icon.liked {
+            color: var(--spotify-green);
+        }
+
+        /* Player Controls */
+        .player-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .control-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: var(--spotify-light-gray);
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.2s;
+            padding: 0.5rem;
+        }
+
+        .control-btn:hover {
+            color: #fff;
+        }
+
+        .control-btn.play-pause {
+            width: 32px;
+            height: 32px;
+            background-color: #fff;
+            color: #000;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-btn.play-pause:hover {
+            transform: scale(1.05);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .time {
+            font-size: 0.75rem;
+            color: var(--spotify-light-gray);
+            min-width: 40px;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 4px;
+            background-color: #535353;
+            border-radius: 2px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #fff;
+            border-radius: 2px;
+            width: 30%;
+            position: relative;
+            transition: width 0.1s;
+        }
+
+        .progress-bar:hover .progress-fill {
+            background-color: var(--spotify-green);
+        }
+
+        .progress-bar:hover .progress-fill::after {
+            content: "";
+            position: absolute;
+            right: -6px;
+            top: -4px;
+            width: 12px;
+            height: 12px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        /* Volume Controls */
+        .volume-controls {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .volume-slider {
+            width: 100px;
+            height: 4px;
+            background-color: #535353;
+            border-radius: 2px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .volume-fill {
+            height: 100%;
+            background-color: #fff;
+            border-radius: 2px;
+            width: 50%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            
+            .album-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .now-playing-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .volume-controls {
+                display: none;
+            }
+        }
+
+        /* Animation for demo */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        .playing .control-btn.play-pause {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">CSC317 Music</div>
+        
+        <nav class="nav-section">
+            <a href="#" class="nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon">🔍</span>
+                <span>Search</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon">📚</span>
+                <span>Your Library</span>
+            </a>
+        </nav>
+        
+        <nav class="nav-section">
+            <a href="#" class="nav-item">
+                <span class="nav-icon">➕</span>
+                <span>Create Playlist</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon">❤️</span>
+                <span>Liked Songs</span>
+            </a>
+        </nav>
+        
+        <div class="playlists">
+            <div class="playlist-item">CSS Coding Sessions</div>
+            <div class="playlist-item">HTML Study Mix</div>
+            <div class="playlist-item">JavaScript Jams</div>
+            <div class="playlist-item">Web Dev Vibes</div>
+            <div class="playlist-item">Responsive Rhythms</div>
+            <div class="playlist-item">Flexbox Flow</div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-nav">
+                <button class="nav-btn">‹</button>
+                <button class="nav-btn">›</button>
+            </div>
+            <div class="user-menu">
+                <div class="user-avatar">CS</div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="content">
+            <h1 class="section-title">Good afternoon</h1>
+            
+            <!-- Recently Played -->
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Recently played</h2>
+            <div class="album-grid">
+                <div class="album-card">
+                    <div class="album-cover album-1">
+                        <div class="play-button">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="album-title">CSS Essentials</div>
+                    <div class="album-artist">Prof. Style</div>
+                </div>
+                
+                <div class="album-card">
+                    <div class="album-cover album-2">
+                        <div class="play-button">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="album-title">Flexbox Beats</div>
+                    <div class="album-artist">Layout Masters</div>
+                </div>
+                
+                <div class="album-card">
+                    <div class="album-cover album-3">
+                        <div class="play-button">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="album-title">Grid Grooves</div>
+                    <div class="album-artist">The Containers</div>
+                </div>
+                
+                <div class="album-card">
+                    <div class="album-cover album-4">
+                        <div class="play-button">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="album-title">Animation Station</div>
+                    <div class="album-artist">Keyframe Kids</div>
+                </div>
+                
+                <div class="album-card">
+                    <div class="album-cover album-5">
+                        <div class="play-button">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="album-title">Responsive Radio</div>
+                    <div class="album-artist">Media Query</div>
+                </div>
+                
+                <div class="album-card">
+                    <div class="album-cover album-6">
+                        <div class="play-button">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="album-title">Variable Vibes</div>
+                    <div class="album-artist">Custom Properties</div>
+                </div>
+            </div>
+
+            <!-- Made for You -->
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Made for CSC317 Students</h2>
+            <div class="album-grid">
+                <div class="album-card">
+                    <div class="album-cover album-3">
+                        <div class="play-button">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="album-title">Daily Mix 1</div>
+                    <div class="album-artist">CSS, HTML, and more</div>
+                </div>
+                
+                <div class="album-card">
+                    <div class="album-cover album-1">
+                        <div class="play-button">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="album-title">Discover Weekly</div>
+                    <div class="album-artist">Your weekly mixtape</div>
+                </div>
+                
+                <div class="album-card">
+                    <div class="album-cover album-5">
+                        <div class="play-button">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="album-title">Release Radar</div>
+                    <div class="album-artist">New CSS features</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Now Playing Bar -->
+    <div class="now-playing-bar">
+        <!-- Currently Playing -->
+        <div class="now-playing-info">
+            <div class="now-playing-cover"></div>
+            <div class="now-playing-details">
+                <div class="now-playing-title">Transform & Transition</div>
+                <div class="now-playing-artist">Animation Artists</div>
+            </div>
+            <span class="heart-icon">❤️</span>
+        </div>
+
+        <!-- Player Controls -->
+        <div class="player-controls">
+            <div class="control-buttons">
+                <button class="control-btn">🔀</button>
+                <button class="control-btn">⏮</button>
+                <button class="control-btn play-pause playing">❚❚</button>
+                <button class="control-btn">⏭</button>
+                <button class="control-btn">🔁</button>
+            </div>
+            <div class="progress-container">
+                <span class="time">1:23</span>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="time">3:45</span>
+            </div>
+        </div>
+
+        <!-- Volume Controls -->
+        <div class="volume-controls">
+            <button class="control-btn">🔊</button>
+            <div class="volume-slider">
+                <div class="volume-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple JavaScript for demo interactions -->
+    <script>
+        // Play button functionality
+        document.querySelectorAll('.play-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const playPauseBtn = document.querySelector('.play-pause');
+                const icon = playPauseBtn.textContent;
+                playPauseBtn.textContent = icon === '▶' ? '❚❚' : '▶';
+                playPauseBtn.classList.toggle('playing');
+            });
+        });
+
+        // Like button functionality
+        document.querySelector('.heart-icon').addEventListener('click', function() {
+            this.classList.toggle('liked');
+        });
+
+        // Progress bar interaction
+        const progressBar = document.querySelector('.progress-bar');
+        const progressFill = document.querySelector('.progress-fill');
+        
+        progressBar.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            progressFill.style.width = (percent * 100) + '%';
+        });
+
+        // Volume slider interaction
+        const volumeSlider = document.querySelector('.volume-slider');
+        const volumeFill = document.querySelector('.volume-fill');
+        
+        volumeSlider.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            volumeFill.style.width = (percent * 100) + '%';
+        });
+    </script>
+</body>
+</html>

@@ -63,7 +63,7 @@
     <form id="userForm" onsubmit="return validateForm()">
         <!-- Email Input -->
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required placeholder="Enter your email" pattern="\w">
+        <!--input type="email" id="email" name="email" required placeholder="Enter your email" pattern="\w"-->
         <span class="error-message" id="emailError">Please enter a valid email.</span>
 
         <!-- Number Input -->
@@ -89,15 +89,7 @@
         let isValid = true;
 
         // Email Validation
-        const email = document.getElementById("email");
-        const emailError = document.getElementById("emailError");
-        if (!email.checkValidity()) {
-            emailError.style.display = "block";
-            isValid = false;
-        } else {
-            emailError.style.display = "none";
-        }
-
+        //Copyrightonst email = document.getElementById("email");
         // Age Validation
         const age = document.getElementById("age");
         const ageError = document.getElementById("ageError");

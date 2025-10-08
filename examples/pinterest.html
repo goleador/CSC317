@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest-Style Masonry Grid</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Navigation */
+        .header {
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #E60023;
+        }
+
+        .search-bar {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 24px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #E60023;
+        }
+
+        /* Main Grid Container using CSS Grid */
+        .grid-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* 
+         * Masonry Grid Implementation
+         * We use CSS Grid with dense packing to create a masonry-like effect
+         * Each item spans different numbers of rows to create varied heights
+         */
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-auto-rows: 10px; /* Small row height for fine control */
+            gap: 20px;
+        }
+
+        /* Pin Card Base Styles */
+        .pin-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: zoom-in;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            
+            /* Grid row spanning handled by utility classes */
+        }
+
+        /* Height variations using grid-row-end */
+        .pin-small { grid-row-end: span 20; } /* ~200px */
+        .pin-medium { grid-row-end: span 30; } /* ~300px */
+        .pin-large { grid-row-end: span 40; } /* ~400px */
+        .pin-xlarge { grid-row-end: span 50; } /* ~500px */
+
+        /* Pin Image Container */
+        .pin-image {
+            width: 100%;
+            height: calc(100% - 60px); /* Leave space for info section */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Demo colored backgrounds to simulate images */
+        .demo-img-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .demo-img-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .demo-img-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .demo-img-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .demo-img-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .demo-img-6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        .demo-img-7 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .demo-img-8 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+
+        /* Hover Overlay */
+        .pin-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem;
+        }
+
+        /* Save Button */
+        .save-btn {
+            background: #E60023;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        /* Pin Info Section */
+        .pin-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.75rem 1rem;
+            background: #fff;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .pin-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
+
+        .pin-author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #E60023;
+        }
+
+        /* Hover Effects */
+        .pin-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .pin-card:hover .pin-overlay {
+            opacity: 1;
+        }
+
+        .pin-card:hover .save-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Category Pills */
+        .categories {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-pill {
+            background: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 24px;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .category-pill:hover {
+            background: #E60023;
+            color: white;
+        }
+
+        .category-pill.active {
+            background: #000;
+            color: white;
+        }
+
+        /* Loading Animation */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .masonry-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            
+            .nav-container {
+                gap: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 56px;
+            height: 56px;
+            background: #E60023;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">📌 CSC317 Pins</div>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search for CSS inspiration...">
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Pills -->
+    <div class="categories">
+        <div class="category-pill active">All</div>
+        <div class="category-pill">CSS Grid</div>
+        <div class="category-pill">Flexbox</div>
+        <div class="category-pill">Animations</div>
+        <div class="category-pill">Responsive</div>
+        <div class="category-pill">Typography</div>
+        <div class="category-pill">Forms</div>
+        <div class="category-pill">Variables</div>
+    </div>
+
+    <!-- Main Grid Container -->
+    <div class="grid-container">
+        <div class="masonry-grid">
+            <!-- Pin 1 -->
+            <div class="pin-card pin-medium">
+                <div class="pin-image demo-img-1">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">CSS Grid Mastery</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pin 2 -->
+            <div class="pin-card pin-large">
+                <div class="pin-image demo-img-2">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Flexbox Layout Patterns</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pin 3 -->
+            <div class="pin-card pin-small">
+                <div class="pin-image demo-img-3">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Modern CSS Variables</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pin 4 -->
+            <div class="pin-card pin-xlarge">
+                <div class="pin-image demo-img-4">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Animation Showcase</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pin 5 -->
+            <div class="pin-card pin-medium">
+                <div class="pin-image demo-img-5">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Responsive Design Tips</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pin 6 -->
+            <div class="pin-card pin-large">
+                <div class="pin-image demo-img-6">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Transform & Transition Magic</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pin 7 -->
+            <div class="pin-card pin-small">
+                <div class="pin-image demo-img-7">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Beautiful Gradients</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pin 8 -->
+            <div class="pin-card pin-medium">
+                <div class="pin-image demo-img-8">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">CSS Filter Effects</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More pins with varied heights -->
+            <div class="pin-card pin-large">
+                <div class="pin-image demo-img-1">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Box Model Explained</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pin-card pin-medium">
+                <div class="pin-image demo-img-3">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Media Query Mastery</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pin-card pin-xlarge">
+                <div class="pin-image demo-img-5">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">CSS Best Practices 2024</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pin-card pin-small">
+                <div class="pin-image demo-img-7">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Pseudo Elements</div>
+                    <div class="pin-author">
+                        <div class="author-avatar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fab">+</div>
+
+    <!-- Simple JavaScript for demo interactions -->
+    <script>
+        // Add click handlers to category pills
+        document.querySelectorAll('.category-pill').forEach(pill => {
+            pill.addEventListener('click', function() {
+                // Remove active class from all pills
+                document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+                // Add active class to clicked pill
+                this.classList.add('active');
+            });
+        });
+
+        // Add click handler to save buttons
+        document.querySelectorAll('.save-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent card click
+                this.textContent = 'Saved!';
+                this.style.background = '#000';
+                setTimeout(() => {
+                    this.textContent = 'Save';
+                    this.style.background = '#E60023';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
