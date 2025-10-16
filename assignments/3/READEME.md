@@ -9,7 +9,7 @@
 
 - **Elect one group member** to submit the assignment via their existing CSC317 repository
 - **Submission location**: Submit in the `assignments/3/` folder of the elected member's repository
-- **Portfolio copies**: All group members should keep a copy of the final project for their personal portfolios
+- **Portfolio copies**: All group members should keep a copy of the final project for their personal portfolios. However, only one will be graded.
 - **Group identification**: Include group information in your submission markdown (see format below)
 
 ## Overview
@@ -25,7 +25,7 @@ In this group assignment, you will collaboratively build upon a personal portfol
 ## Assignment Requirements
 
 ### 1. Hand-Written CSS (`styles.css`) - **Group Responsibility**
-**Assigned to: [Member Name 1] and [Member Name 2]** - Collaboratively create a handwritten CSS file:
+**Assigned to: All Members (Collaborative)** - Collaboratively create a handwritten CSS file:
 - Implement a responsive layout that works well on mobile, tablet, and desktop screens
 - Use CSS variables for a consistent color scheme and easy theming
 - Apply appropriate spacing, typography, and visual hierarchy
@@ -33,39 +33,31 @@ In this group assignment, you will collaboratively build upon a personal portfol
 - (OPTIONAL) Include at least one transition or animation effect
 - Ensure all interactive elements have appropriate hover/focus states
 - Add comments explaining your approach to each major section
-- **Work Distribution**: Divide sections between both members (e.g., Member 1: header/nav/footer, Member 2: main content sections)
+- **Recommeneded Work Distribution**: Divide sections between members (e.g., Member 1: header/footer, Member 2: section 1, Member 2: section 2, Member 3: nav and photo)
 
-### 2. AI-Generated CSS with Text Prompt (`ai-1.css`) - **Group Responsibility**
-**Assigned to: [Member Name 3]** - Use an AI tool to generate a complete CSS file:
+### 2. AI-Generated CSS with Text Prompt (`ai-1.css`, `ai-2.css`, `ai-3.css`, ...) - **Group Responsibility (One Per Member)**
+**Use an AI tool to generate a complete CSS file:
 - Use an AI tool (like Claude, ChatGPT, or Copilot) to generate a complete CSS file
 - Provide the AI with a detailed text prompt describing desired look and feel
 - Your prompt should include specific details about:
     - Color scheme preferences
     - Typography style
     - Layout preferences
-    - Any specific design elements you want included
-- Save the AI's response as `styles/ai-1.css` without modifications
+    - Any specific design elements you want included (At least one image should be styled)
+- Save the AI's response as `styles/ai-X.css` without modifications. You can use AI to iterate but not code manually.
 - Save the prompt used as `prompts/ai-1-css-prompt.md`
 
-### 3. AI-Generated CSS with Image + Text Prompt (`ai-2.css`) - **Group Responsibility**
-**Assigned to: [Member Name 4]** - Create AI-generated CSS with visual reference:
-- Use an AI tool that accepts images as input (like Claude, Midjourney, DALL-E)
-- Find a website, UI design, or style reference image that represents desired aesthetic
-- Create a prompt that includes both the image and text description
-- Save the AI's response as `styles/ai-2.css` without modifications
-- Save the prompt used as `prompts/ai-2-css-prompt.md`
-- **If 3-member group**: Member 3 handles both AI-generated CSS files
-
-### 4. Hybrid Solution (`hybrid.css`) - **Group Collaborative Effort**
+### 3. Hybrid Solution (`hybrid.css`) - **Group Collaborative Effort**
 **Assigned to: All Members** - Create a new CSS file that combines the best elements:
 - Combine the best elements from at least two of your other CSS files
 - Include comments that clearly identify which parts came from which source file
 - Ensure the final design is cohesive and consistent
 - Fix any issues or inconsistencies from the AI-generated code
 - Add optimizations or improvements based on course learning
+- **Recommeneded Work Distribution**: Divide sections between members (e.g., Member 1: header/footer, Member 2: section 1, Member 2: section 2, Member 3: nav and photo)
 
 ### 5. CSS Switcher Implementation - **Group Responsibility**
-**Assigned to: All Members (collaborative)** - Implement the provided JavaScript switcher:
+**Assigned to: Pick one member** - Implement the provided JavaScript switcher:
 - Integrate the provided `switcher.js` file
 - Create navigation/button interface for switching between CSS files
 - Ensure all stylesheets work properly with the switcher
@@ -75,9 +67,9 @@ In this group assignment, you will collaboratively build upon a personal portfol
 
 1. **Git Workflow**: Use branches, pull requests, and code reviews
 2. **Communication**: Document group meetings and decisions
-3. **Code Review**: All code must be reviewed by at least one other member
+3. **Code Review**: Everyone in the group is resonsible for the entire code 
 4. **Documentation**: Maintain clear documentation throughout development
-5. **Equal Participation**: Ensure meaningful contribution from all members
+5. **Equal Participation**: Ensure meaningful contribution from all members (if there's an issue inform the proffessor early on).
 
 ### File Structure Requirements
 
@@ -94,7 +86,7 @@ The elected group member's repository should include the assignment in the follo
         │   ├── ai-1.css        (AI-generated with text prompt)
         │   ├── ai-2.css        (AI-generated with image + text prompt)
         │   └── hybrid.css      (Combined solution)
-        ├── js/
+        ├── scripts/
         │   └── switcher.js     (Provided JavaScript)
         ├── images/
         │   └── [all images used in portfolio and for AI generation]
@@ -104,7 +96,7 @@ The elected group member's repository should include the assignment in the follo
             └── [reference images used for AI generation]
 ```
 
-**Important**: All group members should copy the final project to their own repositories in the same `assignments/3/` structure for portfolio purposes.
+**Recommended**: All group members should copy the final project to their own repositories in the same `assignments/3/` structure for portfolio purposes.
 
 ## Validation Requirements
 - All HTML and CSS must be validated using:
@@ -221,16 +213,12 @@ Your elected group member's repository must include a `GROUP_INFO.md` file with 
 
 ## Bonus Challenge (Extra Credit) - **Group Optional**
 Choose one of the following as a group:
-1. **Enhanced Theme Switcher**: Extend the provided switcher with additional features like:
-   - Smooth transitions between styles
-   - Local storage to remember user preference
-   - Additional custom themes created by the group
-2. **Advanced CSS Animation**: Add a complex CSS animation to your portfolio that was not present in any of the AI-generated versions
-3. **Accessibility Enhancement**: Implement comprehensive accessibility features including:
+1. **Advanced CSS Animation**: Add a complex CSS animation to your portfolio that was not present in any of the AI-generated versions
+2. **Accessibility Enhancement**: Implement comprehensive accessibility features including:
    - Dark mode using CSS variables in hybrid solution
    - Screen reader optimization
    - Keyboard navigation improvements
-4. **Performance Optimization**: Optimize all CSS files for performance and create a detailed performance comparison report
+3. **Performance Optimization**: Optimize all CSS files for performance and create a detailed performance comparison report
 
 ## Submission Process
 
@@ -247,7 +235,7 @@ Choose one of the following as a group:
 ## Important Notes
 
 - **Single Repository**: Only the elected member's repository counts for submission
-- **Portfolio Preservation**: All members should maintain personal copies for their portfolios
+- **Portfolio Preservation**: All members should maintain personal copies for their portfolios (this won't be graded)
 - **Late Penalties**: Apply to the entire group
 - **Academic Integrity**: All group members are responsible for the submitted work
 - **Individual Accountability**: Instructor may ask individual members to explain any part of the submission
@@ -255,15 +243,12 @@ Choose one of the following as a group:
 
 ## Getting Started
 
-1. **Assign roles** within your existing group:
-   - Two members for hand-written CSS (divide sections between them)
-   - One member for AI text prompt CSS
-   - One member for AI image+text prompt CSS (or same member as text prompt if 3-person group)
+1. **Assign roles** decide how you want to split the work
 2. **Elect the submitter** whose repository will be used
 3. **Create the assignment folder** structure in the elected member's repository
 4. **Set up collaboration** by adding all members as collaborators
 5. **Plan the design approach** as a group before starting individual work
-6. **Begin development** using collaborative Git workflow
+6. **Begin development** using collaborative git
 
 ## Due Date
 This assignment is due Oct 26th at midnight. 
@@ -272,7 +257,7 @@ This assignment is due Oct 26th at midnight.
 
 - **Plan Early**: Discuss design direction as a group before starting individual CSS files
 - **Communicate Regularly**: Use Discord for ongoing communication
-- **Review Each Other's Work**: Use GitHub to code review eachothers code.
+- **Review Each Other's Work**: Use GitHub to code review each others code.
 - **Test Everything**: Ensure all CSS files work properly with the switcher
 - **Document Everything**: Keep detailed records of your collaboration process
 
