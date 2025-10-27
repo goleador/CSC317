@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>CSC 317 — How the Browser Works</title>
+
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/plugin/highlight/monokai.css">
+
+  <style>
+    :root {
+      --teal: #00C896;
+    }
+    .reveal h1, .reveal h2, .reveal h3 { color: var(--teal); }
+    .reveal .slides { font-size: 28px; }
+    .reveal pre code { font-size: 0.8em; line-height: 1.4; }
+    .badge { display:inline-block; padding: .25em .5em; border-radius: .5em; background:#1f2937; color:#d1fae5; border:1px solid #0f766e; font-size: .6em; margin-left:.4em }
+    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items:center }
+    .muted { color:#9CA3AF; font-size:.8em }
+    .small { font-size: .7em; }
+    .pill { display:inline-block; padding:.2em .6em; border:1px solid #374151; border-radius:999px; font-size:.6em; color:#e5e7eb }
+    svg { max-width:100%; height:auto }
+    .left { text-align:left }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- Title -->
+    <section>
+      <h1>How the Browser Works</h1>
+      <h3>From URL to Screen</h3>
+      <p class="muted">CSC 317 — Intro to Web Software Development <span class="badge">~30 min</span></p>
+      <aside class="notes">
+        Welcome! We'll follow the life of a request from typing a URL to pixels on screen. Focus on DOM, CSSOM, JS engine, and the rendering pipeline.
+      </aside>
+    </section>
+
+    <!-- Learning Goals -->
+    <section>
+      <h2>Learning Goals</h2>
+      <ul>
+        <li>Explain the steps from network fetch to pixels</li>
+        <li>Describe DOM, CSSOM, render tree</li>
+        <li>Understand JS engine + main thread</li>
+        <li>Locate performance bottlenecks</li>
+      </ul>
+    </section>
+
+    <!-- Hook -->
+    <section>
+      <h2>Opening Question</h2>
+      <p>What happens when you type <code>https://google.com</code> and press Enter?</p>
+      <ul>
+        <li class="fragment">DNS → IP</li>
+        <li class="fragment">TCP/TLS → HTTP</li>
+        <li class="fragment">HTML → DOM</li>
+        <li class="fragment">CSS → CSSOM → Render Tree</li>
+        <li class="fragment">JS executes</li>
+        <li class="fragment">Layout → Paint → Composite</li>
+      </ul>
+    </section>
+
+    <!-- Network -->
+    <section>
+      <h2>1) Network: Fetching the Page</h2>
+      <div class="grid-2">
+        <div class="left">
+          <ol>
+            <li>Parse URL (protocol, host, path)</li>
+            <li>DNS resolution (cache → OS → resolver)</li>
+            <li>TCP + TLS handshake</li>
+            <li>HTTP request → response</li>
+            <li>Stream HTML bytes (start parsing early)</li>
+          </ol>
+          <pre><code class="hljs language-http">GET / HTTP/1.1
+Host: example.com
+Accept: text/html
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+</code></pre>
+        </div>
+        <div>
+          <!-- Simple network diagram as inline SVG -->
+          <svg viewBox="0 0 800 260" role="img" aria-label="Network flow diagram">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#9CA3AF"/>
+              </marker>
+            </defs>
+            <rect x="20" y="40" width="150" height="60" rx="10" fill="#111827" stroke="#4B5563"/>
+            <text x="95" y="75" text-anchor="middle" fill="#E5E7EB" font-size="18">Browser</text>
+
+            <rect x="220" y="40" width="150" height="60" rx="10" fill="#111827" stroke="#4B5563"/>
+            <text x="295" y="75" text-anchor="middle" fill="#E5E7EB" font-size="18">DNS</text>
+
+            <rect x="420" y="40" width="150" height="60" rx="10" fill="#111827" stroke="#4B5563"/>
+            <text x="495" y="75" text-anchor="middle" fill="#E5E7EB" font-size="18">Server</text>
+
+            <line x1="170" y1="70" x2="220" y2="70" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="370" y1="70" x2="420" y2="70" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="420" y1="100" x2="170" y2="100" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <text x="295" y="135" text-anchor="middle" fill="#9CA3AF" class="small">TCP + TLS • HTTP</text>
+          </svg>
+        </div>
+      </div>
+      <aside class="notes">Optional live demo: <code>curl https://example.com</code> to show headers and body. Point out streaming.</aside>
+    </section>
+
+    <!-- DOM -->
+    <section>
+      <h2>2) HTML Parsing → DOM</h2>
+      <div class="grid-2">
+        <div class="left">
+          <p>The HTML parser tokenizes markup and builds a tree of nodes: the <strong>Document Object Model</strong>.</p>
+          <pre><code class="hljs language-html">&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello&lt;/h1&gt;
+    &lt;p&gt;World&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <div>
+          <!-- DOM Tree SVG -->
+          <svg viewBox="0 0 800 360" role="img" aria-label="DOM tree diagram">
+            <rect x="340" y="20" width="120" height="40" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="400" y="46" text-anchor="middle" fill="#E5E7EB">Document</text>
+
+            <rect x="340" y="90" width="120" height="40" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="400" y="116" text-anchor="middle" fill="#E5E7EB">&lt;html&gt;</text>
+            <line x1="400" y1="60" x2="400" y2="90" stroke="#9CA3AF"/>
+
+            <rect x="340" y="160" width="120" height="40" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="400" y="186" text-anchor="middle" fill="#E5E7EB">&lt;body&gt;</text>
+            <line x1="400" y1="130" x2="400" y2="160" stroke="#9CA3AF"/>
+
+            <rect x="180" y="230" width="120" height="40" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="240" y="256" text-anchor="middle" fill="#E5E7EB">&lt;h1&gt;</text>
+            <line x1="340" y1="200" x2="240" y2="230" stroke="#9CA3AF"/>
+
+            <rect x="500" y="230" width="120" height="40" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="560" y="256" text-anchor="middle" fill="#E5E7EB">&lt;p&gt;</text>
+            <line x1="460" y1="200" x2="560" y2="230" stroke="#9CA3AF"/>
+
+            <text x="240" y="300" text-anchor="middle" fill="#9CA3AF" class="small">text: "Hello"</text>
+            <text x="560" y="300" text-anchor="middle" fill="#9CA3AF" class="small">text: "World"</text>
+          </svg>
+        </div>
+      </div>
+      <p class="small">DOM is a <em>live</em> object graph. JS can read/write it.</p>
+      <aside class="notes">DevTools → Elements. Show that editing DOM updates the page immediately.</aside>
+    </section>
+
+    <!-- CSSOM -->
+    <section>
+      <h2>3) CSS Parsing → CSSOM</h2>
+      <div class="grid-2">
+        <div class="left">
+          <p>The CSS parser builds the <strong>CSS Object Model</strong> — rules with selectors and declarations.</p>
+          <pre><code class="hljs language-css">body { font-family: sans-serif; }
+h1 { color: teal; }</code></pre>
+        </div>
+        <div>
+          <!-- CSSOM SVG -->
+          <svg viewBox="0 0 820 320" role="img" aria-label="CSSOM diagram">
+            <rect x="320" y="20" width="180" height="40" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="410" y="46" text-anchor="middle" fill="#E5E7EB">Stylesheet</text>
+
+            <rect x="120" y="100" width="260" height="60" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="250" y="128" text-anchor="middle" fill="#E5E7EB">Rule: selector = "body"</text>
+            <text x="250" y="148" text-anchor="middle" fill="#9CA3AF" class="small">{ font-family: sans-serif }</text>
+
+            <rect x="440" y="100" width="260" height="60" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="570" y="128" text-anchor="middle" fill="#E5E7EB">Rule: selector = "h1"</text>
+            <text x="570" y="148" text-anchor="middle" fill="#9CA3AF" class="small">{ color: teal }</text>
+
+            <line x1="410" y1="60" x2="250" y2="100" stroke="#9CA3AF"/>
+            <line x1="410" y1="60" x2="570" y2="100" stroke="#9CA3AF"/>
+          </svg>
+        </div>
+      </div>
+      <p class="small">Blocking stylesheets delay first render → load CSS early.</p>
+    </section>
+
+    <!-- Render Tree -->
+    <section>
+      <h2>DOM + CSSOM → Render Tree</h2>
+      <div class="grid-2">
+        <div class="left">
+          <ul>
+            <li>Combines structure + computed styles</li>
+            <li>Excludes <code>display:none</code></li>
+            <li>Adds pseudo-elements when needed</li>
+          </ul>
+        </div>
+        <div>
+          <!-- Render tree SVG -->
+          <svg viewBox="0 0 840 360" role="img" aria-label="Render tree diagram">
+            <rect x="330" y="20" width="180" height="44" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="420" y="48" text-anchor="middle" fill="#E5E7EB">RenderRoot</text>
+
+            <rect x="300" y="100" width="240" height="52" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="420" y="132" text-anchor="middle" fill="#E5E7EB">RenderBody • font: sans-serif</text>
+            <line x1="420" y1="64" x2="420" y2="100" stroke="#9CA3AF"/>
+
+            <rect x="140" y="190" width="240" height="52" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="260" y="222" text-anchor="middle" fill="#E5E7EB">RenderH1 • color: teal</text>
+            <line x1="300" y1="152" x2="260" y2="190" stroke="#9CA3AF"/>
+
+            <rect x="460" y="190" width="240" height="52" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="580" y="222" text-anchor="middle" fill="#E5E7EB">RenderP • color: default</text>
+            <line x1="540" y1="152" x2="580" y2="190" stroke="#9CA3AF"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS Engine -->
+    <section>
+      <h2>4) JavaScript Engine</h2>
+      <div class="grid-2">
+        <div class="left">
+          <ol>
+            <li>Parse → AST</li>
+            <li>JIT compile → bytecode/native</li>
+            <li>Execute on <strong>main thread</strong></li>
+          </ol>
+          <pre><code class="hljs language-js">document.querySelector('h1').style.color = 'red';</code></pre>
+          <p class="small">DOM/CSSOM changes invalidate parts of the render tree → repaint/reflow.</p>
+        </div>
+        <div>
+          <!-- Engine pipeline SVG -->
+          <svg viewBox="0 0 880 300" role="img" aria-label="JS engine pipeline">
+            <defs>
+              <marker id="arrow2" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#9CA3AF"/>
+              </marker>
+            </defs>
+            <rect x="60" y="100" width="160" height="56" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="140" y="132" text-anchor="middle" fill="#E5E7EB">Parser → AST</text>
+
+            <rect x="300" y="100" width="200" height="56" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="400" y="132" text-anchor="middle" fill="#E5E7EB">JIT Compiler</text>
+
+            <rect x="560" y="100" width="220" height="56" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="670" y="132" text-anchor="middle" fill="#E5E7EB">Execution (Main Thread)</text>
+
+            <line x1="220" y1="128" x2="300" y2="128" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow2)"/>
+            <line x1="500" y1="128" x2="560" y2="128" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow2)"/>
+
+            <text x="440" y="200" text-anchor="middle" fill="#9CA3AF" class="small">Web Workers can offload background work</text>
+          </svg>
+        </div>
+      </div>
+      <aside class="notes">Optional demo: <code>while(true){}</code> in DevTools console to show blocking. Also show a setTimeout/fetch example.</aside>
+    </section>
+
+    <!-- Layout/Paint/Composite -->
+    <section>
+      <h2>5) Layout → Paint → Composite</h2>
+      <div class="grid-2">
+        <div class="left">
+          <ul>
+            <li><strong>Layout:</strong> compute box geometry</li>
+            <li><strong>Paint:</strong> draw backgrounds, borders, text, images</li>
+            <li><strong>Composite:</strong> GPU merges layers → frame</li>
+          </ul>
+          <p class="small">Use <span class="pill">transform</span> &amp; <span class="pill">opacity</span> for smooth, GPU-backed animations.</p>
+        </div>
+        <div>
+          <!-- Pipeline SVG -->
+          <svg viewBox="0 0 900 260" role="img" aria-label="Rendering pipeline">
+            <rect x="40" y="90" width="180" height="56" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="130" y="124" text-anchor="middle" fill="#E5E7EB">Render Tree</text>
+
+            <rect x="270" y="90" width="160" height="56" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="350" y="124" text-anchor="middle" fill="#E5E7EB">Layout</text>
+
+            <rect x="470" y="90" width="160" height="56" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="550" y="124" text-anchor="middle" fill="#E5E7EB">Paint</text>
+
+            <rect x="670" y="90" width="180" height="56" rx="8" fill="#0b1730" stroke="#4B5563"/>
+            <text x="760" y="124" text-anchor="middle" fill="#E5E7EB">Composite (GPU)</text>
+
+            <line x1="220" y1="118" x2="270" y2="118" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow2)"/>
+            <line x1="430" y1="118" x2="470" y2="118" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow2)"/>
+            <line x1="630" y1="118" x2="670" y2="118" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow2)"/>
+          </svg>
+        </div>
+      </div>
+      <aside class="notes">Performance tab in DevTools can visualize these stages. Call out layout thrashing and forced synchronous layout.</aside>
+    </section>
+
+    <!-- Architecture -->
+    <section>
+      <h2>6) Browser Architecture (Chrome-style)</h2>
+      <div class="grid-2">
+        <div class="left">
+          <ul>
+            <li><strong>Browser process:</strong> UI, tabs, coordination</li>
+            <li><strong>Renderer (per tab):</strong> DOM/CSSOM/JS/render</li>
+            <li><strong>GPU process:</strong> compositing</li>
+            <li><strong>Network process:</strong> fetch & cache</li>
+          </ul>
+        </div>
+        <div>
+          <!-- Architecture SVG -->
+          <svg viewBox="0 0 900 360" role="img" aria-label="Multi-process architecture">
+            <rect x="80" y="40" width="300" height="60" rx="10" fill="#0b1730" stroke="#4B5563"/>
+            <text x="230" y="78" text-anchor="middle" fill="#E5E7EB">Browser Process</text>
+
+            <rect x="80" y="140" width="300" height="60" rx="10" fill="#0b1730" stroke="#4B5563"/>
+            <text x="230" y="178" text-anchor="middle" fill="#E5E7EB">Network Process</text>
+
+            <rect x="520" y="100" width="300" height="60" rx="10" fill="#0b1730" stroke="#4B5563"/>
+            <text x="670" y="138" text-anchor="middle" fill="#E5E7EB">Renderer Process (tab)</text>
+
+            <rect x="520" y="200" width="300" height="60" rx="10" fill="#0b1730" stroke="#4B5563"/>
+            <text x="670" y="238" text-anchor="middle" fill="#E5E7EB">GPU Process</text>
+
+            <line x1="380" y1="70" x2="520" y2="130" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow2)"/>
+            <line x1="380" y1="170" x2="520" y2="230" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow2)"/>
+          </svg>
+        </div>
+      </div>
+      <p class="small">Isolation & sandboxing = security + stability.</p>
+    </section>
+
+    <!-- Putting together -->
+    <section>
+      <h2>Putting It All Together</h2>
+      <ol>
+        <li>DNS & HTTP</li>
+        <li>Parse HTML → DOM</li>
+        <li>Parse CSS → CSSOM → Render Tree</li>
+        <li>Run JS → modify DOM/CSSOM</li>
+        <li>Layout → Paint → Composite → Screen</li>
+      </ol>
+      <p class="small">Browsers are real-time compilers + renderers + sandboxes.</p>
+    </section>
+
+    <!-- Perf tips -->
+    <section>
+      <h2>Performance Hot Spots</h2>
+      <ul>
+        <li>Blocking CSS/JS (render-blocking)</li>
+        <li>Large DOM or frequent DOM mutations</li>
+        <li>Forced synchronous layout (layout thrash)</li>
+        <li>Main-thread long tasks</li>
+      </ul>
+      <p class="small">Use DevTools: Network waterfall, Performance, Coverage.</p>
+    </section>
+
+    <!-- Demos & Notes -->
+    <section>
+      <h2>Optional Demos</h2>
+      <ul>
+        <li><code>curl https://example.com</code> to view raw response</li>
+        <li>DevTools → Elements: edit DOM live</li>
+        <li>Compare blocking CSS vs async/defer JS</li>
+        <li>Freeze tab with <code>while(true){}</code> (then reload)</li>
+      </ul>
+    </section>
+
+    <!-- References -->
+    <section>
+      <h2>Further Reading</h2>
+      <ul>
+        <li>How Browsers Work (HTML5 Rocks)</li>
+        <li>Inside look at modern web browsers (Google Devs)</li>
+        <li>MDN: Critical Rendering Path</li>
+      </ul>
+      <p class="muted small">Tip: Open Chrome DevTools → Performance → record a reload to see these stages live.</p>
+    </section>
+
+  </div>
+</div>
+
+<!-- Reveal.js core JS -->
+<script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+<script src="https://unpkg.com/reveal.js@5/plugin/markdown/markdown.js"></script>
+<script src="https://unpkg.com/reveal.js@5/plugin/highlight/highlight.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    transition: 'slide',
+    plugins: [ RevealNotes, RevealMarkdown, RevealHighlight ],
+    width: 1280,
+    height: 720,
+    margin: 0.06,
+  });
+</script>
+</body>
+</html>
