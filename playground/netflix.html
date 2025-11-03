@@ -1,0 +1,67 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Netflix-style 3-at-a-time Slider</title>
+<style>
+  body {
+    margin: 0;
+    background: #0f0f0f;
+    color: white;
+    font-family: sans-serif;
+  }
+
+  .slider {
+    overflow-x: auto;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% / 3); /* 3 items per view */
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 1rem;
+    scrollbar-width: none;
+    margin: 3rem; 
+
+  }
+  .slider::-webkit-scrollbar { display: none; }
+
+  .card {
+    scroll-snap-align: start;
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+  .card img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .card:hover {
+    transform: scale(1.05);
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+
+<h2 style="padding:1rem;">Popular Now</h2>
+
+<div class="slider">
+  <div class="card"><img src="https://picsum.photos/seed/1/800/450"></div>
+  <div class="card"><img src="https://picsum.photos/seed/2/800/450"></div>
+  <div class="card"><img src="https://picsum.photos/seed/3/800/450"></div>
+  <div class="card"><img src="https://picsum.photos/seed/4/800/450"></div>
+  <div class="card"><img src="https://picsum.photos/seed/5/800/450"></div>
+  <div class="card"><img src="https://picsum.photos/seed/6/800/450"></div>
+</div>
+
+</body>
+</html>

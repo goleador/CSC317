@@ -1,0 +1,86 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>My Page</title>
+
+    <style>
+      body {
+        display: grid;
+        grid-template-rows: 100px auto 100px;
+        grid-template-columns: 200px auto;
+        gap: 1rem;
+      }
+  
+      header {
+        grid-column: 1 / -1;
+        border-radius: 1rem;
+        background: lightblue;
+        
+      }
+
+      header  {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+      header > nav > ul {
+        display: flex;
+        padding-right: 3rem;
+
+        gap: 3rem;
+        justify-content: flex-end;
+        align-items: center;
+        background: teal;
+      }
+      
+      aside {
+        background: green;
+        border-radius: 1rem;
+      }
+
+      main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: red;
+        border-radius: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+
+      footer {
+        grid-column: 1 / -1;
+        border-radius: 1rem;
+        background: yellow;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#someid">Home</a></li>
+          <li><a href="#someid">Home</a></li>
+          <li><a href="#someid">Home</a></li>
+          <li><a href="#someid">Home</a></li>
+          <li><a href="#someid">Home</a></li>
+          <li><a href="#someid">Home</a></li>
+          <li><a href="#someid">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <aside>
+      aside 
+    </aside>
+    <main>
+      <span>main</span>
+    </main>
+    <footer>
+      footer
+    </footer>
+  </body>
+</html>
