@@ -9,6 +9,7 @@
 3. Control Structures
 4. Functions
 5. Scope and Closures
+6. Modern JavaScript Features (ES2020+)
 
 ---
 
@@ -338,8 +339,8 @@ function greet(name) {
   return `Hello, ${name}!`;
 }
 
-// Function expression (not hoisted)
-const sayHello = function(name) {
+// Arrow function expression (not hoisted, modern)
+const sayHello = (name) => {
   return `Hello, ${name}!`;
 };
 
@@ -387,20 +388,16 @@ printPerson({ name: 'Alice', age: 28 });  // "Alice is 28 years old"
 
 ```javascript
 // Function that returns a function
-function createMultiplier(factor) {
+const createMultiplier = (factor) => {
   // This returned function is a closure
-  return function(number) {
-    return number * factor;
-  };
-}
+  return (number) => number * factor;
+};
 
 const double = createMultiplier(2);
 console.log(double(5));  // 10
 
 // Function that takes a function as an argument
-function executeOperation(operation, a, b) {
-  return operation(a, b);
-}
+const executeOperation = (operation, a, b) => operation(a, b);
 
 const add = (x, y) => x + y;
 console.log(executeOperation(add, 5, 3));  // 8
@@ -521,11 +518,9 @@ console.log(counter.getCount());   // 1
 
 ```javascript
 // Function factories
-function createGreeter(greeting) {
-  return function(name) {
-    return `${greeting}, ${name}!`;
-  };
-}
+const createGreeter = (greeting) => {
+  return (name) => `${greeting}, ${name}!`;
+};
 
 const sayHello = createGreeter('Hello');
 const sayHi = createGreeter('Hi');
@@ -534,12 +529,12 @@ console.log(sayHello('John'));  // "Hello, John!"
 console.log(sayHi('Alice'));    // "Hi, Alice!"
 
 // Event handlers with data
-function setupButton(buttonId, message) {
-  document.getElementById(buttonId).addEventListener('click', function() {
+const setupButton = (buttonId, message) => {
+  document.getElementById(buttonId).addEventListener('click', () => {
     // This handler forms a closure around message
     alert(message);
   });
-}
+};
 
 setupButton('btn1', 'Button 1 was clicked!');
 setupButton('btn2', 'Button 2 was clicked!');
@@ -577,6 +572,145 @@ console.log(calculator.getResult());  // 3
 
 ---
 
+## 6. Modern JavaScript Features (ES2020+) (5 minutes)
+
+### Array Methods
+
+```javascript
+// Array.at() - ES2022 (negative indexing)
+const numbers = [10, 20, 30, 40, 50];
+
+console.log(numbers.at(0));    // 10 (first element)
+console.log(numbers.at(-1));   // 50 (last element)
+console.log(numbers.at(-2));   // 40 (second to last)
+
+// Compare with traditional indexing
+console.log(numbers[numbers.length - 1]);  // 50 (old way)
+console.log(numbers.at(-1));               // 50 (modern way)
+
+// Array.findLast() and findLastIndex() - ES2023
+const users = [
+  { id: 1, name: 'Alice', active: true },
+  { id: 2, name: 'Bob', active: false },
+  { id: 3, name: 'Charlie', active: true }
+];
+
+const lastActive = users.findLast(user => user.active);
+console.log(lastActive);  // { id: 3, name: 'Charlie', active: true }
+```
+
+### Object Methods
+
+```javascript
+// Object.hasOwn() - ES2022 (safer than hasOwnProperty)
+const person = { name: 'John', age: 30 };
+
+// Modern way
+console.log(Object.hasOwn(person, 'name'));  // true
+console.log(Object.hasOwn(person, 'toString'));  // false
+
+// Old way (less safe)
+console.log(person.hasOwnProperty('name'));  // true
+
+// Why Object.hasOwn() is better:
+// It works even if the object doesn't have hasOwnProperty
+const obj = Object.create(null);  // No prototype
+// obj.hasOwnProperty('prop');    // Error!
+console.log(Object.hasOwn(obj, 'prop'));  // false (works!)
+```
+
+### Logical Assignment Operators (ES2021)
+
+```javascript
+let x = 1;
+let y = 0;
+let z = null;
+
+// Logical OR assignment (||=)
+x ||= 10;  // x = x || 10;  (x stays 1 because it's truthy)
+y ||= 10;  // y = y || 10;  (y becomes 10 because it's falsy)
+console.log(x, y);  // 1, 10
+
+// Logical AND assignment (&&=)
+x &&= 5;  // x = x && 5;  (x becomes 5 because x is truthy)
+y &&= 5;  // y = y && 5;  (y stays 10 because y is truthy)
+console.log(x, y);  // 5, 10
+
+// Nullish coalescing assignment (??=)
+let a = null;
+let b = 0;
+
+a ??= 100;  // a = a ?? 100;  (a becomes 100 because it's nullish)
+b ??= 100;  // b = b ?? 100;  (b stays 0 because it's not nullish)
+console.log(a, b);  // 100, 0
+```
+
+### Numeric Separators (ES2021)
+
+```javascript
+// Makes large numbers more readable
+const billion = 1_000_000_000;
+const bytes = 0b1010_0001_1000_0101;  // Binary
+const hex = 0xFF_EC_DE_5E;             // Hexadecimal
+
+console.log(billion);  // 1000000000
+```
+
+### String Methods
+
+```javascript
+// String.replaceAll() - ES2021
+const text = 'cat cat cat';
+
+// Old way (regex required)
+console.log(text.replace(/cat/g, 'dog'));  // "dog dog dog"
+
+// New way (simpler)
+console.log(text.replaceAll('cat', 'dog'));  // "dog dog dog"
+```
+
+### Top-Level Await (ES2022)
+
+```javascript
+// Before: await only worked inside async functions
+// async function main() {
+//   const data = await fetch('/api/data');
+// }
+// main();
+
+// Now: await can be used at the top level in modules
+// const data = await fetch('/api/data');
+// const json = await data.json();
+// Note: Requires ES modules (import/export) - covered in backend lectures
+```
+
+### Promise Methods
+
+```javascript
+// Promise.any() - ES2021 (first fulfilled promise)
+const promise1 = Promise.reject('Error 1');
+const promise2 = Promise.resolve('Success!');
+const promise3 = Promise.resolve('Also success!');
+
+Promise.any([promise1, promise2, promise3])
+  .then(value => console.log(value))  // "Success!" (first to fulfill)
+  .catch(err => console.error(err));
+
+// Promise.allSettled() - ES2020 (all promises complete)
+Promise.allSettled([promise1, promise2, promise3])
+  .then(results => {
+    results.forEach(result => {
+      if (result.status === 'fulfilled') {
+        console.log('Fulfilled:', result.value);
+      } else {
+        console.log('Rejected:', result.reason);
+      }
+    });
+  });
+```
+
+---
+
 ## Summary
 In this lecture, we've covered:
 1. Variables and data types in JavaScript
@@ -584,6 +718,7 @@ In this lecture, we've covered:
 3. Control structures for flow control
 4. Function declarations, expressions, and arrow functions
 5. Scope and closures for encapsulation
+6. Modern JavaScript features from ES2020+
 
 ## Next Lecture
 In our next lecture, we'll explore:

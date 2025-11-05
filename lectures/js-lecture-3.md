@@ -84,25 +84,79 @@ Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine that allo
 ### Node.js Core Modules
 
 ```javascript
-// File System operations
+// File System operations with promises (modern approach)
+const fs = require('fs').promises;
+// Or: const { promises: fs } = require('fs');
+
+// Reading a file with async/await
+const readFileExample = async () => {
+  try {
+    const data = await fs.readFile('example.txt', 'utf8');
+    console.log('File contents:', data);
+  } catch (error) {
+    console.error('Error reading file:', error);
+  }
+};
+
+// Writing to a file with async/await
+const writeFileExample = async () => {
+  try {
+    await fs.writeFile('output.txt', 'Hello, Node.js!');
+    console.log('File written successfully');
+  } catch (error) {
+    console.error('Error writing file:', error);
+  }
+};
+
+// Multiple file operations in sequence
+const processFiles = async () => {
+  try {
+    // Read file
+    const data = await fs.readFile('input.txt', 'utf8');
+
+    // Transform data
+    const transformed = data.toUpperCase();
+
+    // Write to new file
+    await fs.writeFile('output.txt', transformed);
+
+    console.log('Files processed successfully');
+  } catch (error) {
+    console.error('Error processing files:', error);
+  }
+};
+
+// Multiple file operations in parallel
+const readMultipleFiles = async () => {
+  try {
+    const [file1, file2, file3] = await Promise.all([
+      fs.readFile('file1.txt', 'utf8'),
+      fs.readFile('file2.txt', 'utf8'),
+      fs.readFile('file3.txt', 'utf8')
+    ]);
+
+    console.log('All files read:', { file1, file2, file3 });
+  } catch (error) {
+    console.error('Error reading files:', error);
+  }
+};
+
+// Call the async functions
+readFileExample();
+writeFileExample();
+```
+
+**Note:** For older Node.js versions or callback-based fs operations, see the legacy pattern below:
+```javascript
+// Legacy callback pattern (old style - avoid in new code)
 const fs = require('fs');
 
-// Reading a file
 fs.readFile('example.txt', 'utf8', (err, data) => {
   if (err) {
     console.error('Error reading file:', err);
     return;
   }
   console.log('File contents:', data);
-});
-
-// Writing to a file
-fs.writeFile('output.txt', 'Hello, Node.js!', (err) => {
-  if (err) {
-    console.error('Error writing file:', err);
-    return;
-  }
-  console.log('File written successfully');
 });
 ```
 
@@ -166,6 +220,125 @@ console.log(utils.calculateSum([1, 2, 3, 4, 5])); // 15
 // Destructuring import
 const { formatDate, calculateSum } = require('./utils');
 console.log(formatDate(new Date()));
+```
+
+### ES Modules (Modern Alternative)
+
+**Note:** ES Modules are the modern JavaScript module standard. To use them in Node.js, add `"type": "module"` to your `package.json` or use `.mjs` file extension.
+
+**package.json configuration:**
+```json
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "type": "module"
+}
+```
+
+**Creating and Exporting a Module:**
+```javascript
+// utils.mjs (or utils.js with "type": "module" in package.json)
+
+// Named exports
+export const formatDate = (date) => {
+  return date.toISOString().split('T')[0];
+};
+
+export const calculateSum = (numbers) => {
+  return numbers.reduce((sum, num) => sum + num, 0);
+};
+
+// Export multiple at once
+export { formatDate, calculateSum };
+
+// Default export
+const utils = {
+  formatDate,
+  calculateSum
+};
+
+export default utils;
+```
+
+**Importing and Using ES Modules:**
+```javascript
+// app.mjs (or app.js with "type": "module")
+
+// Named imports
+import { formatDate, calculateSum } from './utils.js';
+
+console.log(formatDate(new Date())); // 2024-04-12
+console.log(calculateSum([1, 2, 3, 4, 5])); // 15
+
+// Import all as namespace
+import * as utils from './utils.js';
+console.log(utils.formatDate(new Date()));
+
+// Default import
+import utils from './utils.js';
+console.log(utils.formatDate(new Date()));
+
+// Mixed imports
+import defaultExport, { formatDate, calculateSum } from './utils.js';
+
+// Dynamic imports (works with both module types)
+const loadModule = async () => {
+  const module = await import('./utils.js');
+  console.log(module.formatDate(new Date()));
+};
+```
+
+**Top-Level Await (ES Modules Only):**
+```javascript
+// Only works in ES Modules
+const data = await fetch('https://api.example.com/data');
+const json = await data.json();
+console.log(json);
+
+// With file operations
+import { promises as fs } from 'fs';
+const fileContent = await fs.readFile('data.txt', 'utf8');
+console.log(fileContent);
+```
+
+**CommonJS vs ES Modules Comparison:**
+
+| Feature | CommonJS | ES Modules |
+|---------|----------|------------|
+| Syntax | `require()` / `module.exports` | `import` / `export` |
+| Loading | Synchronous | Asynchronous |
+| File Extensions | `.js` (default) | `.mjs` or `.js` with `"type": "module"` |
+| Top-Level Await | ❌ Not supported | ✅ Supported |
+| Dynamic Imports | Limited | ✅ `import()` |
+| Tree Shaking | ❌ Not supported | ✅ Supported |
+| Browser Support | ❌ No | ✅ Native support |
+| Node.js Support | ✅ Default | ✅ Requires configuration |
+
+**When to use which:**
+- **CommonJS**: Legacy projects, packages that need to support older Node.js versions, simpler for beginners
+- **ES Modules**: New projects, when you need top-level await, better for code splitting and tree shaking, future standard
+
+**Express with ES Modules:**
+```javascript
+// app.mjs
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get __dirname equivalent in ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello from Express with ES Modules!');
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
 ```
 
 ### npm (Node Package Manager)

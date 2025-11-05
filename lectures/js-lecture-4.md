@@ -1137,8 +1137,8 @@ const http = require('http');
 const numCPUs = require('os').cpus().length;
 const express = require('express');
 
-if (cluster.isMaster) {
-  console.log(`Master ${process.pid} is running`);
+if (cluster.isPrimary) {
+  console.log(`Primary ${process.pid} is running`);
 
   // Fork workers
   for (let i = 0; i < numCPUs; i++) {
